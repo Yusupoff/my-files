@@ -4,7 +4,6 @@ wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc5/luci
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc5/youtubeUnblock-1.0.0-5-bc345ed-mipsel_24kc-openwrt-23.05.ipk -O /tmp/youtubeUnblock-1.0.0-5-bc345ed-mipsel_24kc-openwrt-23.05.ipk
 opkg install /tmp/*ipk
 sleep 2
-
 uci del youtubeUnblock.cfg02d2da.sni_domains
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='googlevideo.com'
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='ggpht.com'
@@ -30,3 +29,4 @@ uci add_list youtubeUnblock.cfg02d2da.sni_domains='cdninstagram.com'
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='1e100.net'
 uci set youtubeUnblock.youtubeUnblock.post_args='--silent'
 uci commit
+/etc/init.d/youtubeUnblock restart
