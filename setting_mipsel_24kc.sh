@@ -27,6 +27,6 @@ uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.frix7-1.fna.fbcdn.n
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.fvno2-1.fna.fbcdn.net'
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='cdninstagram.com'
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='1e100.net'
-uci set youtubeUnblock.youtubeUnblock.post_args='--silent'
+#uci set youtubeUnblock.youtubeUnblock.post_args='--silent'
 uci commit
 /etc/init.d/youtubeUnblock restart
