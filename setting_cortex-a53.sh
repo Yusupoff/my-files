@@ -1,7 +1,7 @@
 #!/bin/sh
 
-wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc5/luci-app-youtubeUnblock-1.0.0-5-bc345ed.ipk -O /tmp/luci-app-youtubeUnblock-1.0.0-5-bc345ed.ipk
-wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc5/youtubeUnblock-1.0.0-5-bc345ed-aarch64_cortex-a53-openwrt-23.05.ipk -O /tmp/youtubeUnblock-1.0.0-5-bc345ed-aarch64_cortex-a53-openwrt-23.05.ipk
+wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc6/luci-app-youtubeUnblock-1.0.0-6-a03d05c.ipk -O /tmp/luci-app-youtubeUnblock-1.0.0-6-a03d05c.ipk
+wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc6/youtubeUnblock-1.0.0-6-a03d05c-aarch64_cortex-a53-openwrt-23.05.ipk -O /tmp/youtubeUnblock-1.0.0-6-a03d05c-aarch64_cortex-a53-openwrt-23.05.ipk
 opkg install /tmp/*ipk
 sleep 2
 
@@ -28,6 +28,6 @@ uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.frix7-1.fna.fbcdn.n
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.fvno2-1.fna.fbcdn.net'
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='cdninstagram.com'
 uci add_list youtubeUnblock.cfg02d2da.sni_domains='1e100.net'
-#uci set youtubeUnblock.youtubeUnblock.post_args='--silent'
+#uci set youtubeUnblock.youtubeUnblock.post_args='--threads=2'
 uci commit
 /etc/init.d/youtubeUnblock restart
