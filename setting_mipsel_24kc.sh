@@ -1,7 +1,7 @@
 #!/bin/sh
 
-wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc6/luci-app-youtubeUnblock-1.0.0-6-a03d05c.ipk -O /tmp/luci-app-youtubeUnblock-1.0.0-5-bc345ed.ipk
-wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0-rc6/youtubeUnblock-1.0.0-6-a03d05c-mipsel_24kc-openwrt-23.05.ipk -O /tmp/youtubeUnblock-1.0.0-5-bc345ed-mipsel_24kc-openwrt-23.05.ipk
+wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/luci-app-youtubeUnblock-1.0.0-10-f37c3dd.ipk -O /tmp/luci-app-youtubeUnblock-1.0.0-10-f37c3dd.ipk
+wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-1.0.0-10-f37c3dd-mipsel_24kc-openwrt-23.05.ipk -O /tmp/youtubeUnblock-1.0.0-10-f37c3dd-mipsel_24kc-openwrt-23.05.ipk
 opkg install /tmp/*ipk
 sleep 2
 uci del youtubeUnblock.cfg02d2da.sni_domains
