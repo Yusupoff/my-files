@@ -20,3 +20,6 @@ VERSION=$(echo "$JSON" | jq -r '.version')
 
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk -O /tmp/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/luci-app-youtubeUnblock-$VERSION.ipk -O /tmp/luci-app-youtubeUnblock-$VERSION.ipk
+
+opkg install /tmp/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk
+opkg install /tmp/luci-app-youtubeUnblock-$VERSION.ipk
