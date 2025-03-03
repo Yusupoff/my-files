@@ -3,7 +3,7 @@
 MODEL=$(ubus call system board | jsonfilter -e '@["model"]')
 DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
 SN=$(fw_printenv SN | grep 'SN=' | awk -F'=' '{print $2}')
-ARCH=$(opkg info youtubeUnblock | grep 'Architecture:' | awk '{print $2}')
+ARCH=$(opkg info kernel  | grep 'Architecture:' | awk '{print $2}')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
 OPKG_VERSION=$(opkg info youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
 
