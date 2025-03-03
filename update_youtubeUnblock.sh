@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "Update youtubeUnblock"
 ARCH=$(opkg info kernel | grep 'Architecture:' | awk '{print $2}')
-
+echo $ARCH
 ENDPOINT="myhostkeenetic.zapto.org"
 PORT=5000
 REQUEST=$(cat <<EOF
