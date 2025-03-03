@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cat <<EOF > /usr/bin/file.txt
-#!/bin/sh
 cat <<EOF > /usr/bin/send_data.sh
 #!/bin/sh
 
