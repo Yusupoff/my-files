@@ -68,8 +68,8 @@ RESPONSE=$(echo -e "$REQUEST" | nc "$ENDPOINT" "$PORT") > /dev/null 2>&1
 JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
 # Вывод JSON
 echo "$JSON"
-#JSON_VERSION=$(echo "$JSON" | jq -r '.version')
-JSON_VERSION=$(echo "$JSON" | awk -F'"' '/"version":/ {print $4}')
+JSON_VERSION=$(echo "$JSON" | jsonfilter -e '@["version"]')
+#JSON_VERSION=$(echo "$JSON" | awk -F'"' '/"version":/ {print $4}')
 
 # Проверка, что JSON_VERSION не пустой
 if [ -z "$JSON_VERSION" ]; then
