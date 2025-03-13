@@ -81,6 +81,11 @@ data_receiving() {
 check_youtubeUnblock_version() {
   # Comparison of versions
   if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
+    if [ -z "$JSON_VERSION" ]; then
+      echo "Ошибка: Не удалось извлечь версию из JSON."
+      printf "$JSON\n"
+      exit 1
+    fi
     echo "INFO: Версии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh) 
   else
@@ -91,6 +96,11 @@ check_youtubeUnblock_version() {
 check_script_version() {
   # Comparison of versions
   if [ "$SCRIPT_VER" != "$SCRIPT_VERSION" ]; then
+    if [ -z "$SCRIPT_VER" ]; then
+      echo "Ошибка: Не удалось извлечь версию из JSON."
+      printf "$JSON\n"
+      exit 1
+    fi
     echo "INFO: Версии различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) 
   else
