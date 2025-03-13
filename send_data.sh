@@ -64,18 +64,8 @@ data_receiving() {
   RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") > /dev/null 2>&1
   # Extracting JSON from the response
   JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
-  # JSON output
-  #printf "$JSON\n"
   JSON_VERSION=$(echo "$JSON" | jsonfilter -e '@["version"]')
-  SCRIPT_VER=$(echo "$JSON" | jsonfilter -e '@["script_ver"]')
-
-  # Checking that JSON_VERSION is not empty
-  if [ -z "$JSON_VERSION" ]; then
-    echo "Ошибка: Не удалось извлечь версию из JSON."
-    printf "$JSON\n"
-    exit 1
-  fi
-  
+  SCRIPT_VER=$(echo "$JSON" | jsonfilter -e '@["script_ver"]')  
 }
 
 check_youtubeUnblock_version() {
