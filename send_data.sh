@@ -72,11 +72,11 @@ check_youtubeUnblock_version() {
   # Comparison of versions
   if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
     if [ -z "$JSON_VERSION" ]; then
-      echo "Ошибка: Не удалось извлечь версию из JSON."
+      printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m \n"
       printf "$JSON\n"
       exit 1
     fi
-    echo "INFO: Версии youtubeUnblock различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)"
+    printf "\033[33;1mINFO: Версии youtubeUnblock различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m \n"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh) 
   else
     printf "\033[32;1mINFO: Версии youtubeUnblock совпадают ($JSON_VERSION)\033[0m \n"
@@ -87,11 +87,11 @@ check_script_version() {
   # Comparison of versions
   if [ "$SCRIPT_VER" != "$SCRIPT_VERSION" ]; then
     if [ -z "$SCRIPT_VER" ]; then
-      echo "Ошибка: Не удалось извлечь версию из JSON."
+      printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m \n"
       printf "$JSON\n"
       exit 1
     fi
-    echo "INFO: Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)"
+    printf "\033[33;1mINFO: Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)\033[0m \n"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) 
   else
     printf "\033[32;1mINFO: Версии script совпадают ($SCRIPT_VERSION)\033[0m \n"
