@@ -27,14 +27,16 @@ data_receiving() {
 }
 
 download_install() {
+  printf "\033[33;1mЗагрузка пакетов\033[0m \n"
   wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk -O /tmp/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
   wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/luci-app-youtubeUnblock-$VERSION.ipk -O /tmp/luci-app-youtubeUnblock-$VERSION.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
-
+  printf "\033[33;1mУстоновка пакетов\033[0m \n"
   opkg install /tmp/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
   opkg install /tmp/luci-app-youtubeUnblock-$VERSION.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
 }
 
 config_youtubeUnblock() {
+  printf "\033[33;1mНастройка пакетов\033[0m \n"
   uci del youtubeUnblock.cfg02d2da.sni_domains
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='googlevideo.com'
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='ggpht.com'
