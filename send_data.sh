@@ -77,7 +77,7 @@ check_youtubeUnblock_version() {
       exit 1
     fi
     printf "\033[33;1mINFO: Версии youtubeUnblock различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m \n"
-    sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh) 
+    sh <(wget -q -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh) > /dev/null 2>&1
   else
     printf "\033[32;1mINFO: Версии youtubeUnblock совпадают ($JSON_VERSION)\033[0m \n"
   fi
@@ -92,7 +92,7 @@ check_script_version() {
       exit 1
     fi
     printf "\033[33;1mINFO: Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)\033[0m \n"
-    sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) 
+    sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) > /dev/null 2>&1
   else
     printf "\033[32;1mINFO: Версии script совпадают ($SCRIPT_VERSION)\033[0m \n"
   fi
