@@ -10,10 +10,10 @@ main() {
   download_install
   config_youtubeUnblock
   
-  if ps aux | grep -q "[youtubeUnblock:0:1}]${youtubeUnblock:1}"; then
-    echo "Программа youtubeUnblock запущена."
+  if pgrep -f "youtube" > /dev/null; then
+    printf "\033[32;1mПрограмма youtubeUnblock запущена.\033[0m \n"
   else
-    echo "Программа youtubeUnblock не запущена."
+    printf "\033[31;1mПрограмма youtubeUnblock не запущена.\033[0m \n"
   fi
 }
 
