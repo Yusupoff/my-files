@@ -3,21 +3,15 @@ echo "Update youtubeUnblock"
 ARCH=$(opkg info kernel | grep 'Architecture:' | awk '{print $2}')
 echo $ARCH
 
-ENDPOINT="myhostkeenetic.zapto.org"
+SERVER="myhostkeenetic.zapto.org"
 PORT=5000
-REQUEST=$(cat <<EOF
-GET /send HTTP/1.1
-Host: $ENDPOINT
-Accept: application/json
-
-EOF
-)
-# Отправка запроса и получение ответа
-RESPONSE=$(echo -e "$REQUEST" | nc "$ENDPOINT" "$PORT") > /dev/null 2>&1
-
-# Извлечение JSON из ответа
+REQUEST=$(printf 'GET /send HTTP/1.1\nHost: %s\nAccept: application/json\n\n' "$SERVER") 
+# Sending a request and receiving a response
+RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") > /dev/null 2>&1
+# Extracting JSON from the response
 JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
 VERSION=$(echo "$JSON" | jsonfilter -e '@["version"]')
+
 
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk -O /tmp/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/luci-app-youtubeUnblock-$VERSION.ipk -O /tmp/luci-app-youtubeUnblock-$VERSION.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
