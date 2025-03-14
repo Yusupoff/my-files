@@ -63,3 +63,4 @@ config_youtubeUnblock() {
   /etc/init.d/youtubeUnblock restart
 }
 
+main
