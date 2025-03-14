@@ -9,6 +9,12 @@ main() {
   data_receiving
   download_install
   config_youtubeUnblock
+  
+  if ps aux | grep -q "[youtubeUnblock:0:1}]${youtubeUnblock:1}"; then
+    echo "Программа youtubeUnblock запущена."
+  else
+    echo "Программа youtubeUnblock не запущена."
+  fi
 }
 
 data_receiving() {
