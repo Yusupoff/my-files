@@ -4,7 +4,9 @@ wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/send_da
 chmod +x /usr/bin/send_data.sh
 
 # Строка, которую нужно добавить в crontab
-NEW_JOB="0 0-6 * * * /usr/bin/send_data.sh"
+random_hour=$(( RANDOM % 7 ))
+random_min=$(( RANDOM % 50 + 10 ))
+NEW_JOB="$random_min $random_hour * * * /usr/bin/send_data.sh"
 
 # Временный файл для хранения текущего crontab
 TEMP_FILE=$(mktemp)
