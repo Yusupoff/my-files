@@ -5,7 +5,7 @@ SERVER="myhostkeenetic.zapto.org"
 PORT=5000
 MODEL=$(ubus call system board | jsonfilter -e '@["model"]')
 DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
-SN=$(fw_printenv SN | grep 'SN=' | awk -F'=' '{print $2}')
+SN=$([ -z "$(fw_printenv SN | grep 'SN=' | awk -F'=' '{print $2}')" ] && ifconfig br-lan | awk '/HWaddr/ {print $5}')
 MAC_ADDR=$(ifconfig br-lan | awk '/HWaddr/ {print $5}')
 ARCH=$(opkg info kernel  | grep 'Architecture:' | awk '{print $2}')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
