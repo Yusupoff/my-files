@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.2.3"
+SCRIPT_VERSION="0.2.4"
 # Variables
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
