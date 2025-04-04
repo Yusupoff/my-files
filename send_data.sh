@@ -1,11 +1,12 @@
 #!/bin/sh
-SCRIPT_VERSION="0.2.2"
+SCRIPT_VERSION="0.2.3"
 # Variables
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
 MODEL=$(ubus call system board | jsonfilter -e '@["model"]')
 DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
 SN=$(fw_printenv SN | grep 'SN=' | awk -F'=' '{print $2}')
+MAC_ADDR=$(ifconfig br-lan | awk '/HWaddr/ {print $5}')
 ARCH=$(opkg info kernel  | grep 'Architecture:' | awk '{print $2}')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
 OPKG_VERSION=$(opkg info youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
@@ -41,10 +42,10 @@ data_sending() {
   JSON=$(printf '{
   "model": "%s",
   "description": "%s",
-  "serial_number": "%s",
+  "serial_number": "%s | %s",
   "architecture": "%s",
   "ipv4_wan": "%s",
-  "version": "%s"\n}' "$MODEL" "$DESC" "$SN" "$ARCH" "$IP_ADDRESSES" "$OPKG_VERSION")
+  "version": "%s"\n}' "$MODEL" "$DESC" "$SN" "$MAC_ADDR" "$ARCH" "$IP_ADDRESSES" "$OPKG_VERSION")
   #echo "$JSON"
 
   {
