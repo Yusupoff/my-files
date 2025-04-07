@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.2.4"
+SCRIPT_VERSION="0.2.5"
 # Variables
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
@@ -13,15 +13,6 @@ OPKG_VERSION=$(opkg info youtubeUnblock | grep 'Version:' | awk '{print $2}' | c
 IP_ADDRESSES=""    # Empty variable for storing IP addresses
 JSON_VERSION=
 SCRIPT_VER=
-
-main() {
-  ip_interfaces
-  data_sending
-  data_receiving
-  check_youtubeUnblock_version
-  check_script_version
-
-}
 
 ip_interfaces() {
   INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan')    # Getting a list of all interfaces, excluding local (lo) and internal (e.g., br-lan)
@@ -78,8 +69,7 @@ check_youtubeUnblock_version() {
       exit 1
     fi
     printf "\033[33;1mINFO: Версии youtubeUnblock различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m \n"
-    #sh <(wget -q -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh) > /dev/null 2>&1
-    sh <(wget -q -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) > /dev/null 2>&1
+    sh <(wget -q -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh) > /dev/null 2>&1
   else
     printf "\033[32;1mINFO: Версии youtubeUnblock совпадают ($JSON_VERSION)\033[0m \n"
   fi
@@ -98,6 +88,15 @@ check_script_version() {
   else
     printf "\033[32;1mINFO: Версии script совпадают ($SCRIPT_VERSION)\033[0m \n"
   fi
+}
+
+main() {
+  ip_interfaces
+  data_sending
+  data_receiving
+  check_youtubeUnblock_version
+  check_script_version
+
 }
 
 main
