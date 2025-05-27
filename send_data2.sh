@@ -53,7 +53,7 @@ data_receiving() {
   REQUEST=$(printf 'GET /send HTTP/1.1\nHost: %s\nAccept: application/json\n\n' "$SERVER")
   RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") > /dev/null 2>&1
   JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
-  JSON_VERSION=$(echo "$JSON" | jsonfilter -e '@["version"]')
+  JSON_VERSION=$(echo "$JSON" | jsonfilter -e '@["app_ver"]')
   SCRIPT_VER=$(echo "$JSON" | jsonfilter -e '@["script_ver"]')  
 }
 
