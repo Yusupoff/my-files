@@ -1,6 +1,14 @@
 #!/bin/sh
 # send_data.sh
 SCRIPT_VERSION="0.3.0"
+
+for cmd in jsonfilter awk grep; do
+    if ! command -v $cmd >/dev/null; then
+        echo "Error: $cmd is not installed" >&2
+        exit 1
+    fi
+done
+
 # Variables
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
@@ -12,16 +20,16 @@ fi
 [ -z "$SN" ] && SN=$(ifconfig br-lan 2>/dev/null | awk '/HWaddr/ {print $5}')
 ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
-OPKG_VERSION=$(opkg info youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
+OPKG_VERSION=$(opkg info zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
 IP_ADDRESSES=""
 JSON_VERSION=
 SCRIPT_VER=
 
 ip_interfaces() {
-  INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan')    # Getting a list of all interfaces, excluding local (lo) and internal (e.g., br-lan)
-  for iface in $INTERFACES; do    # Iterating through all interfaces
-    IP=$(ifconfig $iface 2>/dev/null | grep 'inet addr' | awk '{print $2}' | cut -d: -f2)    # Getting the IP address for the interface
-    if [ -n "$IP" ]; then    # If the IP address is found, we add it to the list
+  INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan') 
+  for iface in $INTERFACES; do
+    IP=$(ifconfig $iface 2>/dev/null | grep 'inet addr' | awk '{print $2}' | cut -d: -f2)
+    if [ -n "$IP" ]; then
         if [ -n "$IP_ADDRESSES" ]; then
             IP_ADDRESSES="$IP_ADDRESSES,$IP"
         else
@@ -75,7 +83,6 @@ check_app_version() {
 }
 
 check_script_version() {
-  # Comparison of versions
   if [ "$SCRIPT_VER" != "$SCRIPT_VERSION" ]; then
     if [ -z "$SCRIPT_VER" ]; then
       printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m \n"
@@ -89,20 +96,7 @@ check_script_version() {
   fi
 }
 
-script_check() {
-  if ! nc "$SERVER" "$PORT"; then
-    printf "\033[31;1mError: Cannot connect to $SERVER:$PORT\033[0m\n"
-    exit 1
-  fi
-  for cmd in ubus jsonfilter nc awk grep ifconfig; do
-    if ! command -v $cmd >/dev/null; then
-      echo "Error: $cmd is not installed"
-      exit 1
-    fi
-  done
-}
 main() {
-  script_check
   ip_interfaces
   data_sending
   data_receiving
