@@ -33,7 +33,6 @@ download_install() {
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
   opkg install /tmp/zapret_${VERSION}_${ARCH}.ipk > /dev/null 2>&1
   opkg install /tmp/luci-app-zapret_${VERSION}_all.ipk > /dev/null 2>&1
-  rm /tmp/*.ipk
 }
 
 check_old_apps() {
@@ -48,7 +47,7 @@ check_old_apps() {
 }
 
 config_apps() {
-  printf "\033[32;1mНастройка пакетов\033[0m \n"
+  printf "\033[33;1mНастройка пакетов\033[0m \n"
   wget http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt
 
   uci set zapret.config.NFQWS_OPT='
@@ -88,7 +87,7 @@ config_apps() {
 --dpi-desync-fooling=badseq,md5sig
 '
   uci commit zapret
-  /etc/init.d/zapret restart
+  /etc/init.d/zapret restart > /dev/null 2>&1
 }
 
 main
