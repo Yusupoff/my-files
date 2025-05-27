@@ -90,7 +90,7 @@ check_script_version() {
 }
 
 script_check() {
-  if ! nc -z -w 5 "$SERVER" "$PORT"; then
+  if ! nc "$SERVER" "$PORT"; then
     printf "\033[31;1mError: Cannot connect to $SERVER:$PORT\033[0m\n"
     exit 1
   fi
