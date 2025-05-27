@@ -27,14 +27,14 @@ data_receiving() {
 download_install() {
   opkg update > /dev/null 2>&1
   printf "\033[33;1mЗагрузка пакетов\033[0m \n"
-  wget https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_$VERSION_$ARCH.ipk -O /tmp/zapret_$VERSION_$ARCH.ipk  > /dev/null 2>&1
-  wget https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_$VERSION_all.ipk -O /tmp/luci-app-zapret_$VERSION_all.ipk  > /dev/null 2>&1
+  wget https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_$VERSION_$ARCH.ipk -O /tmp/zapret_$VERSION_$ARCH.ipk > /dev/null 2>&1
+  wget https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_$VERSION_all.ipk -O /tmp/luci-app-zapret_$VERSION_all.ipk > /dev/null 2>&1
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
-  opkg install /tmp/youtubeUnblock-$VERSION-$ARCH-openwrt-23.05.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
-  opkg install /tmp/luci-app-youtubeUnblock-$VERSION.ipk  >> /var/log/youtubeUnblock-install.log 2>&1
+  opkg install /tmp/zapret_$VERSION_$ARCH.ipk > /dev/null 2>&1
+  opkg install /tmp/luci-app-zapret_$VERSION_all.ipk > /dev/null 2>&1
 }
 
-check_old_app() {
+check_old_apps() {
   if opkg list-installed luci-app-youtubeUnblock >/dev/null 2>&1; then
 	printf "\033[33;1mУдаляю пакет luci-app-youtubeUnblock\033[0m\n"
     opkg remove luci-app-youtubeUnblock
