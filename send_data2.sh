@@ -66,6 +66,7 @@ check_app_version() {
     fi
     printf "\033[33;1mINFO: Версии zapret различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m \n"
     wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh > /dev/null 2>&1
+    chmod +x /tmp/update_apps.sh
     /tmp/update_apps.sh
   else
     printf "\033[32;1mINFO: Версии zapret совпадают ($JSON_VERSION)\033[0m \n"
