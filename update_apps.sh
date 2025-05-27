@@ -5,7 +5,7 @@ ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\
 VERSION=
 
 main() {
-  printf "\033[33;1mUpdate zapret\033[0m \n"
+  printf "\033[32;1mUpdate zapret\033[0m \n"
   data_receiving
   download_install
   check_old_apps
@@ -21,26 +21,27 @@ data_receiving() {
   REQUEST=$(printf 'GET /send HTTP/1.1\nHost: %s\nAccept: application/json\n\n' "$SERVER")
   RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") > /dev/null 2>&1
   JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
-  VERSION=$(echo "$JSON" | jsonfilter -e '@["version"]')
+  VERSION=$(echo "$JSON" | jsonfilter -e '@["app_ver"]')
 }
 
 download_install() {
+  printf "\033[32;1mОбновление пакетов.\033[0m\n"
   opkg update > /dev/null 2>&1
-  printf "\033[33;1mЗагрузка пакетов\033[0m \n"
-  wget https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_$VERSION_$ARCH.ipk -O /tmp/zapret_$VERSION_$ARCH.ipk > /dev/null 2>&1
-  wget https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_$VERSION_all.ipk -O /tmp/luci-app-zapret_$VERSION_all.ipk > /dev/null 2>&1
+  printf "\033[32;1mЗагрузка пакетов\033[0m \n"
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${VERSION}_${ARCH}.ipk"
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}_all.ipk"
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
-  opkg install /tmp/zapret_$VERSION_$ARCH.ipk > /dev/null 2>&1
-  opkg install /tmp/luci-app-zapret_$VERSION_all.ipk > /dev/null 2>&1
+  opkg install /tmp/zapret_${VERSION}_${ARCH}.ipk > /dev/null 2>&1
+  opkg install /tmp/luci-app-zapret_${VERSION}_all.ipk > /dev/null 2>&1
 }
 
 check_old_apps() {
-  if opkg list-installed luci-app-youtubeUnblock >/dev/null 2>&1; then
-	printf "\033[33;1mУдаляю пакет luci-app-youtubeUnblock\033[0m\n"
+  if opkg list-installed | grep -q "^luci-app-youtubeUnblock "; then
+    printf "\033[33;1mОбнаружен luci-app-youtubeUnblock, удаление...\033[0m\n"
     opkg remove luci-app-youtubeUnblock
   fi
-  if opkg list-installed youtubeUnblock >/dev/null 2>&1; then
-	printf "\033[33;1mУдаляю пакет youtubeUnblock\033[0m\n"
+  if opkg list-installed | grep -q "^youtubeUnblock "; then
+	  printf "\033[33;1mОбнаружен youtubeUnblock, удаление...\033[0m\n"
     opkg remove youtubeUnblock
   fi
 }
