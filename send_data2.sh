@@ -88,8 +88,20 @@ check_script_version() {
   fi
 }
 
+script_check() {
+  if ! nc -z -w 5 "$SERVER" "$PORT"; then
+    printf "\033[31;1mError: Cannot connect to $SERVER:$PORT\033[0m\n"
+    exit 1
+  fi
+  for cmd in ubus jsonfilter nc awk grep ifconfig; do
+    if ! command -v $cmd >/dev/null; then
+      echo "Error: $cmd is not installed"
+      exit 1
+    fi
+  done
+}
 main() {
-  check_old_app
+  script_check
   ip_interfaces
   data_sending
   data_receiving
