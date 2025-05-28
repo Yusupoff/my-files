@@ -5,7 +5,7 @@ ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\
 VERSION=
 
 main() {
-  printf "\033[32;1mUpdate zapret\033[0m \n"
+  printf "\033[32;1mПодготовка zapret\033[0m \n"
   data_receiving
   download_install
   check_old_apps
@@ -29,9 +29,9 @@ download_install() {
   opkg update > /dev/null 2>&1
   printf "\033[32;1mЗагрузка пакетов:\033[0m \n"
   wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${VERSION}_${ARCH}.ipk"  > /dev/null 2>&1
-  printf "\033[32;1m\tzapret_${VERSION}_${ARCH}.ipk загружен\033[0m \n"
+  printf "\033[32;1m\tzapret_${VERSION}_${ARCH}.ipk загружен\033[0m\n"
   wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}_all.ipk"  > /dev/null 2>&1
-  printf "\033[32;1m\tluci-app-zapret_${VERSION}_all.ipk загружен\033[0m \n"
+  printf "\033[32;1m\tluci-app-zapret_${VERSION}_all.ipk загружен\033[0m\n"
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
   opkg install /tmp/zapret_${VERSION}_${ARCH}.ipk > /dev/null 2>&1
   opkg install /tmp/luci-app-zapret_${VERSION}_all.ipk > /dev/null 2>&1
@@ -91,7 +91,7 @@ config_apps() {
 '
   uci commit zapret
   /etc/init.d/zapret restart > /dev/null 2>&1
-  printf "\033[33;1mПерезагрузка zapret033[0m\n"
+  printf "\033[33;1mПерезагрузка zapret\033[0m\n"
 }
 
 main
