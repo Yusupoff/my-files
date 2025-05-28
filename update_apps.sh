@@ -33,8 +33,9 @@ download_install() {
   wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}_all.ipk"  > /dev/null 2>&1
   printf "\033[32;1m\tluci-app-zapret_${VERSION}_all.ipk загружен\033[0m\n"
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
-  opkg install /tmp/zapret_${VERSION}_${ARCH}.ipk > /dev/null 2>&1
-  opkg install /tmp/luci-app-zapret_${VERSION}_all.ipk > /dev/null 2>&1
+  opkg install gzip coreutils-sleep coreutils-sort libnetfilter-queue1 
+  opkg install /tmp/zapret_${VERSION}_${ARCH}.ipk
+  opkg install /tmp/luci-app-zapret_${VERSION}_all.ipk
 }
 
 check_old_apps() {
