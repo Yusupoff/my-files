@@ -27,9 +27,11 @@ data_receiving() {
 download_install() {
   printf "\033[32;1mОбновление пакетов.\033[0m\n"
   opkg update > /dev/null 2>&1
-  printf "\033[32;1mЗагрузка пакетов\033[0m \n"
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${VERSION}_${ARCH}.ipk"
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}_all.ipk"
+  printf "\033[32;1mЗагрузка пакетов:\033[0m \n"
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${VERSION}_${ARCH}.ipk"  > /dev/null 2>&1
+  printf "\033[32;1m\tzapret_${VERSION}_${ARCH}.ipk загружен\033[0m \n"
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}_all.ipk"  > /dev/null 2>&1
+  printf "\033[32;1m\tluci-app-zapret_${VERSION}_all.ipk загружен\033[0m \n"
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
   opkg install /tmp/zapret_${VERSION}_${ARCH}.ipk > /dev/null 2>&1
   opkg install /tmp/luci-app-zapret_${VERSION}_all.ipk > /dev/null 2>&1
@@ -47,9 +49,10 @@ check_old_apps() {
 }
 
 config_apps() {
-  printf "\033[33;1mНастройка пакетов\033[0m \n"
-  wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt
-
+  printf "\033[33;1mНастройка пакетов\033[0m\n"
+  printf "\033[33;1mЗагрузка zapret-hosts-user.txt\033[0m\n"
+  wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt > /dev/null 2>&1
+  printf "\033[33;1mУстановка конфигурации zapret NFQWS_OPT\033[0m\n"
   uci set zapret.config.NFQWS_OPT='
 --filter-tcp=443
 --hostlist=/opt/zapret/ipset/zapret-hosts-google.txt
@@ -88,6 +91,7 @@ config_apps() {
 '
   uci commit zapret
   /etc/init.d/zapret restart > /dev/null 2>&1
+  printf "\033[33;1mПерезагрузка zapret033[0m\n"
 }
 
 main
