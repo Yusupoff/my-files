@@ -7,8 +7,8 @@ VERSION=
 main() {
   printf "\033[32;1mПодготовка zapret\033[0m \n"
   data_receiving
-  download_install
   check_old_apps
+  download_install
   config_apps
   if pgrep -f "zapret" > /dev/null; then
     printf "\033[32;1mПрограмма zapret запущена.\033[0m\n"
