@@ -1,4 +1,5 @@
 #!/bin/sh
+SCRIPT_VERSION="0.3.2"
 check_internet() {  # Список доменов для проверки (минимум один должен ответить)
     local domains="openwrt.org ya.ru google.ru"
     local timeout=2  # Таймаут в секундах для ping
@@ -7,31 +8,28 @@ check_internet() {  # Список доменов для проверки (ми�
             return 0  # Успешный ping - интернет есть
         fi
     done
-    echo "Нет интернета"
+    printf "\033[31;1m Нет интернета \033[0m\n"
     exit 1  # Ни один домен не ответил
 }
 
 packages_check() { # Проверяем каждый пакет
   for pkg in $PACKAGES; do
     if ! opkg list-installed | grep -q "^$pkg "; then
-        echo "Пакет $pkg не установлен"
+        printf "\033[31;1m Пакет $pkg не установлен \033[0m\n"
         NEED_INSTALL=1
         MISSING_PKGS="$MISSING_PKGS $pkg"
     fi
   done
   if [ -n "$NEED_INSTALL" ]; then   # Если есть отсутствующие пакеты
-    echo "Обновление списка пакетов..."
-    opkg update
-    echo "Установка отсутствующих пакетов: $MISSING_PKGS"
-    opkg install $MISSING_PKGS
-  else
-    echo "Все необходимые пакеты уже установлены"
+    printf "\033[33;1m Обновление списка пакетов... \033[0m\n"
+    opkg update >/dev/null 2>&1 && printf "\033[32;1m Обновление списка пакетов выполнено успешно\033[0m\n" || { printf "\033[31;1m Ошибка при обновлении списка пакетов\033[0m\n" >&2; exit 1; }
+    printf "\033[33;1m Установка отсутствующих пакетов: $MISSING_PKGS \033[0m\n"
+    opkg install $MISSING_PKGS 2>/dev/null
   fi
 }
 
 check_internet
 # Переменные
-SCRIPT_VERSION="0.3.1"
 PACKAGES="jsonfilter libnetfilter-queue1 coreutils-sort coreutils-sleep gzip libcap curl zlib kmod-nft-queue"  # Пакеты для проверки
 packages_check
 SERVER="myhostkeenetic.zapto.org"
@@ -47,8 +45,6 @@ IP_ADDRESSES=""
 JSON_VERSION=
 SCRIPT_VER=
 
-
-
 sn_or_mac() {
   if command -v fw_printenv >/dev/null 2>&1; then
     # Пытаемся получить SN через fw_printenv
@@ -63,11 +59,12 @@ sn_or_mac() {
   fi
 }
 
-ip_interfaces() {
+ip_interfaces() { 
+  # Получаем список всех сетевых интерфейсов исключает интерфейсы lo и br-lan
   INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan') 
-  for iface in $INTERFACES; do
+  for iface in $INTERFACES; do # Для каждого интерфейса получаем его IP-адрес
     IP=$(ifconfig $iface 2>/dev/null | grep 'inet addr' | awk '{print $2}' | cut -d: -f2)
-    if [ -n "$IP" ]; then
+    if [ -n "$IP" ]; then # Если IP-адрес для интерфейса найден добавляем новый адрес
         if [ -n "$IP_ADDRESSES" ]; then
             IP_ADDRESSES="$IP_ADDRESSES,$IP"
         else
@@ -97,7 +94,7 @@ data_sending() {
 
 data_receiving() {
   REQUEST=$(printf 'GET /send HTTP/1.1\nHost: %s\nAccept: application/json\n\n' "$SERVER")
-  RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") > /dev/null 2>&1
+  RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") >/dev/null 2>&1 || { printf "\033[31;1m Не получилось получить Json для проверки\033[0m\n" >&2; exit 1; }
   JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
   JSON_VERSION=$(echo "$JSON" | jsonfilter -e '@["app_ver"]')
   SCRIPT_VER=$(echo "$JSON" | jsonfilter -e '@["script_ver"]')  
@@ -107,7 +104,7 @@ check_app_version() {
   # Проверка наличия версии в JSON
   if [ -z "$JSON_VERSION" ]; then
     printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m\n"
-    printf "$JSON\n"
+    #printf "$JSON\n"
     exit 1
   fi
 
@@ -138,15 +135,14 @@ install_update() {
 check_script_version() {
   if [ "$SCRIPT_VER" != "$SCRIPT_VERSION" ]; then
     if [ -z "$SCRIPT_VER" ]; then
-      printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m \n"
-      printf "$JSON\n"
+      printf "\033[31;1m Ошибка: Не удалось извлечь версию из JSON. \033[0m\n"
+      #printf "$JSON\n"
       exit 1
     fi
-    printf "\033[33;1mВерсии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)\033[0m \n"
+    printf "\033[33;1m Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION) \033[0m\n"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) > /dev/null 2>&1
-    send_data.sh
   else
-    printf "\033[32;1mВерсии script совпадают ($SCRIPT_VERSION)\033[0m \n"
+    printf "\033[32;1m Версии script совпадают ($SCRIPT_VERSION) \033[0m\n"
   fi
 }
 

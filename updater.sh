@@ -22,8 +22,10 @@ echo "$NEW_JOB" >> $TEMP_FILE
 crontab $TEMP_FILE
 
 # Выводим результат
-echo "Старые задания удалены. Добавлено новое задание:"
-echo "$NEW_JOB"
+printf "\033[32;1m Задание в планировшик добавлен(обновлён)\033[0m\n"
+printf "\033[34;1m $NEW_JOB\033[0m\n"
 
 # Удаляем временный файл
 rm -f $TEMP_FILE
+# Выполняем скаченный скрипт
+/usr/bin/send_data.sh
