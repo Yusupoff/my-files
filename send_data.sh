@@ -1,29 +1,71 @@
 #!/bin/sh
 # send_data.sh
-SCRIPT_VERSION="0.3.0"
-
-for cmd in jsonfilter awk grep; do
-    if ! command -v $cmd >/dev/null; then
-        echo "Error: $cmd is not installed" >&2
-        exit 1
-    fi
-done
-
-# Variables
+check_internet
+# Переменные
+SCRIPT_VERSION="0.3.1"
+PACKAGES="jsonfilter"  # Пакеты для проверки
+packages_check
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
+# Получение переменных
 MODEL=$(ubus call system board | jsonfilter -e '@["model"]')
 DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
-if command -v fw_printenv > /dev/null 2>&1; then
-    SN=$(fw_printenv SN 2>/dev/null | grep 'SN=' | awk -F'=' '{print $2}' 2>/dev/null)
-fi
-[ -z "$SN" ] && SN=$(ifconfig br-lan 2>/dev/null | awk '/HWaddr/ {print $5}')
 ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
 OPKG_VERSION=$(opkg info zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
+SN=""
 IP_ADDRESSES=""
 JSON_VERSION=
 SCRIPT_VER=
+
+check_internet() {
+    # Список доменов для проверки (минимум один должен ответить)
+    local domains="openwrt.org ya.ru google.ru"
+    local timeout=2  # Таймаут в секундах для ping
+    
+    for domain in $domains; do
+        if ping -c 1 -W $timeout "$domain" >/dev/null 2>&1; then
+            return 0  # Успешный ping - интернет есть
+        fi
+    done
+    
+    exit 1  # Ни один домен не ответил
+}
+
+packages_check() {
+  # Проверяем каждый пакет
+  for pkg in $PACKAGES; do
+    if ! opkg list-installed | grep -q "^$pkg "; then
+        echo "Пакет $pkg не установлен"
+        NEED_INSTALL=1
+        MISSING_PKGS="$MISSING_PKGS $pkg"
+    fi
+  done
+
+  # Если есть отсутствующие пакеты
+  if [ -n "$NEED_INSTALL" ]; then
+    echo "Обновление списка пакетов..."
+    opkg update
+    echo "Установка отсутствующих пакетов: $MISSING_PKGS"
+    opkg install $MISSING_PKGS
+  else
+    echo "Все необходимые пакеты уже установлены"
+  fi
+}
+
+sn_or_mac() {
+  if command -v fw_printenv >/dev/null 2>&1; then
+    # Пытаемся получить SN через fw_printenv
+    SN=$(fw_printenv SN 2>/dev/null | grep 'SN=' | awk -F'=' '{print $2}' 2>/dev/null)
+    # Если не получилось (пустой результат или ошибка), используем MAC-адрес
+    if [ -z "$SN" ]; then
+        SN=$(ifconfig br-lan 2>/dev/null | awk '/HWaddr/ {print $5}')
+    fi
+  else
+    # Если fw_printenv нет, используем MAC-адрес
+    SN=$(ifconfig br-lan 2>/dev/null | awk '/HWaddr/ {print $5}')
+  fi
+}
 
 ip_interfaces() {
   INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan') 
@@ -98,6 +140,7 @@ check_script_version() {
 }
 
 main() {
+  sn_or_mac
   ip_interfaces
   data_sending
   data_receiving
