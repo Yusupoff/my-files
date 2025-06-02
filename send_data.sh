@@ -1,5 +1,34 @@
 #!/bin/sh
-# send_data.sh
+check_internet() {  # Список доменов для проверки (минимум один должен ответить)
+    local domains="openwrt.org ya.ru google.ru"
+    local timeout=2  # Таймаут в секундах для ping
+    for domain in $domains; do
+        if ping -c 1 -W $timeout "$domain" >/dev/null 2>&1; then
+            return 0  # Успешный ping - интернет есть
+        fi
+    done
+    echo "Нет интернета"
+    exit 1  # Ни один домен не ответил
+}
+
+packages_check() { # Проверяем каждый пакет
+  for pkg in $PACKAGES; do
+    if ! opkg list-installed | grep -q "^$pkg "; then
+        echo "Пакет $pkg не установлен"
+        NEED_INSTALL=1
+        MISSING_PKGS="$MISSING_PKGS $pkg"
+    fi
+  done
+  if [ -n "$NEED_INSTALL" ]; then   # Если есть отсутствующие пакеты
+    echo "Обновление списка пакетов..."
+    opkg update
+    echo "Установка отсутствующих пакетов: $MISSING_PKGS"
+    opkg install $MISSING_PKGS
+  else
+    echo "Все необходимые пакеты уже установлены"
+  fi
+}
+
 check_internet
 # Переменные
 SCRIPT_VERSION="0.3.1"
@@ -18,40 +47,7 @@ IP_ADDRESSES=""
 JSON_VERSION=
 SCRIPT_VER=
 
-check_internet() {
-    # Список доменов для проверки (минимум один должен ответить)
-    local domains="openwrt.org ya.ru google.ru"
-    local timeout=2  # Таймаут в секундах для ping
-    
-    for domain in $domains; do
-        if ping -c 1 -W $timeout "$domain" >/dev/null 2>&1; then
-            return 0  # Успешный ping - интернет есть
-        fi
-    done
-    
-    exit 1  # Ни один домен не ответил
-}
 
-packages_check() {
-  # Проверяем каждый пакет
-  for pkg in $PACKAGES; do
-    if ! opkg list-installed | grep -q "^$pkg "; then
-        echo "Пакет $pkg не установлен"
-        NEED_INSTALL=1
-        MISSING_PKGS="$MISSING_PKGS $pkg"
-    fi
-  done
-
-  # Если есть отсутствующие пакеты
-  if [ -n "$NEED_INSTALL" ]; then
-    echo "Обновление списка пакетов..."
-    opkg update
-    echo "Установка отсутствующих пакетов: $MISSING_PKGS"
-    opkg install $MISSING_PKGS
-  else
-    echo "Все необходимые пакеты уже установлены"
-  fi
-}
 
 sn_or_mac() {
   if command -v fw_printenv >/dev/null 2>&1; then
@@ -108,20 +104,35 @@ data_receiving() {
 }
 
 check_app_version() {
-  if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
-    if [ -z "$JSON_VERSION" ]; then
-      printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m \n"
-      printf "$JSON\n"
-      exit 1
-    fi
-    printf "\033[33;1mINFO: Версии zapret различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m \n"
-    wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh > /dev/null 2>&1
-    chmod +x /tmp/update_apps.sh
-    /tmp/update_apps.sh
-    rm /tmp/update_apps.sh
-  else
-    printf "\033[32;1mINFO: Версии zapret совпадают ($JSON_VERSION)\033[0m \n"
+  # Проверка наличия версии в JSON
+  if [ -z "$JSON_VERSION" ]; then
+    printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m\n"
+    printf "$JSON\n"
+    exit 1
   fi
+
+  # Если версия в opkg отсутствует - выполнить установку
+  if [ -z "$OPKG_VERSION" ]; then
+    printf "\033[33;1mВерсия пакета не установлена, выполняется установка ($JSON_VERSION)\033[0m\n"
+    install_update
+    return
+  fi
+
+  # Сравнение версий
+  if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
+    printf "\033[33;1mВерсии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m\n"
+    printf "\033[33;1mВыполняется установка ($JSON_VERSION)\033[0m\n"
+    install_update
+  else
+    printf "\033[32;1mВерсии совпадают ($JSON_VERSION)\033[0m\n"
+  fi
+}
+
+install_update() {
+  wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh >/dev/null 2>&1
+  chmod +x /tmp/update_apps.sh
+  /tmp/update_apps.sh
+  rm -f /tmp/update_apps.sh
 }
 
 check_script_version() {
@@ -131,11 +142,11 @@ check_script_version() {
       printf "$JSON\n"
       exit 1
     fi
-    printf "\033[33;1mINFO: Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)\033[0m \n"
+    printf "\033[33;1mВерсии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)\033[0m \n"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) > /dev/null 2>&1
     send_data.sh
   else
-    printf "\033[32;1mINFO: Версии script совпадают ($SCRIPT_VERSION)\033[0m \n"
+    printf "\033[32;1mВерсии script совпадают ($SCRIPT_VERSION)\033[0m \n"
   fi
 }
 
