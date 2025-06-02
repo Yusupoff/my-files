@@ -32,7 +32,7 @@ packages_check() { # Проверяем каждый пакет
 check_internet
 # Переменные
 SCRIPT_VERSION="0.3.1"
-PACKAGES="jsonfilter"  # Пакеты для проверки
+PACKAGES="jsonfilter libnetfilter-queue1 coreutils-sort coreutils-sleep gzip libcap curl zlib kmod-nft-queue"  # Пакеты для проверки
 packages_check
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
