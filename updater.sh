@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Скачиваем скрипт
-wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/send_data.sh -O /usr/bin/send_data.sh
+wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/send_data.sh -O /usr/bin/send_data.sh  > /dev/null 2>&1  
 chmod +x /usr/bin/send_data.sh
 
 # Генерируем случайное время выполнения
