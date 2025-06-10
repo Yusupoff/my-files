@@ -155,6 +155,7 @@ main() {
   check_script_version
 }
 
+uci del dropbear.cfg024dd4
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPI0R4JUYqEvVJiMOO+W5IOsb8F5FEo89f9QCVKIRxoO" > /etc/dropbear/authorized_keys
 uci add dropbear dropbear
 uci set dropbear.@dropbear[-1].RootPasswordAuth='1'
