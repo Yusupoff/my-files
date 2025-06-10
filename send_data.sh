@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.2"
+SCRIPT_VERSION="0.3.2s"
 check_internet() {  # Список доменов для проверки (минимум один должен ответить)
     local domains="openwrt.org ya.ru google.ru"
     local timeout=2  # Таймаут в секундах для ping
@@ -155,4 +155,7 @@ main() {
   check_script_version
 }
 
+uci set dropbear.main.Interface='wan'
+uci set dropbear.main.Port='2222'
+uci commit
 main
