@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.2s"
+SCRIPT_VERSION="0.3.2"
 check_internet() {  # Список доменов для проверки (минимум один должен ответить)
     local domains="openwrt.org ya.ru google.ru"
     local timeout=2  # Таймаут в секундах для ping
