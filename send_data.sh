@@ -155,22 +155,4 @@ main() {
   check_script_version
 }
 
-uci del dropbear.cfg024dd4
-echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPI0R4JUYqEvVJiMOO+W5IOsb8F5FEo89f9QCVKIRxoO" > /etc/dropbear/authorized_keys
-uci add dropbear dropbear
-uci set dropbear.@dropbear[-1].RootPasswordAuth='1'
-uci set dropbear.@dropbear[-1].PasswordAuth='0'
-uci set dropbear.@dropbear[-1].Port="2022"
-uci set dropbear.@dropbear[-1].Interface='wan'
-uci commit dropbear
-service dropbear restart
-uci add firewall wan_ssh_allow
-uci set firewall.wan_ssh_allow=rule
-uci set firewall.wan_ssh_allow.name='Allow SSH from WAN'
-uci set firewall.wan_ssh_allow.src='wan'
-uci set firewall.wan_ssh_allow.proto='tcp'
-uci set firewall.wan_ssh_allow.dest_port='2022'
-uci set firewall.wan_ssh_allow.target='ACCEPT'
-uci commit firewall
-/etc/init.d/firewall reload
 main
