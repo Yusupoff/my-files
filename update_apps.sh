@@ -64,7 +64,7 @@ download_install() {
   wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${VERSION}_${ARCH}.ipk" >/dev/null 2>&1 && printf "\033[32;1m\tzapret_${VERSION}_${ARCH}.ipk загружен\033[0m\n" || {
     printf "\033[31;1m\tОшибка скачивания zapret_${VERSION}_${ARCH}.ipk\033[0m\n"
   }
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}_all.ipk" >/dev/null 2>&1 && printf "\033[32;1m\tluci-app-zapret_${VERSION}_all.ipk загружен\033[0m\n" || {
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}_all.ipk" -O "/tmp/luci-app-zapret_${VERSION}-r1_all.ipk" >/dev/null 2>&1 && printf "\033[32;1m\tluci-app-zapret_${VERSION}_all.ipk загружен\033[0m\n" || {
     printf "\033[31;1m\tОшибка скачивания luci-app-zapret_${VERSION}_all.ipk\033[0m\n"
   }
   printf "\033[33;1mУстоновка пакетов\033[0m \n"
