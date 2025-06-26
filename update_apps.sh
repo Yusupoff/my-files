@@ -45,18 +45,12 @@ data_receiving() {
   fi
 
   # Извлечение app_ver и script_ver с помощью jq
-  JSON_VERSION=$(echo "$JSON" | jq -r '.app_ver' 2>/dev/null)
-  if [ $? -ne 0 ] || [ "$JSON_VERSION" = "null" ]; then
+  VERSION=$(echo "$JSON" | jq -r '.app_ver' 2>/dev/null)
+  if [ $? -ne 0 ] || [ "$VERSION" = "null" ]; then
     printf "\033[31;1mОшибка: Не удалось извлечь app_ver из JSON\033[0m\n" >&2
     return 1
   fi
-
-  SCRIPT_VER=$(echo "$JSON" | jq -r '.script_ver' 2>/dev/null)
-  if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
-    printf "\033[31;1mОшибка: Не удалось извлечь script_ver из JSON\033[0m\n" >&2
-    return 1
-  fi
-
+  
   # Вывод для отладки (можно убрать, если не нужен)
   # printf "Получены версии: app_ver=%s, script_ver=%s\n" "$JSON_VERSION" "$SCRIPT_VER"
 
