@@ -18,11 +18,27 @@ main() {
   fi
 }
 
-data_receiving() {
-  REQUEST=$(printf 'GET /send HTTP/1.1\nHost: %s\nAccept: application/json\n\n' "$SERVER")
-  RESPONSE=$(echo -e "$REQUEST" | nc "$SERVER" "$PORT") >/dev/null 2>&1 || { printf "\033[31;1m Не получилось получить Json для проверки\033[0m\n" >&2; exit 1; }
-  JSON=$(echo "$RESPONSE" | awk 'BEGIN {RS="\r\n\r\n"} NR==2')
-  VERSION=$(echo "$JSON" | jsonfilter -e '@["app_ver"]')
+data_sending() {
+  # Формирование JSON с помощью jq
+  JSON=$(jq -n \
+    --arg model "$MODEL" \
+    --arg desc "$DESC" \
+    --arg sn "$SN" \
+    --arg arch "$ARCH" \
+    --arg ip "$IP_ADDRESSES" \
+    --arg ver "$OPKG_VERSION" \
+    '{model: $model, description: $desc, serial_number: $sn, architecture: $arch, ipv4_wan: $ip, version: $ver}')
+  # Отправка запроса с помощью curl
+  RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "http://$SERVER:$PORT/receive" \
+    -H "Content-Type: application/json" \
+    -d "$JSON")
+  
+  # Проверка статуса ответа
+  HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
+  if [ "$HTTP_STATUS" != "200" ]; then
+    echo "Error: Server responded with status $HTTP_STATUS"
+    return 1
+  fi
 }
 
 download_install() {
