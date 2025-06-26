@@ -18,27 +18,49 @@ main() {
   fi
 }
 
-data_sending() {
-  # Формирование JSON с помощью jq
-  JSON=$(jq -n \
-    --arg model "$MODEL" \
-    --arg desc "$DESC" \
-    --arg sn "$SN" \
-    --arg arch "$ARCH" \
-    --arg ip "$IP_ADDRESSES" \
-    --arg ver "$OPKG_VERSION" \
-    '{model: $model, description: $desc, serial_number: $sn, architecture: $arch, ipv4_wan: $ip, version: $ver}')
-  # Отправка запроса с помощью curl
-  RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "http://$SERVER:$PORT/receive" \
-    -H "Content-Type: application/json" \
-    -d "$JSON")
+data_receiving() {
+  # Отправка GET-запроса с помощью curl
+  RESPONSE=$(curl -s -w "\n%{http_code}" -X GET "http://$SERVER:$PORT/send" \
+    -H "Accept: application/json" 2>/dev/null)
   
-  # Проверка статуса ответа
-  HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
-  if [ "$HTTP_STATUS" != "200" ]; then
-    echo "Error: Server responded with status $HTTP_STATUS"
+  if [ $? -ne 0 ]; then
+    printf "\033[31;1mОшибка: Не удалось подключиться к %s:%s\033[0m\n" "$SERVER" "$PORT" >&2
     return 1
   fi
+
+  # Извлечение тела ответа и HTTP-статуса
+  HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
+  JSON=$(echo "$RESPONSE" | sed '$d') # Удаляем последнюю строку (HTTP-статус)
+
+  # Проверка HTTP-статуса
+  if [ "$HTTP_STATUS" != "200" ]; then
+    printf "\033[31;1mОшибка: Сервер вернул статус %s\033[0m\n" "$HTTP_STATUS" >&2
+    return 1
+  fi
+
+  # Проверка, что JSON не пустой
+  if [ -z "$JSON" ]; then
+    printf "\033[31;1mОшибка: Пустой JSON-ответ от сервера\033[0m\n" >&2
+    return 1
+  fi
+
+  # Извлечение app_ver и script_ver с помощью jq
+  JSON_VERSION=$(echo "$JSON" | jq -r '.app_ver' 2>/dev/null)
+  if [ $? -ne 0 ] || [ "$JSON_VERSION" = "null" ]; then
+    printf "\033[31;1mОшибка: Не удалось извлечь app_ver из JSON\033[0m\n" >&2
+    return 1
+  fi
+
+  SCRIPT_VER=$(echo "$JSON" | jq -r '.script_ver' 2>/dev/null)
+  if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
+    printf "\033[31;1mОшибка: Не удалось извлечь script_ver из JSON\033[0m\n" >&2
+    return 1
+  fi
+
+  # Вывод для отладки (можно убрать, если не нужен)
+  # printf "Получены версии: app_ver=%s, script_ver=%s\n" "$JSON_VERSION" "$SCRIPT_VER"
+
+  return 0
 }
 
 download_install() {
