@@ -192,10 +192,19 @@ check_script_version() {
       #printf "$JSON\n"
       exit 1
     fi
-    msg_i "Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)"
-    sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) > /dev/null 2>&1
+    msg_e "Версия скрипта обновления различается (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)."
+    OUTPUT=$(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh 2>&1)
+                  # Проверка на успешное выполнение
+    if [ $? -eq 0 ]; then
+      # Если команда выполнена успешно, выполняем скачанный скрипт
+      sh <(echo "$OUTPUT")
+      msg_i "Версия скрипта обновлена!"
+    else
+      # Если wget завершился с ошибкой, выводим ошибку
+      msg_e "Произошла ошибка при обновлении скрипта: $OUTPUT"
+    fi
   else
-    msg_i "Версии script совпадают ($SCRIPT_VERSION)"
+    msg_i "Версии скрипта актуальна ($SCRIPT_VERSION)."
   fi
 }
 
