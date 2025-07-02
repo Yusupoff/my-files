@@ -34,14 +34,3 @@ scheduler() {
 }
 
 scheduler
-
-if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-    echo "✅ Скрипт запущен напрямую, выполняем основную логику..."
-    /usr/bin/send_data.sh
-    # Ваш код здесь
-else
-    echo "⚠️ Скрипт вызван через 'source' или из другого скрипта, выход."
-    exit 0
-fi
-# Выполняем скаченный скрипт
-# /usr/bin/send_data.sh
