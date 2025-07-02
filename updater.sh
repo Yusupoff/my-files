@@ -34,7 +34,6 @@ scheduler() {
 }
 
 scheduler
-#!/bin/bash
 
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
     echo "✅ Скрипт запущен напрямую, выполняем основную логику..."
