@@ -1,8 +1,8 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.1"
+SCRIPT_VERSION="0.3.4"
 
-msg_i() { printf "\033[32;1m%s\033[0m\n" "$1" }
-msg_e() { printf "\033[31;1m%s\033[0m\n" "$1" }
+msg_i() { printf "\033[32;1m%s\033[0m\n" "$1"; }
+msg_e() { printf "\033[31;1m%s\033[0m\n" "$1"; }
                   # Список доменов для проверки (минимум один должен ответить)
 check_internet() {
     local domains="openwrt.org ya.ru google.ru"
