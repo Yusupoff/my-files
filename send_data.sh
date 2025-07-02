@@ -1,29 +1,34 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.3"
-check_internet() {  # Список доменов для проверки (минимум один должен ответить)
+SCRIPT_VERSION="0.3.1"
+
+msg_i() { printf "\033[32;1m%s\033[0m\n" "$1" }
+msg_e() { printf "\033[31;1m%s\033[0m\n" "$1" }
+                  # Список доменов для проверки (минимум один должен ответить)
+check_internet() {
     local domains="openwrt.org ya.ru google.ru"
-    local timeout=2  # Таймаут в секундах для ping
+    local timeout=2
     for domain in $domains; do
         if ping -c 1 -W $timeout "$domain" >/dev/null 2>&1; then
-            return 0  # Успешный ping - интернет есть
+            return 0
         fi
     done
-    printf "\033[31;1m Нет интернета \033[0m\n"
-    exit 1  # Ни один домен не ответил
+    msg_e "Нет интернета!"
+    exit 1
 }
-
-packages_check() { # Проверяем каждый пакет
+                  # Проверяем каждый пакет
+packages_check() {
   for pkg in $PACKAGES; do
     if ! opkg list-installed | grep -q "^$pkg "; then
-        printf "\033[31;1m Пакет $pkg не установлен \033[0m\n"
+        msg_e "Пакет $pkg не установлен."
         NEED_INSTALL=1
         MISSING_PKGS="$MISSING_PKGS $pkg"
     fi
   done
-  if [ -n "$NEED_INSTALL" ]; then   # Если есть отсутствующие пакеты
-    printf "\033[33;1m Обновление списка пакетов... \033[0m\n"
-    opkg update >/dev/null 2>&1 && printf "\033[32;1m Обновление списка пакетов выполнено успешно\033[0m\n" || { printf "\033[31;1m Ошибка при обновлении списка пакетов\033[0m\n" >&2; exit 1; }
-    printf "\033[33;1m Установка отсутствующих пакетов: $MISSING_PKGS \033[0m\n"
+                  # Если есть отсутствующие пакеты?
+  if [ -n "$NEED_INSTALL" ]; then   
+    msg_i "Обновление списка пакетов..."
+    opkg update >/dev/null 2>&1 && msg_i "Обновление списка пакетов выполнено успешно!" || { msg_e "Ошибка при обновлении списка пакетов" >&2; exit 1; }
+    msg_i "Установка отсутствующих пакетов: $MISSING_PKGS"
     opkg install $MISSING_PKGS 2>/dev/null
   fi
 }
@@ -39,7 +44,7 @@ MODEL=$(ubus call system board | jsonfilter -e '@["model"]')
 DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
 ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
-OPKG_VERSION=$(opkg info zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
+OPKG_VERSION=$(opkg status zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
 SN=""
 IP_ADDRESSES=""
 JSON_VERSION=
@@ -61,10 +66,12 @@ sn_or_mac() {
 
 ip_interfaces() { 
   # Получаем список всех сетевых интерфейсов исключает интерфейсы lo и br-lan
-  INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan') 
-  for iface in $INTERFACES; do # Для каждого интерфейса получаем его IP-адрес
+  INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan')
+  # Для каждого интерфейса получаем его IP-адрес-
+  for iface in $INTERFACES; do
     IP=$(ifconfig $iface 2>/dev/null | grep 'inet addr' | awk '{print $2}' | cut -d: -f2)
-    if [ -n "$IP" ]; then # Если IP-адрес для интерфейса найден добавляем новый адрес
+    # Если IP-адрес для интерфейса найден добавляем новый адрес?
+    if [ -n "$IP" ]; then
         if [ -n "$IP_ADDRESSES" ]; then
             IP_ADDRESSES="$IP_ADDRESSES,$IP"
         else
@@ -85,7 +92,10 @@ data_sending() {
     --arg ver "$OPKG_VERSION" \
     '{model: $model, description: $desc, serial_number: $sn, architecture: $arch, ipv4_wan: $ip, version: $ver}')
   # Отправка запроса с помощью curl
-  RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "http://$SERVER:$PORT/receive" \
+  RESPONSE=$(curl -s -w "\n%{http_code}" \
+    --max-time 10 \
+    --connect-timeout 5 \
+    -X POST "http://$SERVER:$PORT/receive" \
     -H "Content-Type: application/json" \
     -d "$JSON")
   
@@ -98,52 +108,47 @@ data_sending() {
 }
 
 data_receiving() {
-  # Проверка переменных SERVER и PORT
-  if [ -z "$SERVER" ] || [ -z "$PORT" ]; then
-    printf "\033[31;1mОшибка: SERVER или PORT не заданы\033[0m\n" >&2
-    return 1
-  fi
-
   # Отправка GET-запроса с помощью curl
-  RESPONSE=$(curl -s -w "\n%{http_code}" -X GET "http://$SERVER:$PORT/send" \
+  RESPONSE=$(curl -s -w "\n%{http_code}" \
+    --max-time 10 \
+    --connect-timeout 5 \
+    -X GET "http://$SERVER:$PORT/send" \
     -H "Accept: application/json" 2>/dev/null)
   
   if [ $? -ne 0 ]; then
-    printf "\033[31;1mОшибка: Не удалось подключиться к %s:%s\033[0m\n" "$SERVER" "$PORT" >&2
+    msg_e "Ошибка: Не удалось подключиться к %s:%s!!" "$SERVER" "$PORT" >&2
     return 1
   fi
 
   # Извлечение тела ответа и HTTP-статуса
   HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
-  JSON=$(echo "$RESPONSE" | sed '$d') # Удаляем последнюю строку (HTTP-статус)
+  # Удаляем последнюю строку (HTTP-статус)
+  JSON=$(echo "$RESPONSE" | sed '$d')
 
   # Проверка HTTP-статуса
   if [ "$HTTP_STATUS" != "200" ]; then
-    printf "\033[31;1mОшибка: Сервер вернул статус %s\033[0m\n" "$HTTP_STATUS" >&2
+    msg_e "Ошибка: Сервер вернул статус %s" "$HTTP_STATUS" >&2
     return 1
   fi
 
   # Проверка, что JSON не пустой
   if [ -z "$JSON" ]; then
-    printf "\033[31;1mОшибка: Пустой JSON-ответ от сервера\033[0m\n" >&2
+    msg_e "Ошибка: Пустой JSON-ответ от сервера" >&2
     return 1
   fi
 
   # Извлечение app_ver и script_ver с помощью jq
   JSON_VERSION=$(echo "$JSON" | jq -r '.app_ver' 2>/dev/null)
   if [ $? -ne 0 ] || [ "$JSON_VERSION" = "null" ]; then
-    printf "\033[31;1mОшибка: Не удалось извлечь app_ver из JSON\033[0m\n" >&2
+    msg_e "Ошибка: Не удалось извлечь app_ver из JSON" >&2
     return 1
   fi
 
   SCRIPT_VER=$(echo "$JSON" | jq -r '.script_ver' 2>/dev/null)
   if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
-    printf "\033[31;1mОшибка: Не удалось извлечь script_ver из JSON\033[0m\n" >&2
+    msg_e "Ошибка: Не удалось извлечь script_ver из JSON" >&2
     return 1
   fi
-
-  # Вывод для отладки (можно убрать, если не нужен)
-  # printf "Получены версии: app_ver=%s, script_ver=%s\n" "$JSON_VERSION" "$SCRIPT_VER"
 
   return 0
 }
@@ -151,25 +156,25 @@ data_receiving() {
 check_app_version() {
   # Проверка наличия версии в JSON
   if [ -z "$JSON_VERSION" ]; then
-    printf "\033[31;1mОшибка: Не удалось извлечь версию из JSON.\033[0m\n"
+    msg_e "Ошибка: Не удалось извлечь версию из JSON."
     #printf "$JSON\n"
     exit 1
   fi
 
   # Если версия в opkg отсутствует - выполнить установку
   if [ -z "$OPKG_VERSION" ]; then
-    printf "\033[33;1mВерсия пакета не установлена, выполняется установка ($JSON_VERSION)\033[0m\n"
+    msg_i "Версия пакета не установлена, выполняется установка ($JSON_VERSION)"
     install_update
     return
   fi
 
   # Сравнение версий
   if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
-    printf "\033[33;1mВерсии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)\033[0m\n"
-    printf "\033[33;1mВыполняется установка ($JSON_VERSION)\033[0m\n"
+    msg_i "Версии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)"
+    msg_i "Выполняется установка ($JSON_VERSION)"
     install_update
   else
-    printf "\033[32;1mВерсии совпадают ($JSON_VERSION)\033[0m\n"
+    msg_i "Версии совпадают ($JSON_VERSION)"
   fi
 }
 
@@ -183,14 +188,14 @@ install_update() {
 check_script_version() {
   if [ "$SCRIPT_VER" != "$SCRIPT_VERSION" ]; then
     if [ -z "$SCRIPT_VER" ]; then
-      printf "\033[31;1m Ошибка: Не удалось извлечь версию из JSON. \033[0m\n"
+      msg_e "Ошибка: Не удалось извлечь версию из JSON."
       #printf "$JSON\n"
       exit 1
     fi
-    printf "\033[33;1m Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION) \033[0m\n"
+    msg_i "Версии script различаются (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)"
     sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh) > /dev/null 2>&1
   else
-    printf "\033[32;1m Версии script совпадают ($SCRIPT_VERSION) \033[0m\n"
+    msg_i "Версии script совпадают ($SCRIPT_VERSION)"
   fi
 }
 
