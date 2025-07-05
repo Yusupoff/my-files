@@ -9,19 +9,6 @@ PORT=5000
 ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
 VERSION=
 
-main() {
-  msg_i "Подготовка zapret."
-  data_receiving
-  check_old_apps
-  download_install
-  config_apps
-  if pgrep -f "zapret" > /dev/null; then
-    msg_i "Программа zapret запущена."
-  else
-    msg_e "Программа zapret не запущена."
-  fi
-}
-
 data_receiving() {
   # Отправка GET-запроса с помощью curl
   RESPONSE=$(curl -s -w "\n%{http_code}" \
@@ -66,11 +53,11 @@ download_install() {
   #msg_i "Обновление пакетов."
   #opkg update > /dev/null 2>&1
   msg_i "Загрузка пакетов:"
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${ARCH}.ipk" >/dev/null 2>&1 && printf "\033[32;1m\tzapret_${VERSION}_${ARCH}.ipk загружен\033[0m\n" || {
-    msg_i "Ошибка скачивания zapret_${VERSION}_${ARCH}.ipk"
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${ARCH}.ipk" >/dev/null 2>/dev/null && msg_i "\tzapret_${VERSION}_${ARCH}.ipk загружен" || {
+    msg_e "Ошибка скачивания zapret_${VERSION}_${ARCH}.ipk"
   }
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}-r1_all.ipk" -O "/tmp/luci-app-zapret_all.ipk" >/dev/null 2>&1 && printf "\033[32;1m\tluci-app-zapret_${VERSION}-r1_all.ipk загружен\033[0m\n" || {
-    msg_i "Ошибка скачивания luci-app-zapret_${VERSION}_all.ipk"
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}-r1_all.ipk" -O "/tmp/luci-app-zapret_all.ipk" 2>/dev/null && msg_i "\tluci-app-zapret_${VERSION}-r1_all.ipk загружен" || {
+    msg_e "Ошибка скачивания luci-app-zapret_${VERSION}_all.ipk"
   }
   msg_i "Устоновка пакетов"
   #opkg install libnetfilter-queue1 coreutils-sort coreutils-sleep gzip libcap curl zlib
@@ -131,7 +118,20 @@ config_apps() {
 '
   uci commit zapret
   msg_i "Перезапуск zapret: "
-  /etc/init.d/zapret restart >/dev/null 2>&1 && msg_i "\tZapret перезапущен" || { msg_e "\tОшибка при перезапуске Zapret" >&2; exit 1; }
+  /etc/init.d/zapret restart >/dev/null 2>/dev/null && msg_i "\tZapret перезапущен" || { msg_e "\tОшибка при перезапуске Zapret" 2>/dev/null; exit 1; }
+}
+
+main() {
+  msg_i "Подготовка zapret."
+  data_receiving
+  check_old_apps
+  download_install
+  config_apps
+  if pgrep -f "zapret" > /dev/null; then
+    msg_i "Программа zapret запущена."
+  else
+    msg_e "Программа zapret не запущена."
+  fi
 }
 
 main

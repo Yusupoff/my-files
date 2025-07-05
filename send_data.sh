@@ -155,8 +155,8 @@ data_receiving() {
   fi
 
   MD5_HOSTLIST=$(echo "$JSON" | jq -r '.md5_hostlist' 2>/dev/null)
-  if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
-    msg_e "Ошибка: Не удалось извлечь script_ver из JSON" >&2
+  if [ $? -ne 0 ] || [ "$MD5_HOSTLIST" = "null" ]; then
+    msg_e "Ошибка: Не удалось извлечь md5_hostlist из JSON" >&2
     return 1
   fi
 
@@ -221,7 +221,7 @@ check_script_version() {
 
 check_hostlist() {
   MD5_LOCAL=$(md5sum /opt/zapret/ipset/zapret-hosts-user.txt)
-  if [ "$MD5_LOCAL" != "$SCRIPT_VERSION" ]; then
+  if [ "$MD5_LOCAL" != "$MD5_HOSTLIST" ]; then
     OUTPUT=$(wget http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt 2>&1)
     if [ $? -eq 0 ]; then
       # Если команда выполнена успешно, выполняем скачанный скрипт
