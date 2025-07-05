@@ -220,20 +220,20 @@ check_script_version() {
 }
 
 check_hostlist() {
-  MD5_LOCAL=$(md5sum /opt/zapret/ipset/zapret-hosts-user.txt)
+  LOCAL_FILE="/opt/zapret/ipset/zapret-hosts-user.txt"
+  REMOTE_URL="http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt"
+
+  MD5_LOCAL=$(md5sum "$LOCAL_FILE" | awk '{print $1}')
+  # Если хеши не совпадают, качаем новый файл
   if [ "$MD5_LOCAL" != "$MD5_HOSTLIST" ]; then
-    OUTPUT=$(wget http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt 2>&1)
+    OUTPUT=$(wget "$REMOTE_URL" -O "$LOCAL_FILE" 2>&1)
     if [ $? -eq 0 ]; then
-      # Если команда выполнена успешно, выполняем скачанный скрипт
-      OUTPUT=$(echo "$OUTPUT" | tail -n +4)
-      OUTPUT=$(echo "$OUTPUT" | head -n -3)
-      sh <(echo "$OUTPUT")
+      msg_i "Файл успешно обновлён."
     else
-      # Если wget завершился с ошибкой, выводим ошибку
       msg_e "Произошла ошибка при обновлении списка хостов: $OUTPUT"
     fi
   else
-    msg_i "Список хостов актуальная."
+    msg_i "Список хостов актуален."
   fi
 }
 
