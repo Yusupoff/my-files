@@ -92,7 +92,6 @@ check_old_apps() {
 config_apps() {
   msg_i "Преднастройка Zapret"
   msg_i "Загрузка zapret-hosts-user.txt"
-  wget http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt 2>/dev/null
   msg_i "Установка конфигурации zapret NFQWS_OPT"
   uci set zapret.config.NFQWS_OPT='
 --filter-tcp=443

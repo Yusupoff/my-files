@@ -1,5 +1,8 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.4"
+# Добавлена проверка и обновление списка пользовательских хостов для Zapret
+# 
+
+SCRIPT_VERSION="0.3.5"
 
 msg_i() { printf "\033[32;1m%s\033[0m\n" "$1"; }
 msg_e() { printf "\033[31;1m%s\033[0m\n" "$1"; }
@@ -47,8 +50,9 @@ IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-addre
 OPKG_VERSION=$(opkg status zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
 SN=""
 IP_ADDRESSES=""
-JSON_VERSION=
-SCRIPT_VER=
+JSON_VERSION=""
+SCRIPT_VER=""
+MD5_HOSTLIST=""
 
 sn_or_mac() {
   if command -v fw_printenv >/dev/null 2>&1; then
@@ -102,7 +106,7 @@ data_sending() {
   # Проверка статуса ответа
   HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
   if [ "$HTTP_STATUS" != "200" ]; then
-    echo "Error: Server responded with status $HTTP_STATUS"
+    msg_e "Ошибка: сервер ответил статусом $HTTP_STATUS"
     return 1
   fi
 }
@@ -145,6 +149,12 @@ data_receiving() {
   fi
 
   SCRIPT_VER=$(echo "$JSON" | jq -r '.script_ver' 2>/dev/null)
+  if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
+    msg_e "Ошибка: Не удалось извлечь script_ver из JSON" >&2
+    return 1
+  fi
+
+  MD5_HOSTLIST=$(echo "$JSON" | jq -r '.md5_hostlist' 2>/dev/null)
   if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
     msg_e "Ошибка: Не удалось извлечь script_ver из JSON" >&2
     return 1
@@ -209,6 +219,24 @@ check_script_version() {
   fi
 }
 
+check_hostlist() {
+  MD5_LOCAL=$(md5sum /opt/zapret/ipset/zapret-hosts-user.txt)
+  if [ "$MD5_LOCAL" != "$SCRIPT_VERSION" ]; then
+    OUTPUT=$(wget http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt 2>&1)
+    if [ $? -eq 0 ]; then
+      # Если команда выполнена успешно, выполняем скачанный скрипт
+      OUTPUT=$(echo "$OUTPUT" | tail -n +4)
+      OUTPUT=$(echo "$OUTPUT" | head -n -3)
+      sh <(echo "$OUTPUT")
+    else
+      # Если wget завершился с ошибкой, выводим ошибку
+      msg_e "Произошла ошибка при обновлении списка хостов: $OUTPUT"
+    fi
+  else
+    msg_i "Список хостов актуальная."
+  fi
+}
+
 main() {
   sn_or_mac
   ip_interfaces
@@ -216,6 +244,7 @@ main() {
   data_receiving
   check_app_version
   check_script_version
+  check_hostlist
 }
 
 main
