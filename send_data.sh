@@ -222,18 +222,31 @@ check_script_version() {
 check_hostlist() {
   LOCAL_FILE="/opt/zapret/ipset/zapret-hosts-user.txt"
   REMOTE_URL="http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt"
+  
+  # Проверяем существование файла и что он не пустой
+  if [ ! -s "$LOCAL_FILE" ]; then
+    msg_e "Пользовательский список хостов для Zapret не существует."
+    exit 1
+  fi
+
+  # Проверяем, что в файле хотя бы две строки
+  LINE_COUNT=$(wc -l < "$LOCAL_FILE")
+  if [ "$LINE_COUNT" -lt 2 ]; then
+    msg_e "Пользовательский список хостов для Zapret не нужно обновлять."
+    exit 1
+  fi
 
   MD5_LOCAL=$(md5sum "$LOCAL_FILE" | awk '{print $1}')
   # Если хеши не совпадают, качаем новый файл
   if [ "$MD5_LOCAL" != "$MD5_HOSTLIST" ]; then
     OUTPUT=$(wget "$REMOTE_URL" -O "$LOCAL_FILE" 2>&1)
     if [ $? -eq 0 ]; then
-      msg_i "Файл успешно обновлён."
+      msg_i "Пользовательский список хостов для Zapret успешно обновлён."
     else
       msg_e "Произошла ошибка при обновлении списка хостов: $OUTPUT"
     fi
   else
-    msg_i "Список хостов актуален."
+    msg_i "Пользовательский список хостов для Zapret актуален."
   fi
 }
 
