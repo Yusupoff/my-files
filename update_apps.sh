@@ -87,7 +87,7 @@ check_old_apps() {
 config_apps() {
   printf "\033[33;1mПреднастройка Zapret\033[0m\n"
   printf "\033[33;1mЗагрузка zapret-hosts-user.txt\033[0m\n"
-  wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt > /dev/null 2>&1
+  wget http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt -O /opt/zapret/ipset/zapret-hosts-user.txt > /dev/null 2>&1
   printf "\033[33;1mУстановка конфигурации zapret NFQWS_OPT\033[0m\n"
   uci set zapret.config.NFQWS_OPT='
 --filter-tcp=443
