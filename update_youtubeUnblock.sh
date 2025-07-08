@@ -77,7 +77,7 @@ download_install() {
 }
 
 config_youtubeUnblock() {
-  msg_i "Настройка пакетов"
+  msg_i "Настройка youtubeUnblock"
   uci del youtubeUnblock.cfg02d2da.sni_domains
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='googlevideo.com'
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='ggpht.com'
@@ -89,21 +89,10 @@ config_youtubeUnblock() {
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='googleusercontent.com'
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='gstatic.com'
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='l.google.com'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='facebook.com'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='fbcdn.net'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='fb.com'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='messenger.com'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='yt3.ggpht.com'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.com'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.fhrk1-1.fna.fbcdn.net'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.fkun2-1.fna.fbcdn.net'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.frix7-1.fna.fbcdn.net'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='instagram.fvno2-1.fna.fbcdn.net'
-  uci add_list youtubeUnblock.cfg02d2da.sni_domains='cdninstagram.com'
   uci add_list youtubeUnblock.cfg02d2da.sni_domains='1e100.net'
   uci set youtubeUnblock.youtubeUnblock.post_args='--silent'
   uci commit
-  /etc/init.d/youtubeUnblock restart
+  /etc/init.d/youtubeUnblock restart >/dev/null 2>&1
 }
 
 check_old_apps() {
