@@ -53,10 +53,10 @@ download_install() {
   #msg_i "Обновление пакетов."
   #opkg update > /dev/null 2>&1
   msg_i "Загрузка пакетов:"
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${ARCH}.ipk" >/dev/null 2>/dev/null && msg_i "\tzapret_${VERSION}_${ARCH}.ipk загружен" || {
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/zapret_${VERSION}_${ARCH}.ipk" -O "/tmp/zapret_${ARCH}.ipk" >/dev/null 2>/dev/null && msg_i "  zapret_${VERSION}_${ARCH}.ipk загружен" || {
     msg_e "Ошибка скачивания zapret_${VERSION}_${ARCH}.ipk"
   }
-  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}-r1_all.ipk" -O "/tmp/luci-app-zapret_all.ipk" 2>/dev/null && msg_i "\tluci-app-zapret_${VERSION}-r1_all.ipk загружен" || {
+  wget "https://github.com/Yusupoff/my-files/raw/refs/heads/main/luci-app-zapret_${VERSION}-r1_all.ipk" -O "/tmp/luci-app-zapret_all.ipk" 2>/dev/null && msg_i "  luci-app-zapret_${VERSION}-r1_all.ipk загружен" || {
     msg_e "Ошибка скачивания luci-app-zapret_${VERSION}_all.ipk"
   }
   msg_i "Устоновка пакетов"
@@ -128,9 +128,9 @@ main() {
   download_install
   config_apps
   if pgrep -f "zapret" > /dev/null; then
-    msg_i "Программа zapret запущена."
+    msg_i "Служба zapret работает."
   else
-    msg_e "Программа zapret не запущена."
+    msg_e "Служба zapret не работает."
   fi
 }
 
