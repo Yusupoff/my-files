@@ -224,12 +224,12 @@ install_update() {
   if [ "$1" -eq 1 ]; then
     wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh >/dev/null 2>&1
     chmod +x /tmp/update_apps.sh
-    #/tmp/update_apps.sh
+    /tmp/update_apps.sh
     rm -f /tmp/update_apps.sh
   elif [ "$1" -eq 2 ]; then
     wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh >/dev/null 2>&1
     chmod +x /tmp/update_apps.sh
-    #/tmp/update_apps.sh
+    /tmp/update_apps.sh
     rm -f /tmp/update_apps.sh
   else
     echo "Неизвестный аргумент!"
