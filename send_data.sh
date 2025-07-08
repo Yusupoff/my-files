@@ -1,5 +1,5 @@
 #!/bin/sh
-# Добавлена проверка и обновление списка пользовательских хостов для Zapret
+# Проверка наличия podkop и установка youtubeUnblock или zapret
 # 
 
 SCRIPT_VERSION="0.3.5"
@@ -48,9 +48,13 @@ DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
 ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
 IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
 OPKG_VERSION=$(opkg status zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
+if [ -z "$OPKG_VERSION" ]; then
+  OPKG_VERSION=$(opkg status youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
+fi
 SN=""
 IP_ADDRESSES=""
 JSON_VERSION=""
+APPS1_VERSION=""
 SCRIPT_VER=""
 MD5_HOSTLIST=""
 
@@ -141,10 +145,15 @@ data_receiving() {
     return 1
   fi
 
-  # Извлечение app_ver и script_ver с помощью jq
   JSON_VERSION=$(echo "$JSON" | jq -r '.app_ver' 2>/dev/null)
   if [ $? -ne 0 ] || [ "$JSON_VERSION" = "null" ]; then
     msg_e "Ошибка: Не удалось извлечь app_ver из JSON" >&2
+    return 1
+  fi
+
+  APPS1_VERSION=$(echo "$JSON" | jq -r '.version' 2>/dev/null)
+  if [ $? -ne 0 ] || [ "$APPS1_VERSION" = "null" ]; then
+    msg_e "Ошибка: Не удалось извлечь version из JSON" >&2
     return 1
   fi
 
@@ -170,29 +179,61 @@ check_app_version() {
     #printf "$JSON\n"
     exit 1
   fi
-
-  # Если версия в opkg отсутствует - выполнить установку
-  if [ -z "$OPKG_VERSION" ]; then
-    msg_i "Версия пакета не установлена, выполняется установка ($JSON_VERSION)"
-    install_update
-    return
+  
+  if [ -z "$APPS1_VERSION" ]; then
+    msg_e "Ошибка: Не удалось извлечь версию APPS1_VERSION из JSON."
+    #printf "$JSON\n"
+    exit 1
   fi
 
-  # Сравнение версий
-  if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
-    msg_i "Версии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)"
-    msg_i "Выполняется установка ($JSON_VERSION)"
-    install_update
+  # Если установлен podkop установить youtubeUnblock
+  if opkg list-installed | grep -q "^podkop "; then
+    msg_i "Пакет podkop установлен, установка youtubeUnblock"
+    if [ -z "$OPKG_VERSION" ]; then
+      msg_i "Версия пакета не установлена, выполняется установка ($APPS1_VERSION)"
+      install_update "2"
+      return
+    fi
+    # Сравнение версий
+    if [ "$APPS1_VERSION" != "$OPKG_VERSION" ]; then
+      msg_i "Версии различаются (JSON: $APPS1_VERSION, opkg: $OPKG_VERSION)"
+      msg_i "Выполняется установка ($APPS1_VERSION)"
+      install_update "2"
+    else
+      msg_i "Версии совпадают ($APPS1_VERSION)"
+    fi
   else
-    msg_i "Версии совпадают ($JSON_VERSION)"
+    msg_i "Пакет podkop не установлен, установка Zapret"
+    if [ -z "$OPKG_VERSION" ]; then
+      msg_i "Версия пакета не установлена, выполняется установка ($JSON_VERSION)"
+      install_update "1"
+      return
+    fi
+    # Сравнение версий
+    if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
+      msg_i "Версии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)"
+      msg_i "Выполняется установка ($JSON_VERSION)"
+      install_update "1"
+    else
+      msg_i "Версии совпадают ($JSON_VERSION)"
+    fi
   fi
 }
 
 install_update() {
-  wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh >/dev/null 2>&1
-  chmod +x /tmp/update_apps.sh
-  /tmp/update_apps.sh
-  rm -f /tmp/update_apps.sh
+  if [ "$1" -eq 1 ]; then
+    wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh >/dev/null 2>&1
+    chmod +x /tmp/update_apps.sh
+    #/tmp/update_apps.sh
+    rm -f /tmp/update_apps.sh
+  elif [ "$1" -eq 2 ]; then
+    wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh >/dev/null 2>&1
+    chmod +x /tmp/update_apps.sh
+    #/tmp/update_apps.sh
+    rm -f /tmp/update_apps.sh
+  else
+    echo "Неизвестный аргумент!"
+  fi
 }
 
 check_script_version() {
@@ -202,7 +243,7 @@ check_script_version() {
       #printf "$JSON\n"
       exit 1
     fi
-    msg_e "Версия скрипта обновления различается (JSON: $SCRIPT_VER, server: $SCRIPT_VERSION)."
+    msg_e "Версия скрипта обновления различается (JSON: $SCRIPT_VER, Router: $SCRIPT_VERSION)."
     OUTPUT=$(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh 2>&1)
                   # Проверка на успешное выполнение
     if [ $? -eq 0 ]; then
@@ -257,7 +298,9 @@ main() {
   data_receiving
   check_app_version
   check_script_version
-  check_hostlist
+  if opkg list-installed | grep -q "^zapret "; then
+    check_hostlist
+  fi
 }
 
 main

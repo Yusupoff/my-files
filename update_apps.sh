@@ -118,7 +118,7 @@ config_apps() {
 '
   uci commit zapret
   msg_i "Перезапуск zapret: "
-  /etc/init.d/zapret restart >/dev/null 2>/dev/null && msg_i "\tZapret перезапущен" || { msg_e "\tОшибка при перезапуске Zapret" 2>/dev/null; exit 1; }
+  /etc/init.d/zapret restart >/dev/null 2>&1 && msg_i " Zapret перезапущен" || { msg_e " Ошибка при перезапуске Zapret" 2>/dev/null; exit 1; }
 }
 
 main() {
