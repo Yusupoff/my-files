@@ -78,7 +78,6 @@ check_old_apps() {
 
 config_apps() {
   msg_i "Преднастройка Zapret"
-  msg_i "Загрузка zapret-hosts-user.txt"
   msg_i "Установка конфигурации zapret NFQWS_OPT"
   uci set zapret.config.NFQWS_OPT='
 --filter-tcp=443
