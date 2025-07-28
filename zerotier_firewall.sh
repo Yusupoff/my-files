@@ -11,17 +11,36 @@ fi
 echo "Найден Zerotier интерфейс: $zt_interface"
 
 # Проверяем существует ли уже зона zerotier
-zone_exists=$(uci show firewall | grep "firewall.@zone\[.*\].name='zerotier'")
+zone_exists=$(uci -q get firewall.@zone[-1].name)
 
-if [ -n "$zone_exists" ]; then
+# Ищем зону zerotier среди всех зон
+found_zone=0
+zone_index=0
+while uci -q get firewall.@zone[$zone_index] > /dev/null; do
+    if [ "$(uci -q get firewall.@zone[$zone_index].name)" = "zerotier" ]; then
+        found_zone=1
+        break
+    fi
+    zone_index=$((zone_index + 1))
+done
+
+if [ $found_zone -eq 1 ]; then
     echo "Зона zerotier уже существует, проверяем актуальность интерфейса"
     
     # Получаем текущий список интерфейсов зоны
-    current_interface=$(uci show firewall | grep -A 5 "firewall.@zone\[.*\].name='zerotier'" | grep "network='$zt_interface'" || echo "")
+    current_interface_found=0
+    network_index=0
+    while uci -q get firewall.@zone[$zone_index].network[$network_index] > /dev/null; do
+        if [ "$(uci -q get firewall.@zone[$zone_index].network[$network_index])" = "$zt_interface" ]; then
+            current_interface_found=1
+            break
+        fi
+        network_index=$((network_index + 1))
+    done
     
-    if [ -z "$current_interface" ]; then
-        echo "Обновляем интерфейс в зоне zerotier"
-        uci add_list firewall.@zone[-1].network="$zt_interface"
+    if [ $current_interface_found -eq 0 ]; then
+        echo "Добавляем интерфейс $zt_interface в зону zerotier"
+        uci add_list firewall.@zone[$zone_index].network="$zt_interface"
         uci commit firewall
     else
         echo "Интерфейс в зоне актуален"
@@ -37,17 +56,28 @@ else
     uci commit firewall
 fi
 
-# Проверяем существует ли уже правило forwarding
-forwarding_exists=$(uci show firewall | grep "firewall.@forwarding\[.*\].src='zerotier'.*dest='lan'")
+# Проверяем существует ли уже правило forwarding zerotier->lan
+forwarding_exists=0
+forwarding_index=0
+while uci -q get firewall.@forwarding[$forwarding_index] > /dev/null; do
+    src=$(uci -q get firewall.@forwarding[$forwarding_index].src)
+    dest=$(uci -q get firewall.@forwarding[$forwarding_index].dest)
+    
+    if [ "$src" = "zerotier" ] && [ "$dest" = "lan" ]; then
+        forwarding_exists=1
+        break
+    fi
+    forwarding_index=$((forwarding_index + 1))
+done
 
-if [ -n "$forwarding_exists" ]; then
-    echo "Правило forwarding уже существует"
-else
+if [ $forwarding_exists -eq 0 ]; then
     echo "Добавляем правило forwarding"
     uci add firewall forwarding
     uci set firewall.@forwarding[-1].src='zerotier'
     uci set firewall.@forwarding[-1].dest='lan'
     uci commit firewall
+else
+    echo "Правило forwarding уже существует"
 fi
 
 echo "Применяем изменения"
