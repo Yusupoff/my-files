@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Находим интерфейс Zerotier
-set -x
 zt_interface=$(ifconfig | grep '^zt' | awk '{print $1}' | head -n 1)
 
 if [ -z "$zt_interface" ]; then
