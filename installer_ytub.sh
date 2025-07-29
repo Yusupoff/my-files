@@ -255,6 +255,8 @@ config_youtubeUnblock() {
                 uci add_list youtubeUnblock.@section[-1].sni_domains='facebook.com'
                 uci add_list youtubeUnblock.@section[-1].sni_domains='facebook.net'
                 uci add_list youtubeUnblock.@section[-1].sni_domains='fb.com'
+                uci add_list youtubeUnblock.@section[-1].sni_domains='threads.com'
+                uci add_list youtubeUnblock.@section[-1].sni_domains='threads.net'
                 uci add_list youtubeUnblock.@section[-1].sni_domains='rutracker.org'
                 uci add_list youtubeUnblock.@section[-1].sni_domains='rutracker.net'
                 uci add_list youtubeUnblock.@section[-1].sni_domains='rutracker.cc'
@@ -315,6 +317,8 @@ config_youtubeUnblock() {
                 uci add_list youtubeUnblock.youtubeUnblock.sni_domains='instagram.com'
                 uci add_list youtubeUnblock.youtubeUnblock.sni_domains='fna.fbcdn.net'
                 uci add_list youtubeUnblock.youtubeUnblock.sni_domains='cdninstagram.com'
+                uci add_list youtubeUnblock.youtubeUnblock.sni_domains='threads.com'
+                uci add_list youtubeUnblock.youtubeUnblock.sni_domains='threads.net'
                 uci add_list youtubeUnblock.youtubeUnblock.sni_domains='1e100.net'
                 uci set youtubeUnblock.youtubeUnblock.silent='1'
                 uci commit youtubeUnblock
