@@ -176,6 +176,7 @@ install_release() {
     fi
     
     echo -e "${GREEN}Установка завершена успешно!${NC}"
+    echo -e "${GREEN}Нажмите ввод для выхода${NC}"
     read -s -n 1
     main_menu
 }
@@ -292,6 +293,7 @@ config_youtubeUnblock() {
                 uci add_list youtubeUnblock.@section[-1].sni_domains='twitterstat.us'
                 uci commit youtubeUnblock
                 echo -e "${GREEN}Конфигурация выполнена.${NC}"
+                echo -e "${GREEN}Нажмите ввод для выхода${NC}"
                 read -s -n 1
                 main_menu
                 ;;
@@ -335,6 +337,7 @@ config_youtubeUnblock() {
                 uci set youtubeUnblock.youtubeUnblock.silent='1'
                 uci commit youtubeUnblock
                 echo -e "${GREEN}Конфигурация выполнена.${NC}"
+                echo -e "${GREEN}Нажмите ввод для выхода${NC}"
                 read -s -n 1
                 main_menu
                 ;;
