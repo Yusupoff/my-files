@@ -10,12 +10,24 @@ NC='\033[0m' # No Color
 
 # GitHub API URL
 API_URL="https://api.github.com/repos/Waujito/youtubeUnblock/releases"
+PACKAGES="jq curl kmod-nft-queue"
 
-# Проверяем наличие jq
-if ! command -v jq >/dev/null 2>&1; then
-    echo -e "${RED}Ошибка: jq не установлен.${NC} Установите его командой: ${CYAN}opkg install jq${NC}"
-    exit 1
-fi
+packages_check() {
+  for pkg in $PACKAGES; do
+    if ! opkg list-installed | grep -q "^$pkg "; then
+        NEED_INSTALL=1
+        MISSING_PKGS="$MISSING_PKGS $pkg"
+    fi
+  done
+                  # Если есть отсутствующие пакеты?
+  if [ -n "$NEED_INSTALL" ]; then
+    echo -e "${RED}Ошибка: ${YELLOW}$MISSING_PKGS ${RED}не установлен.${NC}"
+    echo -e "${CYAN}Обновление списка пакетов...${NC}"
+    opkg update >/dev/null 2>&1 && echo -e "${CYAN}Обновление списка пакетов выполнено успешно!${NC}" || { echo -e "${RED}Ошибка при обновлении списка пакетов${NC}" >&2; exit 1; }
+    echo -e "${CYAN}Установка отсутствующих пакетов: ${YELLOW}$MISSING_PKGS${NC}"
+    opkg install $MISSING_PKGS 2>/dev/null
+  fi
+}
 
 # Получаем архитектуру системы
 get_arch() {
@@ -363,5 +375,5 @@ main_menu() {
     fi
 }
 
-# Запускаем главное меню
+packages_check
 main_menu
