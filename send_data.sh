@@ -2,7 +2,7 @@
 # Проверка наличия podkop и установка youtubeUnblock или zapret
 # 
 
-SCRIPT_VERSION="0.3.6"
+SCRIPT_VERSION="0.3.7"
 
 msg_i() { printf "\033[32;1m%s\033[0m\n" "$1"; }
 msg_e() { printf "\033[31;1m%s\033[0m\n" "$1"; }
@@ -42,11 +42,12 @@ PACKAGES="jq jsonfilter libnetfilter-queue1 coreutils-sort coreutils-sleep gzip 
 packages_check
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
+
 # Получение переменных
-MODEL=$(ubus call system board | jsonfilter -e '@["model"]')
-DESC=$(ubus call system board | jsonfilter -e '@["release"]["description"]')
+MODEL=$(ubus call system board | jq -r '.model // empty')
+DESC=$(ubus call system board | jq -r '.release?.description? // empty')
 ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
-IPV4_WAN=$(ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0]["address"]')
+IPV4_WAN=$(ubus call network.interface.wan status | jq -r '.["ipv4-address"]?[0]?.address? // empty')
 OPKG_VERSION=$(opkg status zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
 if [ -z "$OPKG_VERSION" ]; then
   OPKG_VERSION=$(opkg status youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
@@ -172,6 +173,12 @@ data_receiving() {
   return 0
 }
 
+# Проверяем установлен ли пакет
+is_installed() {
+    local pkg="$1"
+    opkg list-installed | grep -q "^$pkg "
+}
+
 check_app_version() {
   # Проверка наличия версии в JSON
   if [ -z "$JSON_VERSION" ]; then
@@ -185,6 +192,17 @@ check_app_version() {
     #printf "$JSON\n"
     exit 1
   fi
+
+  if is_installed "luci-app-zapret"; then
+        msg_i "Удаление luci-app-zapret"
+        opkg remove luci-app-zapret
+  fi
+  if is_installed "zapret"; then
+        msg_i "Удаление zapret"
+        opkg remove zapret
+        rm /etc/config/zapret
+  fi
+
 
   # Если установлен podkop установить youtubeUnblock
   if opkg list-installed | grep -q "^podkop "; then
@@ -205,17 +223,17 @@ check_app_version() {
   else
     msg_i "Пакет podkop не установлен, установка Zapret"
     if [ -z "$OPKG_VERSION" ]; then
-      msg_i "Версия пакета не установлена, выполняется установка ($JSON_VERSION)"
-      install_update "1"
+      msg_i "Версия пакета не установлена, выполняется установка ($APPS1_VERSION)"
+      install_update "2"
       return
     fi
     # Сравнение версий
-    if [ "$JSON_VERSION" != "$OPKG_VERSION" ]; then
-      msg_i "Версии различаются (JSON: $JSON_VERSION, opkg: $OPKG_VERSION)"
-      msg_i "Выполняется установка ($JSON_VERSION)"
-      install_update "1"
+    if [ "$APPS1_VERSION" != "$OPKG_VERSION" ]; then
+      msg_i "Версии различаются (JSON: $APPS1_VERSION, opkg: $OPKG_VERSION)"
+      msg_i "Выполняется установка ($APPS1_VERSION)"
+      install_update "2"
     else
-      msg_i "Версии совпадают ($JSON_VERSION)"
+      msg_i "Версии совпадают ($APPS1_VERSION)"
     fi
   fi
 }
