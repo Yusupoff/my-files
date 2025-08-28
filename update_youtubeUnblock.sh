@@ -67,7 +67,7 @@ download_install() {
   wget "https://github.com/Waujito/youtubeUnblock/releases/download/v1.1.0/youtubeUnblock-${VERSION}-${ARCH}-openwrt-23.05.ipk" -O "/tmp/youtubeUnblock_${ARCH}.ipk" >/dev/null 2>/dev/null && msg_i " youtubeUnblock_${VERSION}_${ARCH}.ipk загружен" || {
     msg_e " Ошибка скачивания youtubeUnblock_${VERSION}_${ARCH}.ipk"
   }
-  wget "https://github.com/Waujito/youtubeUnblock/releases/download/v1.1.0/luci-app-youtubeUnblock-${VERSION}.ipk" -O "/tmp/luci-app-youtubeUnblock.ipk" 2>/dev/null && msg_i " luci-app-youtubeUnblock_${VERSION}.ipk загружен" || {
+  wget "https://github.com/Waujito/youtubeUnblock/releases/download/v1.1.0/luci-app-youtubeUnblock-1.1.0-1-473af29.ipk" -O "/tmp/luci-app-youtubeUnblock.ipk" 2>/dev/null && msg_i " luci-app-youtubeUnblock_${VERSION}.ipk загружен" || {
     msg_e " Ошибка скачивания luci-app-youtubeUnblock_${VERSION}.ipk"
   }
   msg_i "Устоновка пакетов"
