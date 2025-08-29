@@ -8,16 +8,12 @@ BLUE='\033[1;34m'
 CYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
-# Проверяем установлен ли пакет
-is_installed() {
-    local pkg="$1"
-    opkg list-installed | grep -q "^$pkg "
-}
+PACKAGES="jq curl kmod-nft-queue"  # Пакеты для проверки
 
 # Проверка наличия пакета в системе
 packages_check() {
   for pkg in $PACKAGES; do
-    if ! is_installed "^$pkg "; then
+    if ! opkg list-installed | grep -q "^$pkg "; then
       NEED_INSTALL=1
       MISSING_PKGS="$MISSING_PKGS $pkg"
     fi
@@ -29,9 +25,6 @@ packages_check() {
     opkg install $MISSING_PKGS 2>/dev/null
   fi
 }
-
-PACKAGES="jq curl kmod-nft-queue"  # Пакеты для проверки
-packages_check
 
 # Скачиваем скрипт
 OUTPUT=$(wget https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/send_data.sh -O /usr/bin/send_data.sh 2>&1)
@@ -63,4 +56,5 @@ scheduler() {
     rm -f $TEMP_FILE
 }
 
+packages_check
 scheduler
