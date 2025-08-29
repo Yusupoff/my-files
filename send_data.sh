@@ -1,12 +1,27 @@
 #!/bin/sh
-# Проверка наличия podkop и установка youtubeUnblock или zapret
+SCRIPT_VERSION="0.3.8"
+# Обновление методов уведомлотладки и подсказок
+# Отказ от Zapret
+# Перенов проверки пакетов в скрипт обновления 
 # 
+# Алгоритм выполнения
+#     Проверка интернета                          check_internet
+#     Получение переменных                        get_variables
+#     Отправка данных об устройстве               data_sending
+#     Получение данных для обновлений             data_receiving
+#     Провека актуальности и обновление пакета    check_app_version
+#     Провека актуальностии обновление скрипта    check_script_version
+#     
 
-SCRIPT_VERSION="0.3.7"
+# Цветовые коды
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
+CYAN='\033[1;36m'
+NC='\033[0m' # No Color
 
-msg_i() { printf "\033[32;1m%s\033[0m\n" "$1"; }
-msg_e() { printf "\033[31;1m%s\033[0m\n" "$1"; }
-                  # Список доменов для проверки (минимум один должен ответить)
+# Список доменов для проверки соединения (минимум один должен ответить)
 check_internet() {
     local domains="openwrt.org ya.ru google.ru"
     local timeout=2
@@ -15,43 +30,28 @@ check_internet() {
             return 0
         fi
     done
-    msg_e "Нет интернета!"
+    echo -e "${RED}Нет интернета!${NC}"
     exit 1
 }
-                  # Проверяем каждый пакет
-packages_check() {
-  for pkg in $PACKAGES; do
-    if ! opkg list-installed | grep -q "^$pkg "; then
-        msg_e "Пакет $pkg не установлен."
-        NEED_INSTALL=1
-        MISSING_PKGS="$MISSING_PKGS $pkg"
-    fi
-  done
-                  # Если есть отсутствующие пакеты?
-  if [ -n "$NEED_INSTALL" ]; then   
-    msg_i "Обновление списка пакетов..."
-    opkg update >/dev/null 2>&1 && msg_i "Обновление списка пакетов выполнено успешно!" || { msg_e "Ошибка при обновлении списка пакетов" >&2; exit 1; }
-    msg_i "Установка отсутствующих пакетов: $MISSING_PKGS"
-    opkg install $MISSING_PKGS 2>/dev/null
-  fi
+
+# Проверяем установлен ли пакет
+is_installed() {
+    local pkg="$1"
+    opkg list-installed | grep -q "^$pkg "
 }
 
+# Проверка наличия интернета
 check_internet
+
+
 # Переменные
-PACKAGES="jq jsonfilter libnetfilter-queue1 coreutils-sort coreutils-sleep gzip libcap curl zlib kmod-nft-queue"  # Пакеты для проверки
-packages_check
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
-
-# Получение переменных
-MODEL=$(ubus call system board | jq -r '.model // empty')
-DESC=$(ubus call system board | jq -r '.release?.description? // empty')
-ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
-IPV4_WAN=$(ubus call network.interface.wan status | jq -r '.["ipv4-address"]?[0]?.address? // empty')
-OPKG_VERSION=$(opkg status zapret | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
-if [ -z "$OPKG_VERSION" ]; then
-  OPKG_VERSION=$(opkg status youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
-fi
+MODEL=""
+DESC=""
+ARCH=""
+IPV4_WAN=""
+OPKG_VERSION=""
 SN=""
 IP_ADDRESSES=""
 JSON_VERSION=""
@@ -59,6 +59,8 @@ APPS1_VERSION=""
 SCRIPT_VER=""
 MD5_HOSTLIST=""
 
+
+# Получение SN или MAC
 sn_or_mac() {
   if command -v fw_printenv >/dev/null 2>&1; then
     # Пытаемся получить SN через fw_printenv
@@ -73,8 +75,8 @@ sn_or_mac() {
   fi
 }
 
+# Получение списока всех сетевых интерфейсов за исключением интерфейсы lo и br-lan
 ip_interfaces() { 
-  # Получаем список всех сетевых интерфейсов исключает интерфейсы lo и br-lan
   INTERFACES=$(ifconfig | grep '^[a-z]' | awk '{print $1}' | grep -vE 'lo|br-lan')
   # Для каждого интерфейса получаем его IP-адрес-
   for iface in $INTERFACES; do
@@ -90,6 +92,18 @@ ip_interfaces() {
   done
 }
 
+# Получаем некоторые переменные  
+get_variables(){
+  sn_or_mac
+  ip_interfaces
+  MODEL=$(ubus call system board | jq -r '.model // empty')
+  DESC=$(ubus call system board | jq -r '.release?.description? // empty')
+  ARCH=$(grep -m 1 "/packages/" /etc/opkg/distfeeds.conf | sed -n 's/.*\/packages\/\([^\/]*\).*/\1/p')
+  IPV4_WAN=$(ubus call network.interface.wan status | jq -r '.["ipv4-address"]?[0]?.address? // empty')
+  OPKG_VERSION=$(opkg status youtubeUnblock | grep 'Version:' | awk '{print $2}' | cut -d'~' -f1)
+}
+
+# Отправка данных об устройстве
 data_sending() {
   # Формирование JSON с помощью jq
   JSON=$(jq -n \
@@ -111,11 +125,12 @@ data_sending() {
   # Проверка статуса ответа
   HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
   if [ "$HTTP_STATUS" != "200" ]; then
-    msg_e "Ошибка: сервер ответил статусом $HTTP_STATUS"
+    echo -e "${RED}Ошибка: сервер ответил статусом ${YELLOW}$HTTP_STATUS${NC}"
     return 1
   fi
 }
 
+# Получение данных для обновлений
 data_receiving() {
   # Отправка GET-запроса с помощью curl
   RESPONSE=$(curl -s -w "\n%{http_code}" \
@@ -125,7 +140,7 @@ data_receiving() {
     -H "Accept: application/json" 2>/dev/null)
   
   if [ $? -ne 0 ]; then
-    msg_e "Ошибка: Не удалось подключиться к %s:%s!!" "$SERVER" "$PORT" >&2
+    echo -e "${RED}Ошибка: Не удалось подключиться к ${YELLOW}%s:%s!!${NC}" "$SERVER" "$PORT" >&2
     return 1
   fi
 
@@ -136,189 +151,92 @@ data_receiving() {
 
   # Проверка HTTP-статуса
   if [ "$HTTP_STATUS" != "200" ]; then
-    msg_e "Ошибка: Сервер вернул статус %s" "$HTTP_STATUS" >&2
+    echo -e "${RED}Ошибка: Сервер вернул статус ${YELLOW}$HTTP_STATUS${NC}" >&2
     return 1
   fi
 
   # Проверка, что JSON не пустой
   if [ -z "$JSON" ]; then
-    msg_e "Ошибка: Пустой JSON-ответ от сервера" >&2
-    return 1
-  fi
-
-  JSON_VERSION=$(echo "$JSON" | jq -r '.app_ver' 2>/dev/null)
-  if [ $? -ne 0 ] || [ "$JSON_VERSION" = "null" ]; then
-    msg_e "Ошибка: Не удалось извлечь app_ver из JSON" >&2
+    echo -e "${RED}Ошибка: Пустой JSON-ответ от сервера${NC}" >&2
     return 1
   fi
 
   APPS1_VERSION=$(echo "$JSON" | jq -r '.version' 2>/dev/null)
   if [ $? -ne 0 ] || [ "$APPS1_VERSION" = "null" ]; then
-    msg_e "Ошибка: Не удалось извлечь version из JSON" >&2
+    echo -e "${RED}Ошибка: Не удалось извлечь version из JSON${NC}" >&2
     return 1
   fi
 
   SCRIPT_VER=$(echo "$JSON" | jq -r '.script_ver' 2>/dev/null)
   if [ $? -ne 0 ] || [ "$SCRIPT_VER" = "null" ]; then
-    msg_e "Ошибка: Не удалось извлечь script_ver из JSON" >&2
+    echo -e "${RED}Ошибка: Не удалось извлечь script_ver из JSON${NC}" >&2
     return 1
   fi
-
-  MD5_HOSTLIST=$(echo "$JSON" | jq -r '.md5_hostlist' 2>/dev/null)
-  if [ $? -ne 0 ] || [ "$MD5_HOSTLIST" = "null" ]; then
-    msg_e "Ошибка: Не удалось извлечь md5_hostlist из JSON" >&2
-    return 1
-  fi
-
   return 0
 }
 
-# Проверяем установлен ли пакет
-is_installed() {
-    local pkg="$1"
-    opkg list-installed | grep -q "^$pkg "
-}
-
+# Провека актуальности и обновление пакета
 check_app_version() {
-  # Проверка наличия версии в JSON
-  if [ -z "$JSON_VERSION" ]; then
-    msg_e "Ошибка: Не удалось извлечь версию из JSON."
-    #printf "$JSON\n"
-    exit 1
-  fi
-  
+  # Проверка наличия версии youtubeUnblock в JSON
   if [ -z "$APPS1_VERSION" ]; then
-    msg_e "Ошибка: Не удалось извлечь версию APPS1_VERSION из JSON."
+    echo -e "${RED}Ошибка: Не удалось извлечь версию youtubeUnblock из JSON.${NC}"
     #printf "$JSON\n"
     exit 1
   fi
-
-  if is_installed "luci-app-zapret"; then
-        msg_i "Удаление luci-app-zapret"
-        opkg remove luci-app-zapret
+  # Проверка и обновление youtubeUnblock
+  if [ -z "$OPKG_VERSION" ]; then
+    echo -e "${CYAN}Версия пакета не установлена, выполняется установка ${YELLOW}$APPS1_VERSION${NC}"
+    install_update
+    return
   fi
-  if is_installed "zapret"; then
-        msg_i "Удаление zapret"
-        opkg remove zapret
-        rm /etc/config/zapret
-  fi
-
-
-  # Если установлен podkop установить youtubeUnblock
-  if opkg list-installed | grep -q "^podkop "; then
-    msg_i "Пакет podkop установлен, установка youtubeUnblock"
-    if [ -z "$OPKG_VERSION" ]; then
-      msg_i "Версия пакета не установлена, выполняется установка ($APPS1_VERSION)"
-      install_update "2"
-      return
-    fi
-    # Сравнение версий
-    if [ "$APPS1_VERSION" != "$OPKG_VERSION" ]; then
-      msg_i "Версии различаются (JSON: $APPS1_VERSION, opkg: $OPKG_VERSION)"
-      msg_i "Выполняется установка ($APPS1_VERSION)"
-      install_update "2"
-    else
-      msg_i "Версии совпадают ($APPS1_VERSION)"
-    fi
+  # Сравнение версий
+  if [ "$APPS1_VERSION" != "$OPKG_VERSION" ]; then
+    echo -e "${YELLOW}Есть обновление для youtubeUnblock новая верия: ${CYAN}$APPS1_VERSION${YELLOW}, установленная: ${CYAN}$OPKG_VERSION${NC}"
+    echo -e "${CYAN}Выполняется установка ${CYAN}$APPS1_VERSION${NC}"
+    install_update
   else
-    msg_i "Пакет podkop не установлен, установка Zapret"
-    if [ -z "$OPKG_VERSION" ]; then
-      msg_i "Версия пакета не установлена, выполняется установка ($APPS1_VERSION)"
-      install_update "2"
-      return
-    fi
-    # Сравнение версий
-    if [ "$APPS1_VERSION" != "$OPKG_VERSION" ]; then
-      msg_i "Версии различаются (JSON: $APPS1_VERSION, opkg: $OPKG_VERSION)"
-      msg_i "Выполняется установка ($APPS1_VERSION)"
-      install_update "2"
-    else
-      msg_i "Версии совпадают ($APPS1_VERSION)"
-    fi
+    echo -e "${GREEN}Версии youtubeUnblock ${CYAN}$APPS1_VERSION ${GREEN}актуальна${NC}"
   fi
 }
 
+# Вызов скрипта установки youtubeUnblock
 install_update() {
-  if [ "$1" -eq 1 ]; then
-    wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_apps.sh >/dev/null 2>&1
-    chmod +x /tmp/update_apps.sh
-    /tmp/update_apps.sh
-    rm -f /tmp/update_apps.sh
-  elif [ "$1" -eq 2 ]; then
-    wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh >/dev/null 2>&1
-    chmod +x /tmp/update_apps.sh
-    /tmp/update_apps.sh
-    rm -f /tmp/update_apps.sh
-  else
-    echo "Неизвестный аргумент!"
-  fi
+  wget -q -O /tmp/update_apps.sh https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/update_youtubeUnblock.sh >/dev/null 2>&1
+  chmod +x /tmp/update_apps.sh
+  /tmp/update_apps.sh
+  rm -f /tmp/update_apps.sh
 }
 
+# Провека актуальностии и обновление скрипта
 check_script_version() {
   if [ "$SCRIPT_VER" != "$SCRIPT_VERSION" ]; then
     if [ -z "$SCRIPT_VER" ]; then
-      msg_e "Ошибка: Не удалось извлечь версию из JSON."
+      echo -e "${RED}Ошибка: Не удалось извлечь версию из JSON.${NC}"
       #printf "$JSON\n"
       exit 1
     fi
-    msg_e "Версия скрипта обновления различается (JSON: $SCRIPT_VER, Router: $SCRIPT_VERSION)."
+    echo -e "${CYAN}Версия скрипта обновление скрипта: ${YELLOW}$SCRIPT_VER ${CYAN}Текущая версия: ${YELLOW}$SCRIPT_VERSION.${NC}"
     OUTPUT=$(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh 2>&1)
-                  # Проверка на успешное выполнение
+    # Проверка на успешное обновление скрипта
     if [ $? -eq 0 ]; then
       # Если команда выполнена успешно, выполняем скачанный скрипт
       OUTPUT=$(echo "$OUTPUT" | tail -n +4)
       OUTPUT=$(echo "$OUTPUT" | head -n -3)
       sh <(echo "$OUTPUT")
     else
-      # Если wget завершился с ошибкой, выводим ошибку
-      msg_e "Произошла ошибка при обновлении скрипта: $OUTPUT"
+      echo -e "${RED}Произошла ошибка при обновлении скрипта: $OUTPUT${NC}"
     fi
   else
-    msg_i "Версии скрипта актуальна ($SCRIPT_VERSION)."
-  fi
-}
-
-check_hostlist() {
-  LOCAL_FILE="/opt/zapret/ipset/zapret-hosts-user.txt"
-  REMOTE_URL="http://myhostkeenetic.zapto.org:5000/files/zapret-hosts-user.txt"
-  
-  # Проверяем существование файла и что он не пустой
-  if [ ! -s "$LOCAL_FILE" ]; then
-    msg_e "Пользовательский список хостов для Zapret не существует."
-    exit 1
-  fi
-
-  # Проверяем, что в файле хотя бы две строки
-  LINE_COUNT=$(wc -l < "$LOCAL_FILE")
-  if [ "$LINE_COUNT" -lt 2 ]; then
-    msg_e "Пользовательский список хостов для Zapret не нужно обновлять."
-    exit 1
-  fi
-
-  MD5_LOCAL=$(md5sum "$LOCAL_FILE" | awk '{print $1}')
-  # Если хеши не совпадают, качаем новый файл
-  if [ "$MD5_LOCAL" != "$MD5_HOSTLIST" ]; then
-    OUTPUT=$(wget "$REMOTE_URL" -O "$LOCAL_FILE" 2>&1)
-    if [ $? -eq 0 ]; then
-      msg_i "Пользовательский список хостов для Zapret успешно обновлён."
-    else
-      msg_e "Произошла ошибка при обновлении списка хостов: $OUTPUT"
-    fi
-  else
-    msg_i "Пользовательский список хостов для Zapret актуален."
+    echo -e "${GREEN}Версии скрипта ${CYAN}$SCRIPT_VERSION ${GREEN}актуальна.${NC}"
   fi
 }
 
 main() {
-  sn_or_mac
-  ip_interfaces
+  get_variables
   data_sending
   data_receiving
   check_app_version
   check_script_version
-  if opkg list-installed | grep -q "^zapret "; then
-    check_hostlist
-  fi
 }
 
 main
