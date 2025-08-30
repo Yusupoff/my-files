@@ -1,5 +1,10 @@
 #!/bin/sh
 SCRIPT_VERSION="3.0"
+# Алгоритм выполнения
+#     Получение данных для обновлений             data_receiving
+#     Провека проверка наличия пакета zapret      check_app_version
+#     Обновление нужного релиза youtubeUnblock    install_release
+#     Конфигурация youtubeUnblock                 config_youtubeUnblock
 
 # Цветовые коды
 RED='\033[1;31m'
@@ -153,7 +158,7 @@ install_release() {
 
 
 config_youtubeUnblock() {
-  msg_i "Настройка youtubeUnblock"
+  echo -e "${CYAN}Настройка youtubeUnblock${NC}"
   while uci -q delete youtubeUnblock.@section[0]; do :; done
   uci set youtubeUnblock.youtubeUnblock.conf_strat='ui_flags'
   uci set youtubeUnblock.youtubeUnblock.packet_mark='32768'
@@ -189,17 +194,79 @@ config_youtubeUnblock() {
   uci add_list youtubeUnblock.@section[-1].sni_domains='gstatic.com'
   uci add_list youtubeUnblock.@section[-1].sni_domains='l.google.com'
   uci set youtubeUnblock.@section[-1].quic_drop='1'
+  if ! opkg list-installed | grep -q "^podkop "; then
+    uci add youtubeUnblock section # =cfg03d2da
+    uci set youtubeUnblock.@section[-1].name='other_zapret'
+    uci set youtubeUnblock.@section[-1].enabled='1'
+    uci set youtubeUnblock.@section[-1].tls_enabled='1'
+    uci set youtubeUnblock.@section[-1].fake_sni='1'
+    uci set youtubeUnblock.@section[-1].faking_strategy='pastseq'
+    uci set youtubeUnblock.@section[-1].fake_sni_seq_len='1'
+    uci set youtubeUnblock.@section[-1].fake_sni_type='default'
+    uci set youtubeUnblock.@section[-1].frag='tcp'
+    uci set youtubeUnblock.@section[-1].frag_sni_reverse='1'
+    uci set youtubeUnblock.@section[-1].frag_sni_faked='0'
+    uci set youtubeUnblock.@section[-1].frag_middle_sni='1'
+    uci set youtubeUnblock.@section[-1].frag_sni_pos='1'
+    uci set youtubeUnblock.@section[-1].seg2delay='0'
+    uci set youtubeUnblock.@section[-1].fk_winsize='0'
+    uci set youtubeUnblock.@section[-1].synfake='0'
+    uci set youtubeUnblock.@section[-1].all_domains='0'
+    uci set youtubeUnblock.@section[-1].sni_detection='parse'
+    uci set youtubeUnblock.@section[-1].quic_drop='0'
+    uci set youtubeUnblock.@section[-1].udp_mode='fake'
+    uci set youtubeUnblock.@section[-1].udp_faking_strategy='none'
+    uci set youtubeUnblock.@section[-1].udp_fake_seq_len='6'
+    uci set youtubeUnblock.@section[-1].udp_fake_len='64'
+    uci add_list youtubeUnblock.@section[-1].udp_dport_filter='50000-50100'
+    uci set youtubeUnblock.@section[-1].udp_filter_quic='disabled'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='discord.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='discordapp.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='discord.gg'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='discordapp.net'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='discord.media'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='cdninstagram.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='instagram.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='ig.me'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='fbcdn.net'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='facebook.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='facebook.net'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='fb.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='threads.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='threads.net'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='rutracker.org'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='rutracker.net'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='rutracker.cc'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='rutor.info'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='rutor.is'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='nnmclub.to'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twitter.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='t.co'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twimg.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='ads-twitter.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='x.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='pscp.tv'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twtrdns.net'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twttr.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='periscope.tv'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='tweetdeck.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twitpic.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twitter.co'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twitterinc.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twitteroauth.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='twitterstat.us'
+  fi
   uci commit youtubeUnblock
   /etc/init.d/youtubeUnblock restart >/dev/null 2>&1
 }
 
 check_old_apps() {
   if opkg list-installed | grep -q "^luci-app-zapret "; then
-    msg_e "Обнаружен luci-app-zapret, удаление..."
+    echo -e "${RED}Обнаружен luci-app-zapret, удаление...${NC}"
     opkg remove luci-app-zapret
   fi
   if opkg list-installed | grep -q "^zapret "; then
-	  msg_e "Обнаружен zapret, удаление..."
+	  echo -e "${RED}Обнаружен zapret, удаление...${NC}"
     opkg remove zapret
   fi
 }
