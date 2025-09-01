@@ -144,15 +144,11 @@ install_release() {
     
     # Проверяем и устанавливаем Luci, если есть
     if [ -n "$luci_pkg" ]; then
-        if ! is_installed "luci-app-youtubeUnblock"; then
-            echo -e "${GREEN}Найден пакет Luci: ${YELLOW}$luci_pkg${NC}"
-            local luci_url=$(get_download_url "$selected_tag" "$luci_pkg")
-            install_package "$luci_url"
-        else
-            echo -e "${CYAN}Пакет Luci уже установлен, пропускаем${NC}"
-        fi
+      echo -e "${GREEN}Найден пакет Luci: ${YELLOW}$luci_pkg${NC}"
+      local luci_url=$(get_download_url "$selected_tag" "$luci_pkg")
+      install_package "$luci_url"
     else
-        echo -e "${YELLOW}Пакет Luci не найден в этом релизе${NC}"
+      echo -e "${YELLOW}Пакет Luci не найден в этом релизе${NC}"
     fi
 }
 
