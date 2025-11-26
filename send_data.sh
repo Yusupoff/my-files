@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.10"
+SCRIPT_VERSION="0.3.11"
 # Обновление методов уведомлотладки и подсказок
 # Отказ от Zapret
 # Перенов проверки пакетов в скрипт обновления 
@@ -327,11 +327,24 @@ config_youtubeUnblock() {
     uci commit youtubeUnblock
   fi
 
-  if ! uci show youtubeUnblock | grep -q ".name='CallsWhatsAppTelegram'"; then
+  if ! uci show youtubeUnblock | grep -q ".name='CallsWhatsAppTelegram_26.11.25'"; then
     uci add youtubeUnblock section # =cfg03d2da
-    uci set youtubeUnblock.@section[-1].name='CallsWhatsAppTelegram'
+    uci set youtubeUnblock.@section[-1].name='CallsWhatsAppTelegram_26.11.25'
     uci set youtubeUnblock.@section[-1].enabled='1'
-    uci set youtubeUnblock.@section[-1].tls_enabled='0'
+    uci set youtubeUnblock.@section[-1].tls_enabled='1'
+    uci set youtubeUnblock.@section[-1].sni_detection='parse'
+    uci set youtubeUnblock.@section[-1].fake_sni='1'
+    uci set youtubeUnblock.@section[-1].faking_strategy='pastseq'
+    uci set youtubeUnblock.@section[-1].fake_sni_seq_len='1'
+    uci set youtubeUnblock.@section[-1].fake_sni_type='default'
+    uci set youtubeUnblock.@section[-1].frag='tcp'
+    uci set youtubeUnblock.@section[-1].frag_sni_reverse='1'
+    uci set youtubeUnblock.@section[-1].frag_sni_faked='0'
+    uci set youtubeUnblock.@section[-1].frag_middle_sni='1'
+    uci set youtubeUnblock.@section[-1].frag_sni_pos='1'
+    uci set youtubeUnblock.@section[-1].seg2delay='0'
+    uci set youtubeUnblock.@section[-1].fk_winsize='0'
+    uci set youtubeUnblock.@section[-1].synfake='0'
     uci set youtubeUnblock.@section[-1].all_domains='0'
     #if ! opkg list-installed | grep -q "^podkop "; then
       uci add_list youtubeUnblock.@section[-1].sni_domains='cdn-telegram.org'
