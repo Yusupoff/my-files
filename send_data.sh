@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.9"
+SCRIPT_VERSION="0.3.10"
 # Обновление методов уведомлотладки и подсказок
 # Отказ от Zapret
 # Перенов проверки пакетов в скрипт обновления 
@@ -43,7 +43,6 @@ is_installed() {
 # Проверка наличия интернета
 check_internet
 
-
 # Переменные
 SERVER="myhostkeenetic.zapto.org"
 PORT=5000
@@ -58,7 +57,6 @@ JSON_VERSION=""
 APPS1_VERSION=""
 SCRIPT_VER=""
 MD5_HOSTLIST=""
-
 
 # Получение SN или MAC
 sn_or_mac() {
@@ -233,28 +231,23 @@ check_script_version() {
 
 config_youtubeUnblock() {
   echo -e "${CYAN}Настройка youtubeUnblock${NC}"
-  if ! uci show youtubeUnblock | grep -q ".name='youtube'"; then
+  if ! uci show youtubeUnblock | grep -q ".name='youtube_26.11.25'"; then
     while uci -q delete youtubeUnblock.@section[0]; do :; done
     uci set youtubeUnblock.youtubeUnblock.conf_strat='ui_flags'
     uci set youtubeUnblock.youtubeUnblock.packet_mark='32768'
     uci set youtubeUnblock.youtubeUnblock.queue_num='537'
-    uci set youtubeUnblock.youtubeUnblock.silent='0'
+    uci set youtubeUnblock.youtubeUnblock.silent='1'
     uci set youtubeUnblock.youtubeUnblock.no_ipv6='1'
     uci add youtubeUnblock section # =cfg02d2da
     uci set youtubeUnblock.@section[-1].name='youtube'
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='1'
     uci set youtubeUnblock.@section[-1].fake_sni='1'
-    uci set youtubeUnblock.@section[-1].faking_strategy='pastseq'
+    uci set youtubeUnblock.@section[-1].faking_strategy='tcp_check'
     uci set youtubeUnblock.@section[-1].fake_sni_seq_len='1'
     uci set youtubeUnblock.@section[-1].fake_sni_type='default'
-    uci set youtubeUnblock.@section[-1].frag='tcp'
-    uci set youtubeUnblock.@section[-1].frag_sni_reverse='1'
-    uci set youtubeUnblock.@section[-1].frag_sni_faked='0'
-    uci set youtubeUnblock.@section[-1].frag_middle_sni='1'
-    uci set youtubeUnblock.@section[-1].frag_sni_pos='1'
+    uci set youtubeUnblock.@section[-1].frag='none'
     uci set youtubeUnblock.@section[-1].seg2delay='0'
-    uci set youtubeUnblock.@section[-1].fk_winsize='0'
     uci set youtubeUnblock.@section[-1].synfake='0'
     uci set youtubeUnblock.@section[-1].sni_detection='parse'
     uci set youtubeUnblock.@section[-1].all_domains='0'
@@ -269,7 +262,7 @@ config_youtubeUnblock() {
     uci add_list youtubeUnblock.@section[-1].sni_domains='gstatic.com'
     uci add_list youtubeUnblock.@section[-1].sni_domains='l.google.com'
     uci set youtubeUnblock.@section[-1].quic_drop='1'
-    if ! opkg list-installed | grep -q "^podkop "; then
+    #if ! opkg list-installed | grep -q "^podkop "; then
       uci add youtubeUnblock section # =cfg03d2da
       uci set youtubeUnblock.@section[-1].name='other_zapret'
       uci set youtubeUnblock.@section[-1].enabled='1'
@@ -330,7 +323,7 @@ config_youtubeUnblock() {
       uci add_list youtubeUnblock.@section[-1].sni_domains='twitterinc.com'
       uci add_list youtubeUnblock.@section[-1].sni_domains='twitteroauth.com'
       uci add_list youtubeUnblock.@section[-1].sni_domains='twitterstat.us'
-    fi
+    #fi
     uci commit youtubeUnblock
   fi
 
@@ -340,7 +333,7 @@ config_youtubeUnblock() {
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='0'
     uci set youtubeUnblock.@section[-1].all_domains='0'
-    if ! opkg list-installed | grep -q "^podkop "; then
+    #if ! opkg list-installed | grep -q "^podkop "; then
       uci add_list youtubeUnblock.@section[-1].sni_domains='cdn-telegram.org'
       uci add_list youtubeUnblock.@section[-1].sni_domains='comments.app'
       uci add_list youtubeUnblock.@section[-1].sni_domains='contest.com'
@@ -359,7 +352,7 @@ config_youtubeUnblock() {
       uci add_list youtubeUnblock.@section[-1].sni_domains='telesco.pe'
       uci add_list youtubeUnblock.@section[-1].sni_domains='tg.dev'
       uci add_list youtubeUnblock.@section[-1].sni_domains='tx.me'
-    fi
+    #fi
     uci add_list youtubeUnblock.@section[-1].sni_domains='usercontent.dev'
     uci add_list youtubeUnblock.@section[-1].sni_domains='graph.facebook.com'
     uci add_list youtubeUnblock.@section[-1].sni_domains='whatsapp.biz'
