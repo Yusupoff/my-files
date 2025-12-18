@@ -4,6 +4,14 @@ CONFIG_VERSION="19.12.25"
 # synfake='1'
 # synfake_len='2'
 
+# Цветовые коды
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
+CYAN='\033[1;36m'
+NC='\033[0m' # No Color
+
 echo -e "${CYAN}Настройка youtubeUnblock${NC}"
   if ! uci show youtubeUnblock | grep -q ".name='youtube_19.12.25'"; then
     while uci -q delete youtubeUnblock.@section[0]; do :; done

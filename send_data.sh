@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.11"
+SCRIPT_VERSION="0.3.12"
 # Обновление методов уведомлотладки и подсказок
 # Отказ от Zapret
 # Перенов проверки пакетов в скрипт обновления 
@@ -11,7 +11,7 @@ SCRIPT_VERSION="0.3.11"
 #     Получение данных для обновлений             data_receiving
 #     Провека актуальности и обновление пакета    check_app_version
 #     Провека актуальностии обновление скрипта    check_script_version
-#     
+#     Скачивание скрипта конфигурации и выполнение 
 
 # Цветовые коды
 RED='\033[1;31m'
@@ -235,7 +235,7 @@ main() {
   data_receiving
   check_app_version
   check_script_version
-  sh <(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh)
+  wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh | sh
 }
 
 main
