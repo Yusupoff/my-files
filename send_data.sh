@@ -235,7 +235,7 @@ main() {
   data_receiving
   check_app_version
   check_script_version
-  wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh | sh
+  sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh)
 }
 
 main
