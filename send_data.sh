@@ -213,17 +213,18 @@ check_script_version() {
       #printf "$JSON\n"
       exit 1
     fi
-    echo -e "${CYAN}Версия скрипта обновление скрипта: ${YELLOW}$SCRIPT_VER ${CYAN}Текущая версия: ${YELLOW}$SCRIPT_VERSION.${NC}"
-    OUTPUT=$(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh 2>&1)
+    echo -e "${CYAN}Версия скрипта обновления скрипта: ${YELLOW}$SCRIPT_VER ${CYAN}Текущая версия: ${YELLOW}$SCRIPT_VERSION.${NC}"
+    sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh)
+    #OUTPUT=$(wget -O - https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/updater.sh 2>&1)
     # Проверка на успешное обновление скрипта
-    if [ $? -eq 0 ]; then
+    #if [ $? -eq 0 ]; then
       # Если команда выполнена успешно, выполняем скачанный скрипт
-      OUTPUT=$(echo "$OUTPUT" | tail -n +4)
-      OUTPUT=$(echo "$OUTPUT" | head -n -3)
-      sh <(echo "$OUTPUT")
-    else
-      echo -e "${RED}Произошла ошибка при обновлении скрипта: $OUTPUT${NC}"
-    fi
+    #  OUTPUT=$(echo "$OUTPUT" | tail -n +4)
+    #  OUTPUT=$(echo "$OUTPUT" | head -n -3)
+    #  sh <(echo "$OUTPUT")
+    #else
+    #  echo -e "${RED}Произошла ошибка при обновлении скрипта: $OUTPUT${NC}"
+    #fi
   else
     echo -e "${GREEN}Версии скрипта ${CYAN}$SCRIPT_VERSION ${GREEN}актуальна.${NC}"
   fi
