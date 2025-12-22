@@ -237,6 +237,7 @@ main() {
   check_app_version
   check_script_version
   sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh)
+  sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/configure_dropbear.sh)
 }
 
 main
