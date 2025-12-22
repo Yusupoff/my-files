@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.12"
+SCRIPT_VERSION="0.3.13"
 # Обновление методов уведомлотладки и подсказок
 # Отказ от Zapret
 # Перенов проверки пакетов в скрипт обновления 
@@ -237,7 +237,6 @@ main() {
   check_app_version
   check_script_version
   sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh)
-  sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/configure_dropbear.sh)
 }
 
 main
