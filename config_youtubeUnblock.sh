@@ -34,7 +34,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.@section[-1].fk_winsize='0'
     uci set youtubeUnblock.@section[-1].synfake='0'
     uci set youtubeUnblock.@section[-1].all_domains='0'
-    uci set youtubeUnblock.@section[-1]..sni_detection='parse'
+    uci set youtubeUnblock.@section[-1].sni_detection='parse'
     uci add_list youtubeUnblock.@section[-1].sni_domains='googlevideo.com'
     uci add_list youtubeUnblock.@section[-1].sni_domains='ggpht.com'
     uci add_list youtubeUnblock.@section[-1].sni_domains='ytimg.com'
