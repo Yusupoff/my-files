@@ -13,7 +13,7 @@ CYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
 echo -e "${CYAN}Настройка youtubeUnblock${NC}"
-  if ! uci show youtubeUnblock | grep -q ".name='youtube_29.12.25'"; then
+  if ! uci show youtubeUnblock | grep -q ".name='youtube_30.12.25'"; then
     while uci -q delete youtubeUnblock.@section[0]; do :; done
     uci set youtubeUnblock.youtubeUnblock.conf_strat='ui_flags'
     uci set youtubeUnblock.youtubeUnblock.packet_mark='32768'
@@ -21,7 +21,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.youtubeUnblock.silent='1'
     uci set youtubeUnblock.youtubeUnblock.no_ipv6='1'
     uci add youtubeUnblock section # =cfg02d2da
-    uci set youtubeUnblock.@section[-1].name='youtube_29.12.25'
+    uci set youtubeUnblock.@section[-1].name='youtube_30.12.25'
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='1'
     uci set youtubeUnblock.@section[-1].fake_sni='0'
