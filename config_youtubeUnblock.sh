@@ -24,7 +24,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.@section[-1].name='youtube_29.12.25'
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='1'
-    uci set youtubeUnblock.@section[-1].fake_sni='1'
+    uci set youtubeUnblock.@section[-1].fake_sni='0'
     uci set youtubeUnblock.@section[-1].frag='tcp'
     uci set youtubeUnblock.@section[-1].frag_sni_reverse='1'
     uci set youtubeUnblock.@section[-1].frag_sni_faked='0'
