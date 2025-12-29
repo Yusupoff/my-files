@@ -5,7 +5,7 @@ SCRIPT_VERSION="3.0"
 #     Провека проверка наличия пакета zapret      check_app_version
 #     Обновление нужного релиза youtubeUnblock    install_release
 #     Конфигурация youtubeUnblock                 config_youtubeUnblock
-set -x
+#set -x
 # Цветовые коды
 RED='\033[1;31m'
 GREEN='\033[1;32m'
