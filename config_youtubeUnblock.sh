@@ -1,5 +1,5 @@
 #!/bin/sh
-CONFIG_VERSION="19.12.25"
+CONFIG_VERSION="05.01.26"
 # seg2delay='1'
 # synfake='1'
 # synfake_len='2'
