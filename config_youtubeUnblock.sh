@@ -21,7 +21,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.youtubeUnblock.silent='1'
     uci set youtubeUnblock.youtubeUnblock.no_ipv6='1'
     uci add youtubeUnblock section # =cfg02d2da
-    uci set youtubeUnblock.@section[-1].name='youtube_05.01.6'
+    uci set youtubeUnblock.@section[-1].name='youtube_05.01.26'
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='1'
     uci set youtubeUnblock.@section[-1].fake_sni='1'
