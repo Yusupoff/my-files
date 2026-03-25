@@ -13,7 +13,7 @@ CYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
 echo -e "${CYAN}Настройка youtubeUnblock${NC}"
-  if ! uci show youtubeUnblock | grep -q ".name='youtube_18.03.26'"; then
+  if ! uci show youtubeUnblock | grep -q ".name='youtube_23.03.26'"; then
     while uci -q delete youtubeUnblock.@section[0]; do :; done
     uci set youtubeUnblock.youtubeUnblock.conf_strat='ui_flags'
     uci set youtubeUnblock.youtubeUnblock.packet_mark='32768'
@@ -21,7 +21,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.youtubeUnblock.silent='1'
     uci set youtubeUnblock.youtubeUnblock.no_ipv6='1'
     uci add youtubeUnblock section # =cfg02d2da
-    uci set youtubeUnblock.@section[-1].name='youtube_18.03.26'
+    uci set youtubeUnblock.@section[-1].name='youtube_23.03.26'
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='1'
     uci set youtubeUnblock.@section[-1].fake_sni='1'
@@ -34,7 +34,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.@section[-1].frag_middle_sni='1'
     uci set youtubeUnblock.@section[-1].frag_sni_pos='1'
     uci set youtubeUnblock.@section[-1].seg2delay='2'
-    uci set youtubeUnblock.@section[-1].fk_winsize='0'
+    uci set youtubeUnblock.@section[-1].fk_winsize='1'
     uci set youtubeUnblock.@section[-1].synfake='0'
     uci set youtubeUnblock.@section[-1].all_domains='0'
     uci set youtubeUnblock.@section[-1].sni_detection='parse'
@@ -48,6 +48,8 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci add_list youtubeUnblock.@section[-1].sni_domains='googleusercontent.com'
     uci add_list youtubeUnblock.@section[-1].sni_domains='gstatic.com'
     uci add_list youtubeUnblock.@section[-1].sni_domains='l.google.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='withyoutube.com'
+    uci add_list youtubeUnblock.@section[-1].sni_domains='youtube-nocookie.com'
     uci set youtubeUnblock.@section[-1].quic_drop='1'
 
     #if ! opkg list-installed | grep -q "^podkop "; then
@@ -65,7 +67,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.@section[-1].frag_middle_sni='1'
     uci set youtubeUnblock.@section[-1].frag_sni_pos='1'
     uci set youtubeUnblock.@section[-1].seg2delay='2'
-    uci set youtubeUnblock.@section[-1].fk_winsize='0'
+    uci set youtubeUnblock.@section[-1].fk_winsize='1'
     uci set youtubeUnblock.@section[-1].synfake='0'
     uci set youtubeUnblock.@section[-1].all_domains='0'
     uci set youtubeUnblock.@section[-1].sni_detection='parse'
@@ -115,9 +117,9 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci commit youtubeUnblock
   fi
 
-  if ! uci show youtubeUnblock | grep -q ".name='CallsWhatsAppTelegram_18.03.26'"; then
+  if ! uci show youtubeUnblock | grep -q ".name='CallsWhatsAppTelegram_23.03.26'"; then
     uci add youtubeUnblock section # =cfg03d2da
-    uci set youtubeUnblock.@section[-1].name='CallsWhatsAppTelegram_18.03.26'
+    uci set youtubeUnblock.@section[-1].name='CallsWhatsAppTelegram_23.03.26'
     uci set youtubeUnblock.@section[-1].enabled='1'
     uci set youtubeUnblock.@section[-1].tls_enabled='1'
     uci set youtubeUnblock.@section[-1].fake_sni='1'
@@ -130,7 +132,7 @@ echo -e "${CYAN}Настройка youtubeUnblock${NC}"
     uci set youtubeUnblock.@section[-1].frag_middle_sni='1'
     uci set youtubeUnblock.@section[-1].frag_sni_pos='1'
     uci set youtubeUnblock.@section[-1].seg2delay='2'
-    uci set youtubeUnblock.@section[-1].fk_winsize='0'
+    uci set youtubeUnblock.@section[-1].fk_winsize='1'
     uci set youtubeUnblock.@section[-1].synfake='0'
     uci set youtubeUnblock.@section[-1].all_domains='0'
     uci set youtubeUnblock.@section[-1].sni_detection='parse'
