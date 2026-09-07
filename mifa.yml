@@ -1,0 +1,4229 @@
+proxies:
+  - name: 🇦🇪  United Arab Emirates  [01]  MIFA
+    type: vless
+    server: 31.56.189.27
+    port: 2087
+    uuid: df9f5aca-eda0-428f-a752-e53866153d12
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: srv-21bac9.vless.monster
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: freegrpc
+  - name: 🇦🇪  United Arab Emirates  [02]  MIFA
+    type: vless
+    server: srv-21bac9.vless.monster
+    port: 2087
+    uuid: df9f5aca-eda0-428f-a752-e53866153d12
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: srv-21bac9.vless.monster
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: freegrpc
+  - name: 🇦🇪  United Arab Emirates  [03]  MIFA
+    type: vless
+    server: 31.56.189.224
+    port: 3443
+    uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: special.aeternavpn.space
+    reality-opts:
+      public-key: "-6SjfnZXAYm69euKQ3XNhq0nC7No7YE4qfdc2qx0Xwo"
+      short-id: a1b2c3d4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇦🇿  Azerbaijan  [01]  MIFA
+    type: vless
+    server: 92.223.62.31
+    port: 443
+    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: baku-promo-og.cdn.cachefleet.com
+    reality-opts:
+      public-key: BuzGC7W-cLY8Hd2cm3sXFdJC9JVMkHEKdm9xoJSPMjI
+      short-id: e19f3311279f786d
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇧🇬  Bulgaria  [01]  MIFA
+    type: vless
+    server: bg4.univesalsrv.com
+    port: 443
+    uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bg4.univesalsrv.com
+    reality-opts:
+      public-key: k-vH6pkyAv26L1_dXKOFhp0Kesur9-FCUDoj-IIpVhc
+      short-id: 51f45d4fd58cc319
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: cloud.v1.RelayService
+  - name: 🇧🇬  Bulgaria  [02]  MIFA
+    type: vless
+    server: 45.9.156.24
+    port: 443
+    uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bg2.univesalsrv.com
+    reality-opts:
+      public-key: 0f0dh_FUju5cHgQcIwUjHvxQb9aIZ00p0kZRHeE7Ey4
+      short-id: 501ab3325b77e1ca
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: api.v2.PushService
+  - name: 🇨🇦  Canada  [01]  MIFA
+    type: vless
+    server: 130.107.73.148
+    port: 41373
+    uuid: a71c8954-66a8-4321-bedb-2336230d81ce
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: m0GsZOAwvAJEaqh9aH6qfOmBKo0KW0jY_tJEC6KaDEU
+      short-id: 0e
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇨🇦  Canada  [02]  MIFA
+    type: vless
+    server: 66.70.179.198
+    port: 2053
+    uuid: d165fa7e-fa7a-414f-8c75-15f18bce5105
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: wA5Vklw2gN0kMwC7JEmudiPbsKyTeSfbZNvpLiDUBEU
+      short-id: bb437dca4f03116e
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇨🇦  Canada  [03]  MIFA
+    type: vless
+    server: maple.adaspoloandco.com
+    port: 8443
+    uuid: db3f09ae-23f2-42b8-abee-7b89fb392c5e
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: maple.adaspoloandco.com
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /uploader.php
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇨🇦  Canada  [04]  MIFA
+    type: vless
+    server: 54.39.96.233
+    port: 8443
+    uuid: db3f09ae-23f2-42b8-abee-7b89fb392c5e
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: maple.adaspoloandco.com
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /uploader.php
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇨🇦  Canada  [05]  MIFA
+    type: vless
+    server: 151.244.30.176
+    port: 443
+    uuid: c928859b-424d-429c-b1fe-c99137af7c4b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: smartcaptcha.yandexcloud.net
+    reality-opts:
+      public-key: V4MbF_aWSZ8bw6WbRL_wApaf4uagzBnu0c62g3dyNQY
+      short-id: c16225938b61882e
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇨🇭  Switzerland  [01]  MIFA
+    type: vless
+    server: 138.124.28.79
+    port: 443
+    uuid: 14409b0c-2091-4bc7-9845-2485a31ac38a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: doich.stopingiphatered.shop
+    reality-opts:
+      public-key: EYfpgja4VjpLUnWHtDJQ1XZk6xL5j4rXwf80Sw6keV0
+      short-id: 0c13e8822e7f58aa
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇨🇭  Switzerland  [02]  MIFA
+    type: vless
+    server: 138.124.86.127
+    port: 444
+    uuid: f5197f13-930e-4ce4-925e-973d703dd4e6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: acR3z7kRfCQEnfuCO1U3MFzTUXWQz9YqSe5RwbxafyE
+      short-id: a1b2c3d4a1b2c3d4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇨🇴  Colombia  [01]  MIFA
+    type: vless
+    server: 149.130.188.248
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇨🇾  Cyprus  [01]  MIFA
+    type: vless
+    server: www.csgo.net
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇨🇾  Cyprus  [02]  MIFA
+    type: vless
+    server: 2.56.121.43
+    port: 443
+    uuid: eec2f6a7-c10f-43b0-b133-61f9bf9bbc27
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.ikea.com
+    reality-opts:
+      public-key: vnUSQFujh6K08KR6FHYWoBkZCAEZNWSKji0PPw9eMWM
+      short-id: 86229a5e3b1e6ef4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇨🇿  Czech Republic  [01]  MIFA
+    type: vless
+    server: 45.129.142.41
+    port: 49325
+    uuid: 68f7465d-6edb-4317-a1a9-ffe87e3a7c38
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: T0RmoxSgAtx71kYW_ENHcU1cMHXpz0IzFJYHOn9WZm8
+      short-id: 886921b120b2
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [01]  MIFA
+    type: vless
+    server: 104.167.24.174
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vnx.cloudvk.cc
+    reality-opts:
+      public-key: DOACuN8AAmCotGUm5Jdhk05NPGo1EWqhuJq8qfJ05WI
+      short-id: be2b9807e389a82d
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [02]  MIFA
+    type: vless
+    server: ded1.cloudvk.cc
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ded1.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [03]  MIFA
+    type: vless
+    server: 88.216.220.88
+    port: 443
+    uuid: a8e3155b-ceb1-4fcb-bc0c-2e77ec005401
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: files.noneok.com
+    reality-opts:
+      public-key: q3kOYHdjmqWLLYj8oikvna1bTjofk45ktegGaJE611g
+      short-id: d3b394558cfe0266
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: api.v1.StreamService
+  - name: 🇩🇪  Germany  [04]  MIFA
+    type: vless
+    server: sdfv.cloudvk.cc
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sdfv.cloudvk.cc
+    reality-opts:
+      public-key: NcpfivEWQKpSJUuliuel7flac0brraixssjyJYQ0Pm8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [05]  MIFA
+    type: vless
+    server: 194.48.217.18
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sdfv.cloudvk.cc
+    reality-opts:
+      public-key: NcpfivEWQKpSJUuliuel7flac0brraixssjyJYQ0Pm8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [06]  MIFA
+    type: vless
+    server: 151.240.151.94
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sdffsd.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [07]  MIFA
+    type: vless
+    server: sdffsd.cloudvk.cc
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sdffsd.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [08]  MIFA
+    type: vless
+    server: vnx.cloudvk.cc
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vnx.cloudvk.cc
+    reality-opts:
+      public-key: DOACuN8AAmCotGUm5Jdhk05NPGo1EWqhuJq8qfJ05WI
+      short-id: be2b9807e389a82d
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [09]  MIFA
+    type: vless
+    server: depl2go.mortisdream.xyz
+    port: 443
+    uuid: 823dbde9-2af1-4ed4-af08-46b2381a9012
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: tJ6l93Hd4x0mRp3fyrHHQwFZXdZHyr_BBPnSeRe4eXM
+      short-id: fb
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: mlkem768x25519plus.native.0rtt.iyJ6r5KMgPm008dGgEincLQwUByO6peQ-aR15gSJVpG9KZQAFDtm8mhj35xmdoc3qGRzmQwv6htUgdWEjoG_ranIJIhJOSI_bBOtQYBgUxRVQExsuAJd4EZe3vZbNQpMpzKBTUoJwJWR8YHGQGXGuvC4YuhcFqiTCSeD0InNThmhnEUDNdylgDd7JwVTnhGUFRmbzOhSgrZNTZJS15t8f2CxBKhmxMNb9OcxMwJpzViqlEMyQfV508Csu7w80jdrhseDhhuvm4dztbQh9RScToc3m7wHJxK0vwV-zgwROax0m4aseakkdVubuUBcsYyrLNDAXmqHrXohmMAX76FVDSRQXWcdQoLKNtg_E3Sd42m8YxjK14G7G4Nw6Bwz7UkY-csREZmlvNS5g4EbLLZ_G6lvkgVMAhAxGcqtdnQi18YD52xEHClBg7qgxYSQJpK747WB8PLEXUcZC4NxKXQbGNuzAPiOZirI9ERztJOcndy57CyPdqeAycqVRNF3PFpvvRuKWHbP78g3GXMS28II2udsUQHFKeSbxgCX-UckgCI5SusawRi29CKrfKEPiNmSa5UBF_eRqfNBjcimj0QSZfq1x7SdU7EPRwVV8DYGHCzB8AI_ZpB1J3xNewCJgvAFKzFxNRh0klzL2HI5wUGisJmG7TqagTSr6sKIjXB-AIKRnuOfMIExbpthHFMoCHGjNoGD6bOoNdwP5lGhNIJ6a-Ikiexn-sxj95ddE7ij-OqiBzKuL2lfAVksqNGZfIUiI4dXsuQmXOaPhHali6MK1QdzuDAzjWzCF0yptmgFNLSaIHtxl4iqgNpym3leSyqHImpGL9wtn-x0XBBxmGk4lPtDpQJwJ9F3KFAtXvh7bjxG2gxEUoS-TzqLWst1RCcx7nMlMUgGAPFIldqqdtBpapsyKQIrV_Vd0DXORnArWkE7ODoXakfE5qpvY7qFg-ATJQuo5LYsK-q6B2gEIRlZU3tOkkZAoUYaLYVdDgdHCyE0Tmo3PjaDQ-tT5NovHZEzIcEoFLddYemE-wS7u7tXpALIeGRnz4LJ-IJU2qFxg3JEsXYDGTK7IkXJWnnH5tzHVVthvaBkbQyI9GOGYoI70OYwimdmvsaaiLxRuWYFNDBu-QxA7cs4nwTC4yKw7qgOvnlos0WgPqSqRmw5gzR7HQQzvcbE03smvpdyhrphKxCzSlV4deU9Avad1SpAS4HO43y_3nLMu3wd9ESw7UDNGrALlEeDsfZMxSZOf0ma1eWOWGlOvgA_5FlkI9shEss1ueMWmRaCWFjEIjgrvztPivt577EjtrNbaIuQvadkcixO3KHJEuIOVDaYzfUYpqS0aSo7_xp_t5Vt7aioYFmvDmOuFfRh3alI6DgdeeO4-VOttCdHv8UGQdIA4gsL-HhldDaPObMaH-O9iNZDbfPM_AJn2HRFrXK4AyVB90N5QgmSkiJ4-RCVeNKV4_g9EPgsNrafoPGMvPFLaeyyYDc3XRBLOFZuN8QCOQIoIhdJ4ooMz_XN3LM1n7nK6RlvjTMnigg9YnIQDiju92j82s1ugk_zan1PxjMcsL45Qe7gnaU
+    network: tcp
+  - name: 🇩🇪  Germany  [10]  MIFA
+    type: vless
+    server: 144.31.141.134
+    port: 7443
+    uuid: ecf789a5-edc3-4eef-bdea-837d048afd9a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: setbacks.hb-website.ru-msk.vkcloud-storage.ru
+    reality-opts:
+      public-key: 8qUiIosG5-OQWo0tD29BQCbxb50neUg8BynxdAvDzB4
+      short-id: "132142"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [11]  MIFA
+    type: vless
+    server: 151.243.150.155
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ded1.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [12]  MIFA
+    type: vless
+    server: avczx.cloudvk.cc
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: avczx.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [13]  MIFA
+    type: vless
+    server: de.shadowtelega.xyz
+    port: 443
+    uuid: 823dbde9-2af1-4ed4-af08-46b2381a9012
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: tJ6l93Hd4x0mRp3fyrHHQwFZXdZHyr_BBPnSeRe4eXM
+      short-id: fb
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: mlkem768x25519plus.native.0rtt.iyJ6r5KMgPm008dGgEincLQwUByO6peQ-aR15gSJVpG9KZQAFDtm8mhj35xmdoc3qGRzmQwv6htUgdWEjoG_ranIJIhJOSI_bBOtQYBgUxRVQExsuAJd4EZe3vZbNQpMpzKBTUoJwJWR8YHGQGXGuvC4YuhcFqiTCSeD0InNThmhnEUDNdylgDd7JwVTnhGUFRmbzOhSgrZNTZJS15t8f2CxBKhmxMNb9OcxMwJpzViqlEMyQfV508Csu7w80jdrhseDhhuvm4dztbQh9RScToc3m7wHJxK0vwV-zgwROax0m4aseakkdVubuUBcsYyrLNDAXmqHrXohmMAX76FVDSRQXWcdQoLKNtg_E3Sd42m8YxjK14G7G4Nw6Bwz7UkY-csREZmlvNS5g4EbLLZ_G6lvkgVMAhAxGcqtdnQi18YD52xEHClBg7qgxYSQJpK747WB8PLEXUcZC4NxKXQbGNuzAPiOZirI9ERztJOcndy57CyPdqeAycqVRNF3PFpvvRuKWHbP78g3GXMS28II2udsUQHFKeSbxgCX-UckgCI5SusawRi29CKrfKEPiNmSa5UBF_eRqfNBjcimj0QSZfq1x7SdU7EPRwVV8DYGHCzB8AI_ZpB1J3xNewCJgvAFKzFxNRh0klzL2HI5wUGisJmG7TqagTSr6sKIjXB-AIKRnuOfMIExbpthHFMoCHGjNoGD6bOoNdwP5lGhNIJ6a-Ikiexn-sxj95ddE7ij-OqiBzKuL2lfAVksqNGZfIUiI4dXsuQmXOaPhHali6MK1QdzuDAzjWzCF0yptmgFNLSaIHtxl4iqgNpym3leSyqHImpGL9wtn-x0XBBxmGk4lPtDpQJwJ9F3KFAtXvh7bjxG2gxEUoS-TzqLWst1RCcx7nMlMUgGAPFIldqqdtBpapsyKQIrV_Vd0DXORnArWkE7ODoXakfE5qpvY7qFg-ATJQuo5LYsK-q6B2gEIRlZU3tOkkZAoUYaLYVdDgdHCyE0Tmo3PjaDQ-tT5NovHZEzIcEoFLddYemE-wS7u7tXpALIeGRnz4LJ-IJU2qFxg3JEsXYDGTK7IkXJWnnH5tzHVVthvaBkbQyI9GOGYoI70OYwimdmvsaaiLxRuWYFNDBu-QxA7cs4nwTC4yKw7qgOvnlos0WgPqSqRmw5gzR7HQQzvcbE03smvpdyhrphKxCzSlV4deU9Avad1SpAS4HO43y_3nLMu3wd9ESw7UDNGrALlEeDsfZMxSZOf0ma1eWOWGlOvgA_5FlkI9shEss1ueMWmRaCWFjEIjgrvztPivt577EjtrNbaIuQvadkcixO3KHJEuIOVDaYzfUYpqS0aSo7_xp_t5Vt7aioYFmvDmOuFfRh3alI6DgdeeO4-VOttCdHv8UGQdIA4gsL-HhldDaPObMaH-O9iNZDbfPM_AJn2HRFrXK4AyVB90N5QgmSkiJ4-RCVeNKV4_g9EPgsNrafoPGMvPFLaeyyYDc3XRBLOFZuN8QCOQIoIhdJ4ooMz_XN3LM1n7nK6RlvjTMnigg9YnIQDiju92j82s1ugk_zan1PxjMcsL45Qe7gnaU
+    network: tcp
+  - name: 🇩🇪  Germany  [14]  MIFA
+    type: vless
+    server: 157.90.165.181
+    port: 11762
+    uuid: 7c9b4360-6be9-47f2-ace9-b87297ea3d8f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swdist.apple.com
+    reality-opts:
+      public-key: R2gKMF0Tetlnesc1pPkZH9NaOeehw-f5_U9JKG_cLjU
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [15]  MIFA
+    type: vless
+    server: 87.120.84.32
+    port: 33843
+    uuid: 93dac4b8-3879-4179-abdb-9666a9e2ca8d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deproxy2.lckdwn.ru
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [16]  MIFA
+    type: vless
+    server: 104.167.24.235
+    port: 18443
+    uuid: ab6a5359-0edf-41c3-8dfd-e4b005e80820
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gp1.steptofsvo.com
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [17]  MIFA
+    type: vless
+    server: 45.157.235.14
+    port: 18443
+    uuid: ab6a5359-0edf-41c3-8dfd-e4b005e80820
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gp1.steptofsvo.com
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [18]  MIFA
+    type: vless
+    server: 45.145.43.44
+    port: 18443
+    uuid: ab6a5359-0edf-41c3-8dfd-e4b005e80820
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gp1.steptofsvo.com
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [19]  MIFA
+    type: vless
+    server: 104.167.24.227
+    port: 18443
+    uuid: 1c20357e-be52-4e5e-8eb6-6434adcb4b71
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gp1.steptofsvo.com
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [20]  MIFA
+    type: vless
+    server: 193.42.12.34
+    port: 18443
+    uuid: ab6a5359-0edf-41c3-8dfd-e4b005e80820
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gp2.steptofsvo.com
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [21]  MIFA
+    type: vless
+    server: 5.175.161.47
+    port: 8443
+    uuid: eb85f61f-acb3-4689-8b7c-d8ad2a6aa43f
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 6hrP_JlRUK40WwXk9ZL0FpB19bTR0RnrUGYX5SaZkCE
+      short-id: 0501b478da6a4950
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [22]  MIFA
+    type: vless
+    server: 151.242.17.99
+    port: 8443
+    uuid: a04814d9-d006-4e7b-ae20-8ab304b3b429
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de.emvservice.com
+    reality-opts:
+      public-key: 6Yskxg5U0WxPGtuCAAGH9uD57T4U8LeGrErTBNvIrwM
+      short-id: bc
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: ""
+  - name: 🇩🇪  Germany  [23]  MIFA
+    type: vless
+    server: eu-central-de-1.hanvpn.biz
+    port: 443
+    uuid: d9d0f208-d582-41d5-bb7b-742671402810
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: B2ZW-mosEf8Cz4PYahKxn_B4Qa3yDZ9qFG7uLan-ngQ
+      short-id: 0183b7681806bc97
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [24]  MIFA
+    type: vless
+    server: deproxy2.lckdwn.ru
+    port: 33843
+    uuid: 93dac4b8-3879-4179-abdb-9666a9e2ca8d
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+      - http/1.1
+    servername: deproxy2.lckdwn.ru
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [25]  MIFA
+    type: vless
+    server: api.noneok.com
+    port: 443
+    uuid: a8e3155b-ceb1-4fcb-bc0c-2e77ec005401
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.noneok.com
+    reality-opts:
+      public-key: S8O8R938N960cpQfIIDXsJTxeGAkbVv6PlIqP0-d30w
+      short-id: 1ea59febb8d4fc8e
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: api.v1.StreamService
+  - name: 🇩🇪  Germany  [26]  MIFA
+    type: vless
+    server: gp1.steptofsvo.com
+    port: 18443
+    uuid: ab6a5359-0edf-41c3-8dfd-e4b005e80820
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [27]  MIFA
+    type: vless
+    server: gp2.steptofsvo.com
+    port: 18443
+    uuid: ab6a5359-0edf-41c3-8dfd-e4b005e80820
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gp2.steptofsvo.com
+    reality-opts:
+      public-key: QHkXBS2ENHV0khgY9VBYi8_9bpfqnUYDcfQN4cW5Qg0
+      short-id: 5c766813929a1fdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇩🇪  Germany  [28]  MIFA
+    type: vless
+    server: 64.188.119.205
+    port: 443
+    uuid: f6cd9f97-beca-4758-ae07-b3ee4e4062c7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dialog.x5.ru
+    reality-opts:
+      public-key: rM0Tk7Lwwp_057SDrgGKezV6TZCThYtLxd0JzOsg9WY
+      short-id: 59c6f6f4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [29]  MIFA
+    type: vless
+    server: 45.131.213.34
+    port: 443
+    uuid: 2da9c09a-842f-4aed-a099-8a07c0266efc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-2.srv.dvzh.net
+    reality-opts:
+      public-key: 9GEc6lOjnGQyyE1951OZSBMWt4uCXsOjKyj9fysxHH0
+      short-id: e4e77e76e6e49da7
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [30]  MIFA
+    type: vless
+    server: de-2.srv.dvzh.net
+    port: 443
+    uuid: 2da9c09a-842f-4aed-a099-8a07c0266efc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-2.srv.dvzh.net
+    reality-opts:
+      public-key: 9GEc6lOjnGQyyE1951OZSBMWt4uCXsOjKyj9fysxHH0
+      short-id: e4e77e76e6e49da7
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [31]  MIFA
+    type: vless
+    server: trpsg20.horlutr.ir
+    port: 11437
+    uuid: fc60d2f9-e3b5-449f-80d8-385c08e93c94
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: XW53yYaevp21yOZsWMV_mVg58iYCNp91sYndl95qnmI
+      short-id: 7de83d0e31eb75ef
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇩🇪  Germany  [32]  MIFA
+    type: vless
+    server: 153.52.92.239
+    port: 11437
+    uuid: fc60d2f9-e3b5-449f-80d8-385c08e93c94
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: XW53yYaevp21yOZsWMV_mVg58iYCNp91sYndl95qnmI
+      short-id: 7de83d0e31eb75ef
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇪🇪  Estonia  [01]  MIFA
+    type: vless
+    server: 194.26.141.220
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: estdfsf.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇪🇪  Estonia  [02]  MIFA
+    type: vless
+    server: estdfsf.cloudvk.cc
+    port: 443
+    uuid: 14f4be39-cb89-4f2b-8200-704666b6fa4e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: estdfsf.cloudvk.cc
+    reality-opts:
+      public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇪🇪  Estonia  [03]  MIFA
+    type: vless
+    server: estproxy4.lockdwn.com
+    port: 8443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇪🇸  Spain  [01]  MIFA
+    type: vless
+    server: 46.28.71.154
+    port: 443
+    uuid: 14409b0c-2091-4bc7-9845-2485a31ac38a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: spanish67.kovsh.lol
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇪🇸  Spain  [02]  MIFA
+    type: vless
+    server: 212.227.235.66
+    port: 2053
+    uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+      short-id: 29e8dcd2b37aaa7f
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [01]  MIFA
+    type: vless
+    server: 86.38.182.226
+    port: 667
+    uuid: d2bcbd8d-a65f-4ba5-831e-a435c22db32c
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [02]  MIFA
+    type: vless
+    server: 31.76.21.44
+    port: 443
+    uuid: 3a42d8f9-12ce-5345-bfdb-5a5c605c2da5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: 31.76.21.44.fwqfw783rg2dad.website
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇫🇮  Finland  [03]  MIFA
+    type: vless
+    server: fi2.routeliora.ru
+    port: 7443
+    uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fi2.routeliora.ru
+    reality-opts:
+      public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
+      short-id: e1f2a3b4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [04]  MIFA
+    type: vless
+    server: fi.routeliora.ru
+    port: 8443
+    uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dzen.ru
+    reality-opts:
+      public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
+      short-id: f2a3b4c5
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [05]  MIFA
+    type: vless
+    server: 62.238.54.59
+    port: 443
+    uuid: 087ae087-ab55-4a6f-b89a-98db5feb9bac
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.wikipedia.org
+    reality-opts:
+      public-key: as04WkYoj-P4vEjJFXB3LeA_Rkt7Ud4pV2oTZ3bZwQg
+      short-id: 1c213fd68e13
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /farasati1
+  - name: 🇫🇮  Finland  [06]  MIFA
+    type: vless
+    server: fl.mortisdream.xyz
+    port: 443
+    uuid: 823dbde9-2af1-4ed4-af08-46b2381a9012
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: tJ6l93Hd4x0mRp3fyrHHQwFZXdZHyr_BBPnSeRe4eXM
+      short-id: fb
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: mlkem768x25519plus.native.0rtt.iyJ6r5KMgPm008dGgEincLQwUByO6peQ-aR15gSJVpG9KZQAFDtm8mhj35xmdoc3qGRzmQwv6htUgdWEjoG_ranIJIhJOSI_bBOtQYBgUxRVQExsuAJd4EZe3vZbNQpMpzKBTUoJwJWR8YHGQGXGuvC4YuhcFqiTCSeD0InNThmhnEUDNdylgDd7JwVTnhGUFRmbzOhSgrZNTZJS15t8f2CxBKhmxMNb9OcxMwJpzViqlEMyQfV508Csu7w80jdrhseDhhuvm4dztbQh9RScToc3m7wHJxK0vwV-zgwROax0m4aseakkdVubuUBcsYyrLNDAXmqHrXohmMAX76FVDSRQXWcdQoLKNtg_E3Sd42m8YxjK14G7G4Nw6Bwz7UkY-csREZmlvNS5g4EbLLZ_G6lvkgVMAhAxGcqtdnQi18YD52xEHClBg7qgxYSQJpK747WB8PLEXUcZC4NxKXQbGNuzAPiOZirI9ERztJOcndy57CyPdqeAycqVRNF3PFpvvRuKWHbP78g3GXMS28II2udsUQHFKeSbxgCX-UckgCI5SusawRi29CKrfKEPiNmSa5UBF_eRqfNBjcimj0QSZfq1x7SdU7EPRwVV8DYGHCzB8AI_ZpB1J3xNewCJgvAFKzFxNRh0klzL2HI5wUGisJmG7TqagTSr6sKIjXB-AIKRnuOfMIExbpthHFMoCHGjNoGD6bOoNdwP5lGhNIJ6a-Ikiexn-sxj95ddE7ij-OqiBzKuL2lfAVksqNGZfIUiI4dXsuQmXOaPhHali6MK1QdzuDAzjWzCF0yptmgFNLSaIHtxl4iqgNpym3leSyqHImpGL9wtn-x0XBBxmGk4lPtDpQJwJ9F3KFAtXvh7bjxG2gxEUoS-TzqLWst1RCcx7nMlMUgGAPFIldqqdtBpapsyKQIrV_Vd0DXORnArWkE7ODoXakfE5qpvY7qFg-ATJQuo5LYsK-q6B2gEIRlZU3tOkkZAoUYaLYVdDgdHCyE0Tmo3PjaDQ-tT5NovHZEzIcEoFLddYemE-wS7u7tXpALIeGRnz4LJ-IJU2qFxg3JEsXYDGTK7IkXJWnnH5tzHVVthvaBkbQyI9GOGYoI70OYwimdmvsaaiLxRuWYFNDBu-QxA7cs4nwTC4yKw7qgOvnlos0WgPqSqRmw5gzR7HQQzvcbE03smvpdyhrphKxCzSlV4deU9Avad1SpAS4HO43y_3nLMu3wd9ESw7UDNGrALlEeDsfZMxSZOf0ma1eWOWGlOvgA_5FlkI9shEss1ueMWmRaCWFjEIjgrvztPivt577EjtrNbaIuQvadkcixO3KHJEuIOVDaYzfUYpqS0aSo7_xp_t5Vt7aioYFmvDmOuFfRh3alI6DgdeeO4-VOttCdHv8UGQdIA4gsL-HhldDaPObMaH-O9iNZDbfPM_AJn2HRFrXK4AyVB90N5QgmSkiJ4-RCVeNKV4_g9EPgsNrafoPGMvPFLaeyyYDc3XRBLOFZuN8QCOQIoIhdJ4ooMz_XN3LM1n7nK6RlvjTMnigg9YnIQDiju92j82s1ugk_zan1PxjMcsL45Qe7gnaU
+    network: tcp
+  - name: 🇫🇮  Finland  [07]  MIFA
+    type: vless
+    server: 141.0.184.240
+    port: 8443
+    uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dzen.ru
+    reality-opts:
+      public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
+      short-id: f2a3b4c5
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [08]  MIFA
+    type: vless
+    server: 31.77.203.216
+    port: 7443
+    uuid: ecf789a5-edc3-4eef-bdea-837d048afd9a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: setbacks.hb-website.ru-msk.vkcloud-storage.ru
+    reality-opts:
+      public-key: 8qUiIosG5-OQWo0tD29BQCbxb50neUg8BynxdAvDzB4
+      short-id: "132142"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [09]  MIFA
+    type: vless
+    server: 179.198.50.131
+    port: 8443
+    uuid: a34b5e88-cf0d-4c01-8199-2d1002d3c787
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: wikihow.com
+    reality-opts:
+      public-key: p9ISfhV0uZpKSgrK_8R6Mm4A01tWdzpKMlFR2TIj81s
+      short-id: ""
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /
+  - name: 🇫🇮  Finland  [10]  MIFA
+    type: vless
+    server: 185.79.138.71
+    port: 448
+    uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+      short-id: cd21e552537c7c0b
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇫🇮  Finland  [11]  MIFA
+    type: vless
+    server: 31.76.103.109
+    port: 8444
+    uuid: 15e83ced-7544-422e-863d-deafe29a1dbe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: images.samsung.com
+    reality-opts:
+      public-key: jgf0wWpgkEJZzu9wu45Ms33SNZpibtx507rpvzfz3mQ
+      short-id: 635a76c25a4b1820
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /xh
+  - name: 🇫🇷  France  [01]  MIFA
+    type: vless
+    server: 52.47.129.194
+    port: 22222
+    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇫🇷  France  [02]  MIFA
+    type: vless
+    server: 45.144.28.39
+    port: 2083
+    uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: usejh2.neobo-tooth.ru
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇫🇷  France  [03]  MIFA
+    type: vless
+    server: usejh2.neobo-tooth.ru
+    port: 2083
+    uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇫🇷  France  [04]  MIFA
+    type: vless
+    server: 51.77.217.70
+    port: 2053
+    uuid: c543f005-59f7-40c1-9ae6-37505691d5be
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
+      short-id: 4868e772d098f0af
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇫🇷  France  [05]  MIFA
+    type: vless
+    server: 146.59.35.134
+    port: 8443
+    uuid: f798a2c4-c51b-409d-b349-ca8455b36796
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: chopin.adaspoloandco.com
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /download.php
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇫🇷  France  [06]  MIFA
+    type: vless
+    server: fr3.green-tg.com
+    port: 443
+    uuid: 5b3fa84b-376e-400d-8a97-34e557b0d89c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.lovelace.com
+    reality-opts:
+      public-key: qQ4l40OckukEo2OoCTIpLrxBHKRa277XXhUAf3SYEhM
+      short-id: abd0f00f85f814a1
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇬🇧  Great Britain  [01]  MIFA
+    type: vless
+    server: 104.194.143.112
+    port: 443
+    uuid: 268b4f72-c447-4ff4-840a-c178e551e743
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.dodostatic.net
+    reality-opts:
+      public-key: HcBAHoLxmHEKHLNpHOn-XOSNsVlJQThcqtov7le50Gg
+      short-id: aeb1eee5185a2c19
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇬🇧  Great Britain  [02]  MIFA
+    type: vless
+    server: 85.234.91.30
+    port: 443
+    uuid: b34a52cb-cd52-49a8-9362-b8e97c151d49
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.mozilla.org
+    reality-opts:
+      public-key: 23cb4W9THzBKsrECsLh-A_FcKZfkAtUONoDze8-GnQE
+      short-id: e90360ec7cc61b20
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇬🇧  Great Britain  [03]  MIFA
+    type: vless
+    server: 82.24.203.9
+    port: 2087
+    uuid: 3165b4d0-40f7-4df0-9f59-4c89ccdac92d
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /3bfc3e3ed603
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇬🇧  Great Britain  [04]  MIFA
+    type: vless
+    server: 51.89.194.151
+    port: 2053
+    uuid: a8444f42-8aa2-4ef2-8755-2b0d82415fc6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: T10K4VspJ7ZIptzXTqFL0k-lgV2a8ekf7RedogymJzo
+      short-id: 949023ece91caa7c
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇬🇧  Great Britain  [05]  MIFA
+    type: vless
+    server: 82.24.203.174
+    port: 2083
+    uuid: f2616bce-337a-4d13-8c58-1b5e71986569
+    udp: true
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: chat.deepseek.com
+  - name: 🇬🇧  Great Britain  [06]  MIFA
+    type: vless
+    server: 82.24.203.92
+    port: 2083
+    uuid: f2616bce-337a-4d13-8c58-1b5e71986569
+    udp: true
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: chat.deepseek.com
+  - name: 🇬🇧  Great Britain  [07]  MIFA
+    type: vless
+    server: 188.220.67.181
+    port: 2087
+    uuid: 90da514d-8888-4a53-912e-ac2981c8c6ee
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8f2690e2d016
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇬🇧  Great Britain  [08]  MIFA
+    type: vless
+    server: 82.24.203.2
+    port: 2087
+    uuid: 3165b4d0-40f7-4df0-9f59-4c89ccdac92d
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /3bfc3e3ed603
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇬🇧  Great Britain  [09]  MIFA
+    type: vless
+    server: 78.129.221.66
+    port: 446
+    uuid: 10000025-9365-7424-f000-93edfcf6a020
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: louisvuitton.com
+    reality-opts:
+      public-key: 9LFDlpt6d56wFwxchaKvyLQHGj3lw3ku1g3X8H9JjEI
+      short-id: 91e6c6797f49ed84
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇬🇷  Greece  [01]  MIFA
+    type: vless
+    server: 185.126.238.87
+    port: 2083
+    uuid: 7668f678-faee-40cc-9b56-9c39dc773388
+    udp: true
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: security.debian.org
+  - name: 🇮🇪  Ireland  [01]  MIFA
+    type: vless
+    server: 50.7.5.163
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ir-viper.failspace.top
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇮🇪  Ireland  [02]  MIFA
+    type: vless
+    server: ir-viper.failspace.top
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: ir-viper.failspace.top
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇮🇶  Iraq  [01]  MIFA
+    type: vless
+    server: 81.90.25.237
+    port: 45422
+    uuid: 6cc5da9a-cf34-466e-8d2a-7f8a372aa212
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: it.nvidia.com
+    reality-opts:
+      public-key: 5cUnRqJPa8Lo70wWUBdI52kFTLlIKQYJoGa-OVw6EDw
+      short-id: 5754d0
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: ""
+  - name: 🇮🇹  Italy  [01]  MIFA
+    type: vless
+    server: 204.216.216.23
+    port: 10086
+    uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇮🇹  Italy  [02]  MIFA
+    type: vless
+    server: milan.adaspoloandco.com
+    port: 8443
+    uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2ra
+    servername: milan.adaspoloandco.com
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /RoBeRt
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇮🇹  Italy  [03]  MIFA
+    type: vless
+    server: 57.131.38.163
+    port: 2053
+    uuid: d4b08cd6-0903-411a-9dac-45dbdf5c9712
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
+      short-id: 5b8a942318178e7b
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇮🇹  Italy  [04]  MIFA
+    type: vless
+    server: 57.131.21.102
+    port: 8443
+    uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2ra
+    servername: milan.adaspoloandco.com
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /RoBeRt
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇯🇵  Japan  [01]  MIFA
+    type: vless
+    server: 38.175.203.11
+    port: 443
+    uuid: 1b8ec962-6e6f-4fc3-a9a4-c8a6fc907796
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: oulucloud.706666.xyz
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇯🇵  Japan  [02]  MIFA
+    type: vless
+    server: 104.105.138.244
+    port: 443
+    uuid: f5c4664b-67ab-4d92-801d-a60984e104d4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: rpROz1JNz8wRk2QT5o7jwE9CzJUWMvPNXoeWyS3c1WM
+      short-id: 09994e53af766acd
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇯🇵  Japan  [03]  MIFA
+    type: vless
+    server: 13.231.129.39
+    port: 29224
+    uuid: 3298044a-024f-4b48-a598-ba56c75e99f3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.sony.com
+    reality-opts:
+      public-key: HqLe_f1G54_pDZGbCnermTm-vqDiNp6cXVMaasg3NWE
+      short-id: fcbdd08920d4c8
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇯🇵  Japan  [04]  MIFA
+    type: vless
+    server: 3.113.9.16
+    port: 48203
+    uuid: e5a9a8be-886e-4522-b11d-3edde88c9c8c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: nxC5EiVCdXMnvfRa1LoNUs21ZNS2DdP36gfHayvUXRU
+      short-id: 5b63c338f69077
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇯🇵  Japan  [05]  MIFA
+    type: vless
+    server: 13.230.140.251
+    port: 58573
+    uuid: ea3fb423-d86c-461a-9610-cbad189253e2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: P_qGsMinT163P1KLO6LzedQXEeHimWQ1CrqM4cYkFB8
+      short-id: 4de17b381e6af2
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇯🇵  Japan  [06]  MIFA
+    type: vless
+    server: 720200.org
+    port: 52226
+    uuid: 46f0c575-37ca-48fc-bde0-2efaa9708d17
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 720200.org
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 720200.org
+  - name: 🇯🇵  Japan  [07]  MIFA
+    type: vless
+    server: 13.193.9.59
+    port: 31497
+    uuid: f485492b-2c69-4334-b193-403b1e4ec1a4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.com
+    reality-opts:
+      public-key: UsFXvqh6G4IrPRVWtUUFvZUYHbV8facFnRyAl1vrbUY
+      short-id: 5b63c338f69077
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇯🇵  Japan  [08]  MIFA
+    type: vless
+    server: 31.76.91.72
+    port: 2087
+    uuid: 524e00ce-ed89-481d-b4a4-6d7017f884e3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: "-ZTJcZ_UcqAB7LHgkUqhnlJsQs_oBafRgjsFtWZElmM"
+      short-id: c226283c4de5b1ad
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇰🇷  South Korea  [01]  MIFA
+    type: vless
+    server: 129.154.192.50
+    port: 2053
+    uuid: 48e84fcc-ecb1-48a3-a596-88fea84887f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ibm.com
+    reality-opts:
+      public-key: oBYxqt4GNTWrmvHRHM_6SAVj_yy95lXtQ0NLd1QWQDU
+      short-id: dea6d68a3f6f96e3
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇰🇷  South Korea  [02]  MIFA
+    type: vless
+    server: 43.108.48.169
+    port: 40701
+    uuid: cdb7d825-9892-4d6f-80b8-7add83159dac
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amazon.com
+    reality-opts:
+      public-key: TWuVILeiSXfCSMZPsqNHtRquNALPRaW5Z51I63zdLEA
+      short-id: 7ef3a8ab2886
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇰🇿  Kazakhstan  [01]  MIFA
+    type: vless
+    server: 45.82.31.129
+    port: 190
+    uuid: 6cbc63c1-97de-4460-847c-7fd7bdda3fa6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: waldes.amusnetnot.site
+    reality-opts:
+      public-key: t59o65kEgrYZDGHg3AayZmzmNMsTI8LIqfRXopVyCAY
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇰🇿  Kazakhstan  [02]  MIFA
+    type: vless
+    server: 5.180.27.168
+    port: 443
+    uuid: 99e5e9a0-1c6b-4cb0-805d-a810fd47eb15
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.google.com
+    reality-opts:
+      public-key: 35h8bb9wqduA7z9haavd6C6NuAqccJ1L7D8TwJZpgGE
+      short-id: ""
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /
+  - name: 🇱🇹  Lithuania  [01]  MIFA
+    type: vless
+    server: 88.216.69.144
+    port: 443
+    uuid: 50414e45-4c5f-5a45-5553-4d64f1370eeb
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: r5zenrelur2s.pqzdileiu8es.workers.dev
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /stream/PANEL_ZEUS/4d64f1370eeb/loc-0
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: r5zenrelur2s.pqzdileiu8es.workers.dev
+  - name: 🇱🇻  Latvia  [01]  MIFA
+    type: vless
+    server: eu-east-lv-1.hanvpn.biz
+    port: 443
+    uuid: d9d0f208-d582-41d5-bb7b-742671402810
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-east-lv-1.hanvpn.biz
+    reality-opts:
+      public-key: 5zYWQJfG5b1Gck2HKGOOndDP-OGgXytw8Ct0Q-zdtgA
+      short-id: 35b5a7681806bc97
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇱🇻  Latvia  [02]  MIFA
+    type: vless
+    server: 213.21.237.10
+    port: 443
+    uuid: d9d0f208-d582-41d5-bb7b-742671402810
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-east-lv-1.hanvpn.biz
+    reality-opts:
+      public-key: 5zYWQJfG5b1Gck2HKGOOndDP-OGgXytw8Ct0Q-zdtgA
+      short-id: 35b5a7681806bc97
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇱🇻  Latvia  [03]  MIFA
+    type: vless
+    server: lv.shadowtelega.xyz
+    port: 443
+    uuid: 823dbde9-2af1-4ed4-af08-46b2381a9012
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: tJ6l93Hd4x0mRp3fyrHHQwFZXdZHyr_BBPnSeRe4eXM
+      short-id: fb
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: mlkem768x25519plus.native.0rtt.iyJ6r5KMgPm008dGgEincLQwUByO6peQ-aR15gSJVpG9KZQAFDtm8mhj35xmdoc3qGRzmQwv6htUgdWEjoG_ranIJIhJOSI_bBOtQYBgUxRVQExsuAJd4EZe3vZbNQpMpzKBTUoJwJWR8YHGQGXGuvC4YuhcFqiTCSeD0InNThmhnEUDNdylgDd7JwVTnhGUFRmbzOhSgrZNTZJS15t8f2CxBKhmxMNb9OcxMwJpzViqlEMyQfV508Csu7w80jdrhseDhhuvm4dztbQh9RScToc3m7wHJxK0vwV-zgwROax0m4aseakkdVubuUBcsYyrLNDAXmqHrXohmMAX76FVDSRQXWcdQoLKNtg_E3Sd42m8YxjK14G7G4Nw6Bwz7UkY-csREZmlvNS5g4EbLLZ_G6lvkgVMAhAxGcqtdnQi18YD52xEHClBg7qgxYSQJpK747WB8PLEXUcZC4NxKXQbGNuzAPiOZirI9ERztJOcndy57CyPdqeAycqVRNF3PFpvvRuKWHbP78g3GXMS28II2udsUQHFKeSbxgCX-UckgCI5SusawRi29CKrfKEPiNmSa5UBF_eRqfNBjcimj0QSZfq1x7SdU7EPRwVV8DYGHCzB8AI_ZpB1J3xNewCJgvAFKzFxNRh0klzL2HI5wUGisJmG7TqagTSr6sKIjXB-AIKRnuOfMIExbpthHFMoCHGjNoGD6bOoNdwP5lGhNIJ6a-Ikiexn-sxj95ddE7ij-OqiBzKuL2lfAVksqNGZfIUiI4dXsuQmXOaPhHali6MK1QdzuDAzjWzCF0yptmgFNLSaIHtxl4iqgNpym3leSyqHImpGL9wtn-x0XBBxmGk4lPtDpQJwJ9F3KFAtXvh7bjxG2gxEUoS-TzqLWst1RCcx7nMlMUgGAPFIldqqdtBpapsyKQIrV_Vd0DXORnArWkE7ODoXakfE5qpvY7qFg-ATJQuo5LYsK-q6B2gEIRlZU3tOkkZAoUYaLYVdDgdHCyE0Tmo3PjaDQ-tT5NovHZEzIcEoFLddYemE-wS7u7tXpALIeGRnz4LJ-IJU2qFxg3JEsXYDGTK7IkXJWnnH5tzHVVthvaBkbQyI9GOGYoI70OYwimdmvsaaiLxRuWYFNDBu-QxA7cs4nwTC4yKw7qgOvnlos0WgPqSqRmw5gzR7HQQzvcbE03smvpdyhrphKxCzSlV4deU9Avad1SpAS4HO43y_3nLMu3wd9ESw7UDNGrALlEeDsfZMxSZOf0ma1eWOWGlOvgA_5FlkI9shEss1ueMWmRaCWFjEIjgrvztPivt577EjtrNbaIuQvadkcixO3KHJEuIOVDaYzfUYpqS0aSo7_xp_t5Vt7aioYFmvDmOuFfRh3alI6DgdeeO4-VOttCdHv8UGQdIA4gsL-HhldDaPObMaH-O9iNZDbfPM_AJn2HRFrXK4AyVB90N5QgmSkiJ4-RCVeNKV4_g9EPgsNrafoPGMvPFLaeyyYDc3XRBLOFZuN8QCOQIoIhdJ4ooMz_XN3LM1n7nK6RlvjTMnigg9YnIQDiju92j82s1ugk_zan1PxjMcsL45Qe7gnaU
+    network: tcp
+  - name: 🇱🇻  Latvia  [04]  MIFA
+    type: vless
+    server: 31.59.106.150
+    port: 443
+    uuid: 823dbde9-2af1-4ed4-af08-46b2381a9012
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: tJ6l93Hd4x0mRp3fyrHHQwFZXdZHyr_BBPnSeRe4eXM
+      short-id: fb
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: mlkem768x25519plus.native.0rtt.iyJ6r5KMgPm008dGgEincLQwUByO6peQ-aR15gSJVpG9KZQAFDtm8mhj35xmdoc3qGRzmQwv6htUgdWEjoG_ranIJIhJOSI_bBOtQYBgUxRVQExsuAJd4EZe3vZbNQpMpzKBTUoJwJWR8YHGQGXGuvC4YuhcFqiTCSeD0InNThmhnEUDNdylgDd7JwVTnhGUFRmbzOhSgrZNTZJS15t8f2CxBKhmxMNb9OcxMwJpzViqlEMyQfV508Csu7w80jdrhseDhhuvm4dztbQh9RScToc3m7wHJxK0vwV-zgwROax0m4aseakkdVubuUBcsYyrLNDAXmqHrXohmMAX76FVDSRQXWcdQoLKNtg_E3Sd42m8YxjK14G7G4Nw6Bwz7UkY-csREZmlvNS5g4EbLLZ_G6lvkgVMAhAxGcqtdnQi18YD52xEHClBg7qgxYSQJpK747WB8PLEXUcZC4NxKXQbGNuzAPiOZirI9ERztJOcndy57CyPdqeAycqVRNF3PFpvvRuKWHbP78g3GXMS28II2udsUQHFKeSbxgCX-UckgCI5SusawRi29CKrfKEPiNmSa5UBF_eRqfNBjcimj0QSZfq1x7SdU7EPRwVV8DYGHCzB8AI_ZpB1J3xNewCJgvAFKzFxNRh0klzL2HI5wUGisJmG7TqagTSr6sKIjXB-AIKRnuOfMIExbpthHFMoCHGjNoGD6bOoNdwP5lGhNIJ6a-Ikiexn-sxj95ddE7ij-OqiBzKuL2lfAVksqNGZfIUiI4dXsuQmXOaPhHali6MK1QdzuDAzjWzCF0yptmgFNLSaIHtxl4iqgNpym3leSyqHImpGL9wtn-x0XBBxmGk4lPtDpQJwJ9F3KFAtXvh7bjxG2gxEUoS-TzqLWst1RCcx7nMlMUgGAPFIldqqdtBpapsyKQIrV_Vd0DXORnArWkE7ODoXakfE5qpvY7qFg-ATJQuo5LYsK-q6B2gEIRlZU3tOkkZAoUYaLYVdDgdHCyE0Tmo3PjaDQ-tT5NovHZEzIcEoFLddYemE-wS7u7tXpALIeGRnz4LJ-IJU2qFxg3JEsXYDGTK7IkXJWnnH5tzHVVthvaBkbQyI9GOGYoI70OYwimdmvsaaiLxRuWYFNDBu-QxA7cs4nwTC4yKw7qgOvnlos0WgPqSqRmw5gzR7HQQzvcbE03smvpdyhrphKxCzSlV4deU9Avad1SpAS4HO43y_3nLMu3wd9ESw7UDNGrALlEeDsfZMxSZOf0ma1eWOWGlOvgA_5FlkI9shEss1ueMWmRaCWFjEIjgrvztPivt577EjtrNbaIuQvadkcixO3KHJEuIOVDaYzfUYpqS0aSo7_xp_t5Vt7aioYFmvDmOuFfRh3alI6DgdeeO4-VOttCdHv8UGQdIA4gsL-HhldDaPObMaH-O9iNZDbfPM_AJn2HRFrXK4AyVB90N5QgmSkiJ4-RCVeNKV4_g9EPgsNrafoPGMvPFLaeyyYDc3XRBLOFZuN8QCOQIoIhdJ4ooMz_XN3LM1n7nK6RlvjTMnigg9YnIQDiju92j82s1ugk_zan1PxjMcsL45Qe7gnaU
+    network: tcp
+  - name: 🇱🇻  Latvia  [05]  MIFA
+    type: vless
+    server: 89.36.161.222
+    port: 2083
+    uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: laoye.in-gect.fun
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇱🇻  Latvia  [06]  MIFA
+    type: vless
+    server: laoye.in-gect.fun
+    port: 2083
+    uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: laoye.in-gect.fun
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇲🇩  Moldova, Republic of  [01]  MIFA
+    type: vless
+    server: md2.univesalsrv.com
+    port: 443
+    uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: md2.univesalsrv.com
+    reality-opts:
+      public-key: JXFsWHYjhAcR-7yz9tuCTMdcfuiyC9a-C9ewA55Z63o
+      short-id: d36a38659ce106cb
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: hub.v1.SyncService
+  - name: 🇲🇩  Moldova, Republic of  [02]  MIFA
+    type: vless
+    server: md5.univesalsrv.com
+    port: 443
+    uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: md5.univesalsrv.com
+    reality-opts:
+      public-key: 99MRki6b93wC-hhDHe9yq3IXE3KtPGw4RkFAnpI-8gg
+      short-id: aa9884f2982b7d3c
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: app.v1.PushService
+  - name: 🇲🇩  Moldova, Republic of  [03]  MIFA
+    type: vless
+    server: 89.35.14.32
+    port: 443
+    uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: md3.univesalsrv.com
+    reality-opts:
+      public-key: q38CddDj2g-XNDc0uW1m6S6b8iGY_Bne2RwX7C_FYCQ
+      short-id: 9a72d40f1ff882b3
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: stats.v2.PushService
+  - name: 🇳🇱  Netherlands  [01]  MIFA
+    type: vless
+    server: 89.208.105.204
+    port: 443
+    uuid: eec2f6a7-c10f-43b0-b133-61f9bf9bbc27
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: amazon.de
+    reality-opts:
+      public-key: G8SING6Ibc_igZ5vI5578fXCT_mBMRuq_o8_Ymnj2SQ
+      short-id: eba1498e012ef580
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [02]  MIFA
+    type: vless
+    server: 107.189.19.27
+    port: 443
+    uuid: 813a385c-f26f-48b5-9bbb-53204a9c5bcc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.dodostatic.net
+    reality-opts:
+      public-key: Sgocj9v63XdHU04TV3-Pk141YPIT_E-UgLr9u4OkE0E
+      short-id: d27201f7bf5874f9
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [03]  MIFA
+    type: vless
+    server: 94.228.219.179
+    port: 443
+    uuid: eb0e3aec-f67f-4fa2-8577-b0bff0484e77
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sstats.vk-portal.net
+    reality-opts:
+      public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
+      short-id: f79448a30d
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /assets/v2/pkg
+  - name: 🇳🇱  Netherlands  [04]  MIFA
+    type: vless
+    server: 5.253.59.156
+    port: 443
+    uuid: 9f2d111d-408e-44e5-bf97-b8323d050443
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl5.freekeysh110.online
+    reality-opts:
+      public-key: sgPREsDFJUchKawgXgFGEM4YBjTDur0rgD2GuQmZXzA
+      short-id: 04b9f0b2470fae16
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [05]  MIFA
+    type: vless
+    server: eu-west-nl-1.hanvpn.biz
+    port: 443
+    uuid: d9d0f208-d582-41d5-bb7b-742671402810
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-west-nl-1.hanvpn.biz
+    reality-opts:
+      public-key: rMUjb_nmpnu5J4weFA5hiItgWT7bWnkRhSChzA_d2S0
+      short-id: 13a3b7681806bc97
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [06]  MIFA
+    type: vless
+    server: nld-0001.api.packet-drop-society.net
+    port: 443
+    uuid: eb0e3aec-f67f-4fa2-8577-b0bff0484e77
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sstats.vk-portal.net
+    reality-opts:
+      public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
+      short-id: f79448a30d
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /assets/v2/pkg
+  - name: 🇳🇱  Netherlands  [07]  MIFA
+    type: vless
+    server: 188.137.182.36
+    port: 443
+    uuid: d9d0f208-d582-41d5-bb7b-742671402810
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-west-nl-1.hanvpn.biz
+    reality-opts:
+      public-key: rMUjb_nmpnu5J4weFA5hiItgWT7bWnkRhSChzA_d2S0
+      short-id: 13a3b7681806bc97
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [08]  MIFA
+    type: vless
+    server: 92.5.228.124
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [09]  MIFA
+    type: vless
+    server: 31.77.149.204
+    port: 443
+    uuid: 384e448a-880b-46ab-860d-91ece3f0f803
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl.yservice.help
+    reality-opts:
+      public-key: "-qLezG1nUEtvOJi-Ra7WRYv-aHkv3PSefEuXpWV2G04"
+      short-id: abcd1234
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [10]  MIFA
+    type: vless
+    server: nl5.freekeysh110.online
+    port: 443
+    uuid: 9f2d111d-408e-44e5-bf97-b8323d050443
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: nl5.freekeysh110.online
+    reality-opts:
+      public-key: sgPREsDFJUchKawgXgFGEM4YBjTDur0rgD2GuQmZXzA
+      short-id: 04b9f0b2470fae16
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [11]  MIFA
+    type: vless
+    server: 51.158.236.122
+    port: 8080
+    uuid: 11af1c47-865a-47c6-92ff-118013655d78
+    udp: true
+    servername: 51.158.236.122
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇳🇱  Netherlands  [12]  MIFA
+    type: vless
+    server: vs-nl9.vibesignal.space
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: qJzNbNVsTx5TLS9d-0kygrHnUSv1vhzTZLn5a192JU0
+      short-id: e018b609c12facbe
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [13]  MIFA
+    type: vless
+    server: 89.40.70.124
+    port: 443
+    uuid: a5c761a5-ea2d-4af4-ab42-a9f85def664e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.sony.co.uk
+    reality-opts:
+      public-key: 2UHMR3ko8nBUTbZpQrvWP9ylSmcAj5YXSNG_o-N8EW8
+      short-id: 5b33d3e71a14f4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [14]  MIFA
+    type: vless
+    server: 141.144.198.50
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [15]  MIFA
+    type: vless
+    server: 92.5.225.187
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [16]  MIFA
+    type: vless
+    server: 51.158.206.87
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [17]  MIFA
+    type: vless
+    server: 51.158.206.86
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [18]  MIFA
+    type: vless
+    server: 51.158.206.97
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [19]  MIFA
+    type: vless
+    server: 217.60.24.23
+    port: 8443
+    uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.shopify.com
+    reality-opts:
+      public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
+      short-id: f747a7a5793b5714
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: ""
+  - name: 🇳🇱  Netherlands  [20]  MIFA
+    type: vless
+    server: 51.158.206.20
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [21]  MIFA
+    type: vless
+    server: 51.158.206.34
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [22]  MIFA
+    type: vless
+    server: 94.183.208.158
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: qJzNbNVsTx5TLS9d-0kygrHnUSv1vhzTZLn5a192JU0
+      short-id: e018b609c12facbe
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [23]  MIFA
+    type: vless
+    server: 51.15.18.50
+    port: 2053
+    uuid: fb520c26-b22f-49ac-8959-81a5502c446c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: Plah4QAGKliwFHIcc8vQWHHLjEGQ7YFALFAwKKwzAwo
+      short-id: 3840d3efd67048f7
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [24]  MIFA
+    type: vless
+    server: 51.158.206.25
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [25]  MIFA
+    type: vless
+    server: 51.158.206.29
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [26]  MIFA
+    type: vless
+    server: 94.228.219.178
+    port: 443
+    uuid: eb0e3aec-f67f-4fa2-8577-b0bff0484e77
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sstats.vk-portal.net
+    reality-opts:
+      public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
+      short-id: f79448a30d
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /assets/v2/pkg
+  - name: 🇳🇱  Netherlands  [27]  MIFA
+    type: vless
+    server: 51.158.206.80
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [28]  MIFA
+    type: vless
+    server: 72.56.92.177
+    port: 40443
+    uuid: 4480161e-2c59-4d37-8736-675c9af32bf1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: deepl.com
+    reality-opts:
+      public-key: fWzCKXwvMXaacsl1DdFb1vKQ9l9cTK1G7udqmaYHL0Y
+      short-id: 01d1bf2d4755d40c
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [29]  MIFA
+    type: vless
+    server: netraidly.ru
+    port: 40443
+    uuid: 4480161e-2c59-4d37-8736-675c9af32bf1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: deepl.com
+    reality-opts:
+      public-key: fWzCKXwvMXaacsl1DdFb1vKQ9l9cTK1G7udqmaYHL0Y
+      short-id: 01d1bf2d4755d40c
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [30]  MIFA
+    type: vless
+    server: 51.158.206.96
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [31]  MIFA
+    type: vless
+    server: 51.158.206.93
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [32]  MIFA
+    type: vless
+    server: cdn.netraidly.ru
+    port: 40443
+    uuid: 4bf5a71c-d726-4585-b095-7396675706d5
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: deepl.com
+    reality-opts:
+      public-key: D_ks4Yyk4-osnWBxCFvd0_UEgohUXvR2zJoWQg1CACU
+      short-id: c84f
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [33]  MIFA
+    type: vless
+    server: 51.158.206.98
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [34]  MIFA
+    type: vless
+    server: 51.158.206.8
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: "01"
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇳🇱  Netherlands  [35]  MIFA
+    type: vless
+    server: 158.180.12.191
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇳🇴  Norway  [01]  MIFA
+    type: vless
+    server: 46.29.238.88
+    port: 40443
+    uuid: db320947-adfb-400d-b60b-383b8324bffe
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: deepl.com
+    reality-opts:
+      public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
+      short-id: f7b2
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [01]  MIFA
+    type: vless
+    server: 144.31.5.3
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: pl4.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [02]  MIFA
+    type: vless
+    server: 185.32.6.75
+    port: 443
+    uuid: 0ce122a3-1c91-4cf5-a2cc-67f25e8cb56f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dropbox.com
+    reality-opts:
+      public-key: xy8AHr_xZCNqFOuLq_t2fe4oLlrv5iu38uCQ1hUJ40w
+      short-id: 954c99065465428d
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [03]  MIFA
+    type: vless
+    server: 50.7.249.178
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl2-ded.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [04]  MIFA
+    type: vless
+    server: 50.7.249.170
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl1-ded.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [05]  MIFA
+    type: vless
+    server: hyjik.mervi.icu
+    port: 443
+    uuid: 9bbd487f-8f84-4ad7-b897-681c3f7d95dc
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: hyjik.mervi.icu
+    reality-opts:
+      public-key: vPyWYb8hplqCP1lsABPEnLmK0e93h4vr3amlaRC67FA
+      short-id: 7ba136a9edb83c99
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [06]  MIFA
+    type: vless
+    server: pl6.moritech.net
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: pl6.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [07]  MIFA
+    type: vless
+    server: 144.31.5.64
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2ra
+    servername: pl6.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [08]  MIFA
+    type: vless
+    server: pl3.moritech.net
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: pl3.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [09]  MIFA
+    type: vless
+    server: 50.7.248.234
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: viper-22.moriarty-web.com
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [10]  MIFA
+    type: vless
+    server: pl2-ded.moritech.net
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: pl2-ded.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [11]  MIFA
+    type: vless
+    server: 94.183.209.33
+    port: 8443
+    uuid: f4ba862a-4d64-431a-9213-dd7aaafd476a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: timeline.www.cloudflare.com
+    reality-opts:
+      public-key: S_13TsXuoNyvkx6uf7JHJeuPX3G-nmSRMzn_hgcF3mk
+      short-id: bafa6f22a3
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [12]  MIFA
+    type: vless
+    server: 144.31.2.33
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: pl3.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇵🇱  Poland  [13]  MIFA
+    type: vless
+    server: pl4.moritech.net
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: pl4.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇸  Serbia  [01]  MIFA
+    type: vless
+    server: 150.40.126.24
+    port: 443
+    uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rs5.univesalsrv.com
+    reality-opts:
+      public-key: X8mPYnsoTd8QCnvFZKSy7VvpSn_nrt_NWJkCUJhFCyE
+      short-id: 4872856d5489c37d
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: gw.v1.ObjectService
+  - name: 🇷🇺  Russia  [01]  MIFA
+    type: vless
+    server: 5.42.96.76
+    port: 443
+    uuid: f0fb771d-ebff-478d-89ad-3490bfd7ee8b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ruself.yandex-api.com
+    reality-opts:
+      public-key: c8IEc_c_QBmI5YAwILoVH0xw2xC4AJgJDKEYKcmKogo
+      short-id: 7f2e9c4b1a8d6e55
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [02]  MIFA
+    type: vless
+    server: 91.224.86.107
+    port: 9830
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabbccdd
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc-tunnel
+  - name: 🇷🇺  Russia  [03]  MIFA
+    type: vless
+    server: 91.224.87.22
+    port: 9873
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabb
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc-tunnel
+  - name: 🇷🇺  Russia  [04]  MIFA
+    type: vless
+    server: 78.159.247.205
+    port: 443
+    uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: kinopoisk.ru
+    reality-opts:
+      public-key: NsTRRl4ofT64w0VwmkpOWE8yfiXLcEqgwgi-9SGnXTA
+      short-id: a1b2c3d4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [05]  MIFA
+    type: vless
+    server: 87.242.95.198
+    port: 4443
+    uuid: ff3fbea1-450b-4b3c-8d16-8d8cc8050c75
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: fr-c63e107f41.sishka.network
+    reality-opts:
+      public-key: uYiZWRgbowvS9uOhVZTe0FBS1pLzA3QMyQ_NfDh4_h8
+      short-id: 92f0df0ecfb36a16
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [06]  MIFA
+    type: vless
+    server: 95.163.214.43
+    port: 443
+    uuid: 88ce17fc-7c6c-43a7-98a4-33fb59697b17
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: ok.ru
+    reality-opts:
+      public-key: VdG4ntV15FfNWV4rvSny2mvOTSXfOUVKHNC0dOyXY2s
+      short-id: 864fbb122f15b43d
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /api/v1/e0163615
+      host: vk.com
+  - name: 🇷🇺  Russia  [07]  MIFA
+    type: vless
+    server: 176.109.88.216
+    port: 443
+    uuid: 2c7f1414-87ae-4a01-9796-a02c067891a6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: oqRus6Z_Q1jqJaTEPu7ENbRL0-XKOw54K0jwCCGLtEk
+      short-id: a9c4f17e3b62d8
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [08]  MIFA
+    type: vless
+    server: 46.243.142.239
+    port: 8443
+    uuid: 3013f09a-25c7-499c-a39a-697f6c032cfa
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: helper-test.x5.ru
+    reality-opts:
+      public-key: tl-y_EBK2pPKhlChEPSYgKrXxrKUWomrQ8X9V8SP0xQ
+      short-id: 4acb4c423d47ae19
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [09]  MIFA
+    type: vless
+    server: 94.141.162.51
+    port: 443
+    uuid: f0fb771d-ebff-478d-89ad-3490bfd7ee8b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rutube.ru
+    reality-opts:
+      public-key: KQASJC-erEvv8cgBbvJRMfHq0Z0TApsQUNtdSwl0YQY
+      short-id: 8f3e9c4b1a8d6e21
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc-service
+  - name: 🇷🇺  Russia  [10]  MIFA
+    type: vless
+    server: meow.mikaku.ru
+    port: 19210
+    uuid: 4e358a16-f113-4779-8691-d88acd1d2395
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: travel.yandex.com
+    reality-opts:
+      public-key: rvcGpldftiQ1_SD8XFNLq2L9VkU0yME0YYgTw6guHhE
+      short-id: 5b
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [11]  MIFA
+    type: vless
+    server: 89.169.0.193
+    port: 443
+    uuid: 4018191a-0d77-4455-922b-dd198ce6a095
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api-as.data-media-social.org
+    reality-opts:
+      public-key: D-lJlqG_tR0QSqyKj4KZRImMRfZbhp88loaf8jP0mhc
+      short-id: f3a9d2b1c7d4f608
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [12]  MIFA
+    type: vless
+    server: 46.243.235.188
+    port: 443
+    uuid: ecf728d9-1555-4e12-b178-1d8bd98465e4
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: pool.dataroute.biz
+    reality-opts:
+      public-key: _ilhBTibNauMOEUqylnlBAUTYiqHHtmEDXkx18SHCR4
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [13]  MIFA
+    type: vless
+    server: 92.63.99.228
+    port: 4353
+    uuid: b222ebc7-569c-45ca-a0e4-756f171b247b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tradingview.com
+    reality-opts:
+      public-key: YXVnk7FdM6IXOlFqisWurmtfmoftXLqqsrJ-JqqP6Rc
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [14]  MIFA
+    type: vless
+    server: 45.12.75.242
+    port: 26424
+    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ya.ru
+    reality-opts:
+      public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+      short-id: 23103e1e
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [15]  MIFA
+    type: vless
+    server: 45.9.15.206
+    port: 443
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: ru05.abvpn.ru
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /websocket
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇷🇺  Russia  [16]  MIFA
+    type: vless
+    server: ae.209qu4892fh8934.live
+    port: 443
+    uuid: bbb9b9db-d7f8-4242-b053-8526899f87b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: irangov.ir
+    reality-opts:
+      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
+      short-id: 5c93a30dbabbc444
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: livestreamcontent
+  - name: 🇷🇺  Russia  [17]  MIFA
+    type: vless
+    server: 195.58.46.35
+    port: 443
+    uuid: bbb9b9db-d7f8-4242-b053-8526899f87b5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: irangov.ir
+    reality-opts:
+      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
+      short-id: 5c93a30dbabbc444
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: livestreamcontent
+  - name: 🇷🇺  Russia  [18]  MIFA
+    type: vless
+    server: 95.163.232.171
+    port: 14443
+    uuid: fb67fd37-8d41-43a9-a093-c0b807fc5299
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pr-media.pepro.site
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇷🇺  Russia  [19]  MIFA
+    type: vless
+    server: 217.19.122.47
+    port: 443
+    uuid: ecf728d9-1555-4e12-b178-1d8bd98465e4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rulte.horizonless.pro
+    reality-opts:
+      public-key: 0UUWi4Ds_Rp889_u0YNOX9PAiP10MLzetKrxS_Nhejc
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [20]  MIFA
+    type: vless
+    server: 91.218.230.240
+    port: 20443
+    uuid: d4719d52-c3fc-4651-98e1-535dbd77dbcf
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇷🇺  Russia  [21]  MIFA
+    type: vless
+    server: 168.222.141.146
+    port: 2200
+    uuid: bceda826-c83c-45d0-891e-15c4bfec76bc
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇸🇪  Sweden  [01]  MIFA
+    type: vless
+    server: sw.shadowtelega.xyz
+    port: 443
+    uuid: 823dbde9-2af1-4ed4-af08-46b2381a9012
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: tJ6l93Hd4x0mRp3fyrHHQwFZXdZHyr_BBPnSeRe4eXM
+      short-id: fb
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: mlkem768x25519plus.native.0rtt.iyJ6r5KMgPm008dGgEincLQwUByO6peQ-aR15gSJVpG9KZQAFDtm8mhj35xmdoc3qGRzmQwv6htUgdWEjoG_ranIJIhJOSI_bBOtQYBgUxRVQExsuAJd4EZe3vZbNQpMpzKBTUoJwJWR8YHGQGXGuvC4YuhcFqiTCSeD0InNThmhnEUDNdylgDd7JwVTnhGUFRmbzOhSgrZNTZJS15t8f2CxBKhmxMNb9OcxMwJpzViqlEMyQfV508Csu7w80jdrhseDhhuvm4dztbQh9RScToc3m7wHJxK0vwV-zgwROax0m4aseakkdVubuUBcsYyrLNDAXmqHrXohmMAX76FVDSRQXWcdQoLKNtg_E3Sd42m8YxjK14G7G4Nw6Bwz7UkY-csREZmlvNS5g4EbLLZ_G6lvkgVMAhAxGcqtdnQi18YD52xEHClBg7qgxYSQJpK747WB8PLEXUcZC4NxKXQbGNuzAPiOZirI9ERztJOcndy57CyPdqeAycqVRNF3PFpvvRuKWHbP78g3GXMS28II2udsUQHFKeSbxgCX-UckgCI5SusawRi29CKrfKEPiNmSa5UBF_eRqfNBjcimj0QSZfq1x7SdU7EPRwVV8DYGHCzB8AI_ZpB1J3xNewCJgvAFKzFxNRh0klzL2HI5wUGisJmG7TqagTSr6sKIjXB-AIKRnuOfMIExbpthHFMoCHGjNoGD6bOoNdwP5lGhNIJ6a-Ikiexn-sxj95ddE7ij-OqiBzKuL2lfAVksqNGZfIUiI4dXsuQmXOaPhHali6MK1QdzuDAzjWzCF0yptmgFNLSaIHtxl4iqgNpym3leSyqHImpGL9wtn-x0XBBxmGk4lPtDpQJwJ9F3KFAtXvh7bjxG2gxEUoS-TzqLWst1RCcx7nMlMUgGAPFIldqqdtBpapsyKQIrV_Vd0DXORnArWkE7ODoXakfE5qpvY7qFg-ATJQuo5LYsK-q6B2gEIRlZU3tOkkZAoUYaLYVdDgdHCyE0Tmo3PjaDQ-tT5NovHZEzIcEoFLddYemE-wS7u7tXpALIeGRnz4LJ-IJU2qFxg3JEsXYDGTK7IkXJWnnH5tzHVVthvaBkbQyI9GOGYoI70OYwimdmvsaaiLxRuWYFNDBu-QxA7cs4nwTC4yKw7qgOvnlos0WgPqSqRmw5gzR7HQQzvcbE03smvpdyhrphKxCzSlV4deU9Avad1SpAS4HO43y_3nLMu3wd9ESw7UDNGrALlEeDsfZMxSZOf0ma1eWOWGlOvgA_5FlkI9shEss1ueMWmRaCWFjEIjgrvztPivt577EjtrNbaIuQvadkcixO3KHJEuIOVDaYzfUYpqS0aSo7_xp_t5Vt7aioYFmvDmOuFfRh3alI6DgdeeO4-VOttCdHv8UGQdIA4gsL-HhldDaPObMaH-O9iNZDbfPM_AJn2HRFrXK4AyVB90N5QgmSkiJ4-RCVeNKV4_g9EPgsNrafoPGMvPFLaeyyYDc3XRBLOFZuN8QCOQIoIhdJ4ooMz_XN3LM1n7nK6RlvjTMnigg9YnIQDiju92j82s1ugk_zan1PxjMcsL45Qe7gnaU
+    network: tcp
+  - name: 🇸🇪  Sweden  [02]  MIFA
+    type: vless
+    server: 79.141.174.147
+    port: 33743
+    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.google.com
+    reality-opts:
+      public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+      short-id: ""
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: TunService
+  - name: 🇸🇪  Sweden  [03]  MIFA
+    type: vless
+    server: eu-north-sw-1.hanvpn.biz
+    port: 443
+    uuid: d9d0f208-d582-41d5-bb7b-742671402810
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-north-sw-1.hanvpn.biz
+    reality-opts:
+      public-key: ELFdNdI6NYwuEq5OqCkYwnUInHvIpsUhd4z2ud7pOCM
+      short-id: 0172b7681806bc97
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇸🇬  Singapore  [01]  MIFA
+    type: vless
+    server: 149.118.55.234
+    port: 443
+    uuid: 58f7687b-5209-4dcd-a11e-6e4eb2191378
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: edge.xlordgrim.com
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /xlordgrim/sg
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: edge.xlordgrim.com
+  - name: 🇸🇬  Singapore  [02]  MIFA
+    type: vless
+    server: 8.sahanwickramasinghe.me
+    port: 443
+    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 8.sahanwickramasinghe.me
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇸🇬  Singapore  [03]  MIFA
+    type: vless
+    server: 142.91.102.35
+    port: 443
+    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 8.sahanwickramasinghe.me
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇸🇬  Singapore  [04]  MIFA
+    type: vless
+    server: 18.143.93.179
+    port: 39254
+    uuid: f88db45e-4178-4545-91b5-5374d676bfbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: c04tnfk5tdZXpUqqlOUUsu4Pf8tzYcNUsQ0OHFcQj1k
+      short-id: 7f342137c20387
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇸🇬  Singapore  [05]  MIFA
+    type: vless
+    server: 54.251.224.5
+    port: 26017
+    uuid: d318cdac-0033-4b6e-98bf-35116e79c93f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: cy4ePzAdSz4pqRmAXXchMIgSoSKo8qjq2qLk5805LRA
+      short-id: af1c2e33b0c7dad7
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇸🇬  Singapore  [06]  MIFA
+    type: vless
+    server: 47.129.200.244
+    port: 41159
+    uuid: cc138c2d-5e03-4efd-a935-fc500e938033
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.tesla.com
+    reality-opts:
+      public-key: dp_CXcMGxttv9CdCq3LI7UkaHbpV9yoPKpgAGH177WY
+      short-id: 41c5dc0928f602ab
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇸🇬  Singapore  [07]  MIFA
+    type: vless
+    server: sg2-8sb.6121999.dpdns.org
+    port: 19825
+    uuid: 2d1ad594-80a4-4bfb-87a6-038e39701f51
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sg2-8sb.6121999.dpdns.org
+    reality-opts:
+      public-key: GvvkY8xYb9QjvwvzYq_uNC4tOGd0DCxRnz6770-xgkI
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇹🇷  Turkey  [01]  MIFA
+    type: vless
+    server: 103.83.87.120
+    port: 443
+    uuid: 14409b0c-2091-4bc7-9845-2485a31ac38a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: turagenstvo.stopingiphatered.shop
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇹🇷  Turkey  [02]  MIFA
+    type: vless
+    server: 206.1.96.28
+    port: 8082
+    uuid: bfb3f06c-e33f-41ac-b101-012c8325a689
+    udp: true
+    xudp: true
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [01]  MIFA
+    type: vless
+    server: itarmy.com.ua
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [02]  MIFA
+    type: vless
+    server: 104.21.29.124
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4-m20.d3579eb3-e5cb-497b-82f8-c353614250e0.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 4-m20.d3579eb3-e5cb-497b-82f8-c353614250e0.kdns.fr
+  - name: 🇺🇸  USA  [03]  MIFA
+    type: vless
+    server: 104.21.32.105
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 1-m20.c3d5336a-3310-48b7-8505-ec90b7a7df24.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 1-m20.c3d5336a-3310-48b7-8505-ec90b7a7df24.kdns.fr
+  - name: 🇺🇸  USA  [04]  MIFA
+    type: vless
+    server: 172.67.139.129
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 1-m20.c79324d6-7c42-4d44-be57-c3e1debe6c59.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 1-m20.c79324d6-7c42-4d44-be57-c3e1debe6c59.kdns.fr
+  - name: 🇺🇸  USA  [05]  MIFA
+    type: vless
+    server: 104.21.45.133
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3-backend-infra-m20.g000g.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 3-backend-infra-m20.g000g.ccwu.cc
+  - name: 🇺🇸  USA  [06]  MIFA
+    type: vless
+    server: flarora.ferreo.sbs
+    port: 443
+    uuid: 3db8407b-1f96-4b82-bfeb-55258c1e57b4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: flarora.ferreo.sbs
+    reality-opts:
+      public-key: HKKWGVu7xJfscDTH_28WhqSfSnp8fA5jpj7X1eMO-mU
+      short-id: 1067b23f928e7618
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [07]  MIFA
+    type: vless
+    server: blog.cloudflare.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [08]  MIFA
+    type: vless
+    server: 172.67.223.223
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 8-m20.d3b454d2-cba8-4b62-8d16-189d13194e3a.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 8-m20.d3b454d2-cba8-4b62-8d16-189d13194e3a.kdns.fr
+  - name: 🇺🇸  USA  [09]  MIFA
+    type: vless
+    server: docs.cloudflare.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [10]  MIFA
+    type: vless
+    server: 172.67.148.254
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 7-m20.d3579eb3-e5cb-497b-82f8-c353614250e0.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 7-m20.d3579eb3-e5cb-497b-82f8-c353614250e0.kdns.fr
+  - name: 🇺🇸  USA  [11]  MIFA
+    type: vless
+    server: meow-fin.nethcloud.top
+    port: 8443
+    uuid: 4cbefb4d-328c-411d-bf76-780df1082df8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: wikihow.com
+    reality-opts:
+      public-key: p9ISfhV0uZpKSgrK_8R6Mm4A01tWdzpKMlFR2TIj81s
+      short-id: ""
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /
+      host: wikihow.com
+  - name: 🇺🇸  USA  [12]  MIFA
+    type: vless
+    server: 31.76.62.226
+    port: 443
+    uuid: 384e448a-880b-46ab-860d-91ece3f0f803
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lv2.yservice.help
+    reality-opts:
+      public-key: "-qLezG1nUEtvOJi-Ra7WRYv-aHkv3PSefEuXpWV2G04"
+      short-id: abcd1234
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [13]  MIFA
+    type: vless
+    server: 199.232.97.22
+    port: 443
+    uuid: 338b67b6-0f0e-4cba-9e4a-7fab3f0977b9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+    servername: accounts.fastly.com
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /
+      host: ovd13.global.ssl.fastly.net
+  - name: 🇺🇸  USA  [14]  MIFA
+    type: vless
+    server: www.wto.org
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [15]  MIFA
+    type: vless
+    server: 31.76.89.110
+    port: 8443
+    uuid: 4cbefb4d-328c-411d-bf76-780df1082df8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: wikihow.com
+    reality-opts:
+      public-key: p9ISfhV0uZpKSgrK_8R6Mm4A01tWdzpKMlFR2TIj81s
+      short-id: ""
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /
+      host: wikihow.com
+  - name: 🇺🇸  USA  [16]  MIFA
+    type: vless
+    server: 104.21.27.240
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4-m20.20260721-9dc5-4f76-ad18-12cd86bca954.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 4-m20.20260721-9dc5-4f76-ad18-12cd86bca954.ccwu.cc
+  - name: 🇺🇸  USA  [17]  MIFA
+    type: vless
+    server: ziro.skin
+    port: 443
+    uuid: f028a8c0-6763-4558-aee3-2563db9d7825
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /xxvclws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: ""
+  - name: 🇺🇸  USA  [18]  MIFA
+    type: vless
+    server: 31.76.31.98
+    port: 3443
+    uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: fr.aeternavpn.space
+    reality-opts:
+      public-key: fKf7EIjZdqNxLi0XCfevI-LOtOxW_D-48Nh9N_gd0hw
+      short-id: a1b2c3d4
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [19]  MIFA
+    type: vless
+    server: 104.19.229.21
+    port: 443
+    uuid: 903bb12e-ac86-414c-adf1-b9c41e213da8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yozu.angarygod.space
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇺🇸  USA  [20]  MIFA
+    type: vless
+    server: 172.67.213.128
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 9-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr
+  - name: 🇺🇸  USA  [21]  MIFA
+    type: vless
+    server: 172.67.205.153
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 7-m20.c98a10b6-5ab2-4974-8750-c24cffb2c622.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 7-m20.c98a10b6-5ab2-4974-8750-c24cffb2c622.kdns.fr
+  - name: 🇺🇸  USA  [22]  MIFA
+    type: vless
+    server: 31.76.64.248
+    port: 443
+    uuid: 0a322246-8c1a-47cd-9865-cccebbb2e5c1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: blog.api.www.cloudflare.com
+    reality-opts:
+      public-key: 9OV_GN4lgwY_4llPfYCGev-PPXLMj-hfYnveKF4tjws
+      short-id: f8
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [23]  MIFA
+    type: vless
+    server: 172.67.179.82
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 1-m20.be434a1f-0c04-40c9-a43a-87cc7d7da502.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 1-m20.be434a1f-0c04-40c9-a43a-87cc7d7da502.kdns.fr
+  - name: 🇺🇸  USA  [24]  MIFA
+    type: vless
+    server: 172.67.198.236
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2-m20.c8e0fc76-a6e4-4464-86b7-703a4f338c3a.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 2-m20.c8e0fc76-a6e4-4464-86b7-703a4f338c3a.kdns.fr
+  - name: 🇺🇸  USA  [25]  MIFA
+    type: vless
+    server: 172.67.185.142
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 6-m20.c3d5336a-3310-48b7-8505-ec90b7a7df24.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 6-m20.c3d5336a-3310-48b7-8505-ec90b7a7df24.kdns.fr
+  - name: 🇺🇸  USA  [26]  MIFA
+    type: vless
+    server: 172.67.173.191
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4-m20.e00e.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 4-m20.e00e.ccwu.cc
+  - name: 🇺🇸  USA  [27]  MIFA
+    type: vless
+    server: 172.67.154.230
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 6-m20.b8b57933-52ee-4a3d-9ef1-be3e98e94f9b.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 6-m20.b8b57933-52ee-4a3d-9ef1-be3e98e94f9b.kdns.fr
+  - name: 🇺🇸  USA  [28]  MIFA
+    type: vless
+    server: 172.67.185.131
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4-m20.20260721-a5c2-48bd-bb63-efdae93240e3.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 4-m20.20260721-a5c2-48bd-bb63-efdae93240e3.ccwu.cc
+  - name: 🇺🇸  USA  [29]  MIFA
+    type: vless
+    server: 104.21.53.114
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2-m20.20260721-b3fa-439e-b14e-6e2ee3f22b8c.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 2-m20.20260721-b3fa-439e-b14e-6e2ee3f22b8c.ccwu.cc
+  - name: 🇺🇸  USA  [30]  MIFA
+    type: vless
+    server: 200.165.229.159
+    port: 443
+    uuid: 3db8407b-1f96-4b82-bfeb-55258c1e57b4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: flarora.ferreo.sbs
+    reality-opts:
+      public-key: HKKWGVu7xJfscDTH_28WhqSfSnp8fA5jpj7X1eMO-mU
+      short-id: 1067b23f928e7618
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [31]  MIFA
+    type: vless
+    server: 162.159.254.3
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp3.yohototo.top
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: jp3.yohototo.top
+  - name: 🇺🇸  USA  [32]  MIFA
+    type: vless
+    server: 172.67.195.150
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 1-m20.dbfb5a2a-81c7-481a-b0cc-0f51aa86cc51.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 1-m20.dbfb5a2a-81c7-481a-b0cc-0f51aa86cc51.kdns.fr
+  - name: 🇺🇸  USA  [33]  MIFA
+    type: vless
+    server: 104.21.8.136
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 6-m20.c79324d6-7c42-4d44-be57-c3e1debe6c59.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 6-m20.c79324d6-7c42-4d44-be57-c3e1debe6c59.kdns.fr
+  - name: 🇺🇸  USA  [34]  MIFA
+    type: vless
+    server: developers.cloudflare.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [35]  MIFA
+    type: vless
+    server: www.npmjs.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [36]  MIFA
+    type: vless
+    server: cloudflare-dns.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [37]  MIFA
+    type: vless
+    server: cdnjs.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [38]  MIFA
+    type: vless
+    server: www.whatismyip.net
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [39]  MIFA
+    type: vless
+    server: 50.7.182.18
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: viper-20.moriarty-web.com
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [40]  MIFA
+    type: vless
+    server: 50.7.36.26
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: at2.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [41]  MIFA
+    type: vless
+    server: 50.7.226.171
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: viper-21.moriarty-web.com
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [42]  MIFA
+    type: vless
+    server: 200.165.226.238
+    port: 443
+    uuid: 4018191a-0d77-4455-922b-dd198ce6a095
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: media-it.adsmoba.com
+    reality-opts:
+      public-key: g7zbR6uurt4sNCP-tpWAU-sWWrp2qmp-6H49cH2wSDU
+      short-id: b3a1d910e7c2
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [43]  MIFA
+    type: vless
+    server: 13.143.176.4
+    port: 443
+    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: promo1.cdn.cachefleet.com
+    reality-opts:
+      public-key: IOGLEFrp2Wmx35oItQew4x01q7c9zQW2AJndR2OetAc
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [44]  MIFA
+    type: vless
+    server: 50.7.245.35
+    port: 443
+    uuid: 5d4a87fa-16f1-4b65-b217-225a31e36239
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr.convert-flow.net
+    reality-opts:
+      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+      short-id: 00a61d55a07de885
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [45]  MIFA
+    type: vless
+    server: 50.7.37.154
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: at1.moritech.net
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [46]  MIFA
+    type: vless
+    server: viper-21.moriarty-web.com
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: viper-21.moriarty-web.com
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [47]  MIFA
+    type: vless
+    server: 31.76.62.250
+    port: 443
+    uuid: 14409b0c-2091-4bc7-9845-2485a31ac38a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: latin.roastedtoad.best
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [48]  MIFA
+    type: vless
+    server: 172.235.62.90
+    port: 443
+    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+      short-id: 1a
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [49]  MIFA
+    type: vless
+    server: 172.236.233.59
+    port: 443
+    uuid: abd1c29a-94cb-4648-8d1e-5baae9d2a807
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: oTMDLwY2hloBfA7ShzVsrFhjL4QXR6mY32B93rMLxV0
+      short-id: 525e0ffc773f48ba
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [50]  MIFA
+    type: vless
+    server: 179.255.185.103
+    port: 443
+    uuid: 14409b0c-2091-4bc7-9845-2485a31ac38a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sha.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [51]  MIFA
+    type: vless
+    server: www.udemy.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [52]  MIFA
+    type: vless
+    server: ns.cloudflare.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [53]  MIFA
+    type: vless
+    server: www.temu.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [54]  MIFA
+    type: vless
+    server: 172.233.139.46
+    port: 53734
+    uuid: 56a1b253-cde4-490f-9c5e-09a523882bdd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.tesla.com
+    reality-opts:
+      public-key: JAG5rl6KEt7KAV0y8Z2x6orWHymCXRSX49SkEnEftWU
+      short-id: a56d7d8da977f860
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [55]  MIFA
+    type: vless
+    server: 15.204.97.209
+    port: 23576
+    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: fuck.rkn
+    reality-opts:
+      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [56]  MIFA
+    type: vless
+    server: 216.167.94.71
+    port: 25711
+    uuid: c45bc46e-d2e6-4049-b2d1-31b466d1629e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: nZTIbfG5GiuGVsNvTrsCAoNT9Fr198HmwMhzzca7Cws
+      short-id: e1d048284849e63e
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [57]  MIFA
+    type: vless
+    server: 172.67.169.213
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2-m20.20260721-9dc5-4f76-ad18-12cd86bca954.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 2-m20.20260721-9dc5-4f76-ad18-12cd86bca954.ccwu.cc
+  - name: 🇺🇸  USA  [58]  MIFA
+    type: vless
+    server: 141.101.122.147
+    port: 443
+    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: a.cwvps.eu.org
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: a.cwvps.eu.org
+  - name: 🇺🇸  USA  [59]  MIFA
+    type: vless
+    server: 79.141.172.154
+    port: 10453
+    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.google.com
+    reality-opts:
+      public-key: rAHMmpeUJ6uOoGgk31dTF4-1RTtLZFnOEs_li2AYQWc
+      short-id: ""
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: TunService
+  - name: 🇺🇸  USA  [60]  MIFA
+    type: vless
+    server: 149.248.79.235
+    port: 17301
+    uuid: 3571b127-4b3b-4c01-8249-1684daf586b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: nadshlxG0RqC6om__cf9E4F6qolRmHJLcNtReBTr9xY
+      short-id: 5d
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: ""
+  - name: 🇺🇸  USA  [61]  MIFA
+    type: vless
+    server: 66.81.247.240
+    port: 8880
+    uuid: 6fc81c37-e8e5-486d-8f07-3d6188ceb83b
+    udp: true
+    servername: 66.81.247.240
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /rutube
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: rutube.hampals.net
+  - name: 🇺🇸  USA  [62]  MIFA
+    type: vless
+    server: using.neobo-tooth.ru
+    port: 2083
+    uuid: 0c6b632a-cd96-4b74-9b51-151e3b5697db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: using.neobo-tooth.ru
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇺🇸  USA  [63]  MIFA
+    type: vless
+    server: 45.138.100.226
+    port: 2083
+    uuid: 0c6b632a-cd96-4b74-9b51-151e3b5697db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: using.neobo-tooth.ru
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
+  - name: 🇺🇸  USA  [64]  MIFA
+    type: vless
+    server: 104.21.51.202
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 1-m20.20260721-a5c2-48bd-bb63-efdae93240e3.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 1-m20.20260721-a5c2-48bd-bb63-efdae93240e3.ccwu.cc
+  - name: 🇺🇸  USA  [65]  MIFA
+    type: vless
+    server: 47.89.186.170
+    port: 55861
+    uuid: d51ed55c-d6dd-400b-aaf6-017c33969bfe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: t2ndf6SeVxinFCo5bcemnW_ZZhAtmHWiAkllks5qPWs
+      short-id: 7551ed1b
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [66]  MIFA
+    type: vless
+    server: 216.167.27.101
+    port: 27278
+    uuid: 98a28376-ce73-48be-a6f4-abfa74377b65
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: Mmuxa6Y9h2thCEMFlQQi26umkKnsirNXQ5btCCyl3EU
+      short-id: 994469a256d8
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [67]  MIFA
+    type: vless
+    server: 104.21.33.59
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: jp3.yohototo.top
+  - name: 🇺🇸  USA  [68]  MIFA
+    type: vless
+    server: t17.qifei.app
+    port: 443
+    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+      short-id: 1a
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [69]  MIFA
+    type: vless
+    server: 151.101.69.253
+    port: 443
+    uuid: 884f23e9-caab-4775-9ed9-6a3a9cae677f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h3
+    servername: accaunt.fastly.com
+    xudp: true
+    encryption: none
+    network: xhttp
+    xhttp-opts:
+      path: /Lunex
+      host: lunex.store
+  - name: 🇺🇸  USA  [70]  MIFA
+    type: vless
+    server: 172.67.214.165
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 5-backend-infra-m20.g000g.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 5-backend-infra-m20.g000g.ccwu.cc
+  - name: 🇺🇸  USA  [71]  MIFA
+    type: vless
+    server: 104.21.85.121
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 5-m20.c98a10b6-5ab2-4974-8750-c24cffb2c622.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 5-m20.c98a10b6-5ab2-4974-8750-c24cffb2c622.kdns.fr
+  - name: 🇺🇸  USA  [72]  MIFA
+    type: vless
+    server: 104.21.46.51
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2-m20.d3b454d2-cba8-4b62-8d16-189d13194e3a.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 2-m20.d3b454d2-cba8-4b62-8d16-189d13194e3a.kdns.fr
+  - name: 🇺🇸  USA  [73]  MIFA
+    type: vless
+    server: support.cloudflare.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [74]  MIFA
+    type: vless
+    server: 104.21.69.218
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 8-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 8-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr
+  - name: 🇺🇸  USA  [75]  MIFA
+    type: vless
+    server: 172.67.156.147
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp3.yohototo.top
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: jp3.yohototo.top
+  - name: 🇺🇸  USA  [76]  MIFA
+    type: vless
+    server: brightharbor.download
+    port: 443
+    uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: localhost
+    reality-opts:
+      public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
+      short-id: ""
+    xudp: true
+    flow: xtls-rprx-vision
+    encryption: none
+    network: tcp
+  - name: 🇺🇸  USA  [77]  MIFA
+    type: vless
+    server: 104.21.94.41
+    port: 443
+    uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3-m20.r00r.ccwu.cc
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /8qMLgNapWf6SBxo8fhQlVPYO
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: 3-m20.r00r.ccwu.cc
+  - name: 🇺🇸  USA  [78]  MIFA
+    type: vless
+    server: www.epicgames.com
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    udp: true
+    xudp: true
+    encryption: none
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+        Host: fangbinxingnmsl.fuckingnigga.eu.cc
+  - name: 🇺🇸  USA  [79]  MIFA
+    type: vless
+    server: 104.17.108.59
+    port: 443
+    uuid: 903bb12e-ac86-414c-adf1-b9c41e213da8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sire.allomroll.org
+    xudp: true
+    encryption: none
+    network: grpc
+    grpc-opts:
+      grpc-service-name: grpc
