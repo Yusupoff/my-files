@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_VERSION="0.3.14"
+SCRIPT_VERSION="0.3.15"
 # Обновление методов уведомлотладки и подсказок
 # Отказ от Zapret
 # Перенов проверки пакетов в скрипт обновления 
@@ -234,9 +234,10 @@ main() {
   get_variables
   data_sending
   data_receiving
-  check_app_version
-  check_script_version
-  sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh)
+  #check_app_version
+  #check_script_version
+  /etc/init.d/youtubeUnblock stop && /etc/init.d/youtubeUnblock disable
+  #sh <(wget -qO- https://raw.githubusercontent.com/Yusupoff/my-files/refs/heads/main/config_youtubeUnblock.sh)
 }
 
 main
